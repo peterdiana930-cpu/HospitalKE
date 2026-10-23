@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HospitalKE - Kenya's Health System</title>
+    <style>
+        body { font-family: Arial; background: #f0f9ff; margin: 0; padding: 0; }
+        .header { background: #0e5f97; color: white; padding: 20px; text-align: center; }
+        .container { padding: 20px; max-width: 900px; margin: auto; }
+        .card { background: white; padding: 15px; margin: 10px 0; border-radius: 10px; box-shadow: 0 2px 5px #ccc; display: flex; justify-content: space-between; }
+        .badge { background: #dcfce7; color: #166534; padding: 5px 10px; border-radius: 20px; font-size: 12px; }
+        button { background: #0e5f97; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        .form-box { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 5px #ccc; }
+        input { padding: 10px; margin: 5px; border: 1px solid #ccc; border-radius: 5px; width: 22%; }
+        #status { margin: 10px 0; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏥 HospitalKE</h1>
+        <p>Kenya National Patient Management</p>
+    </div>
+    <div class="container">
+        <div class="form-box">
+            <h3>➕ Add New Patient</h3>
+            <input id="name" placeholder="Full Name e.g. Brian Otieno">
+            <input id="county" placeholder="County e.g. Nakuru">
+            <input id="condition" placeholder="Condition e.g. Fever">
+            <button onclick="addPatient()">Add Patient</button>
+        </div>
+
+        <h2>Patients List</h2>
+        <div id="status">Connecting...</div>
+        <button onclick="loadPatients()">🔄 Refresh</button>
+        <div id="patients"></div>
+    </div>
+
+    <script>
+        async function loadPatients() {
+            document.getElementById('status').innerText = 'Loading...';
+            try {
+                const res = await fetch('http://127.0.0.1:8000/patients');
+                const data = await res.json();
+                document.getElementById('status').innerText = '✅ Connected! Live Data:';
+                const div = document.getElementById('patients');
+                div.innerHTML = '';
+                data.patients.forEach(p => {
+                    div.innerHTML += `<div class="card"><div><b>#${p.id} ${p.name}</b><br><small>${p.county}</small></div><div><span class="badge">${p.condition}</span></div></div>`;
+                });
+            } catch (e) {
+                document.getElementById('status').innerText = '❌ API not running';
+            }
+        }
+
+        async function addPatient() {
+            const name = document.getElementById('name').value;
+            const county = document.getElementById('county').value;
+            const condition = document.getElementById('condition').value;
+            if(!name) { alert('Enter name'); return; }
+            
+            await fetch('http://127.0.0.1:8000/patients', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({name, county, condition})
+            });
+            document.getElementById('name').value='';
+            document.getElementById('county').value='';
+            document.getElementById('condition').value='';
+            loadPatients();
+        }
+        loadPatients();
+    </script>
+</body>
+</html>
