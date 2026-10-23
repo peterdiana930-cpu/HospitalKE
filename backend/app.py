@@ -1,36 +1,29 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import List
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 
-app = FastAPI(title="HospitalKE Pro")
+app = Flask(__name__)
+CORS(app)
 
-# Homepage - This fixes your main link
-@app.get("/")
-def home():
-    return {
-        "message": "Welcome to HospitalKE Pro - Hospital is Live!",
-        "go_to_docs": "/docs",
-        "status": "OK"
-    }
-
-# Patient data model
-class Patient(BaseModel):
-    name: str
-    age: int
-    phone: str
-
-# Save patients here for now
 patients_db = []
 
-@app.get("/patients")
-def get_patients():
-    return {"patients": patients_db, "total": len(patients_db)}
+@app.route('/')
+def home():
+    return jsonify({"message": "Welcome to HospitalKE Pro - Hospital is Live!", "status": "ok", "patients": len(patients_db)})
 
-@app.post("/patients")
-def add_patient(patient: Patient):
-    patients_db.append(patient)
-    return {"message": "Patient added!", "patient": patient}
-
-@app.get("/health")
+@app.route('/health')
 def health():
-    return {"status": "HospitalKE is running!"}
+    return jsonify({"status": "HospitalKE is running!"})
+
+@app.route('/api/patients', methods=['GET'])
+def get_patients():
+    return jsonify({"patients": patients_db, "total": len(patients_db)})
+
+@app.route('/api/patients', methods=['POST'])
+def add_patient():
+    data = request.get_json()
+    patient = {"id": len(patients_db) + 1, "name": data.get("name", "Unknown"), "age": data.get("age", "")}
+    patients_db.append(patient)
+    return jsonify({"message": "Patient added", "patient": patient})
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=10000)
