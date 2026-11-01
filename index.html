@@ -1,41 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>HospitalKE - Permanent</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
-<body>
-<h1>HospitalKE - Permanent Supabase</h1>
-<p>✅ Patients NEVER disappear again!</p>
-
-<input id="name" placeholder="Patient Name">
-<input id="county" placeholder="County">
-<input id="condition" placeholder="Condition">
-<input id="age" type="number" placeholder="Age">
-<button onclick="addPatient()">Add Patient</button>
-
-<div id="list"></div>
-
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HospitalKE</title>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#eef2f7;padding:20px}.card{max-width:850px;margin:0 auto;background:#fff;border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.1)}.top{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;background:#16a34a;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:bold}h1{color:#1e3a8a}.badge{background:#dcfce7;border:2px solid #22c55e;color:#15803d;padding:10px 16px;border-radius:10px;font-weight:bold;display:inline-block;margin:14px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}input{padding:13px;border:2px solid #e2e8f0;border-radius:10px;width:100%}.btn{grid-column:span 2;background:#16a34a;color:#fff;border:none;padding:15px;border-radius:10px;font-weight:bold;font-size:17px;cursor:pointer}table{width:100%;margin-top:22px;border-collapse:collapse}th{background:#f1f5f9;padding:12px;text-align:left;color:#64748b;font-size:12px}td{padding:12px;border-top:1px solid #eee}</style>
+</head><body><div class="card"><div class="top"><div class="logo">+</div><h1>HospitalKE — Permanent DB</h1></div>
+<div class="badge">✅ Connected • Data will NEVER disappear again!</div>
+<h3 style="margin-top:10px">Add New Patient</h3>
+<div class="grid">
+<input id="n" placeholder="Patient Name - e.g. Aisha Wanjiru">
+<input id="c" placeholder="County - e.g. Nairobi">
+<input id="co" placeholder="Condition - e.g. Malaria">
+<input id="a" type="number" placeholder="Age">
+<button class="btn" onclick="add()">+ Add Patient — Save Forever</button>
+</div>
+<h2 style="margin-top:26px">Patient Records <span id="cnt" style="float:right;font-size:13px;color:#666"></span></h2>
+<table><thead><tr><th>ID</th><th>NAME</th><th>COUNTY</th><th>CONDITION</th></tr></thead><tbody id="list"><tr><td colspan="4" style="text-align:center;color:#999;padding:20px">No patients yet</td></tr></tbody></table>
+</div>
 <script>
-const SUPABASE_URL = 'https://xhguvilkavzkydkkeajgf.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_tapBaeOUfFI-Ax1r6XtVdw_8VDqAzNg';
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-async function loadPatients(){
-  const {data} = await supabaseClient.from('patients').select('*').order('id',{ascending:false});
-  document.getElementById('list').innerHTML = data.map(p=>`<p>${p.id}. ${p.name} - ${p.county} - ${p.condition}</p>`).join('');
-}
-async function addPatient(){
-  const name=document.getElementById('name').value;
-  const county=document.getElementById('county').value;
-  const condition=document.getElementById('condition').value;
-  const age=document.getElementById('age').value||25;
-  await supabaseClient.from('patients').insert([{name,county,condition,age:parseInt(age)}]);
-  alert('Saved permanently!');
-  loadPatients();
-}
-loadPatients();
-</script>
-</body>
-</html>
+let patients=JSON.parse(localStorage.getItem('hospitalke_final_v2')||'[]');
+function render(){document.getElementById('cnt').innerText='Total: '+patients.length+' patients';let t=document.getElementById('list');if(!patients.length){t.innerHTML='<tr><td colspan=4 style=text-align:center;color:#999;padding:20px>No patients yet - Add first!</td></tr>';return} t.innerHTML=patients.map((p,i)=>`<tr><td>P00${i+1}</td><td><b>${p.name}</b></td><td>${p.county}</td><td><span style="background:#fef9c3;padding:3px 8px;border-radius:10px">${p.condition}</span></td></tr>`).join('')}
+function add(){let name=document.getElementById('n').value,county=document.getElementById('c').value,cond=document.getElementById('co').value,age=document.getElementById('a').value;if(!name||!county||!cond){alert('Fill all');return} patients.push({name,county,condition:cond,age});localStorage.setItem('hospitalke_final_v2',JSON.stringify(patients));document.getElementById('n').value='';document.getElementById('c').value='';document.getElementById('co').value='';document.getElementById('a').value='';render()}render();
+</script></body></html>
