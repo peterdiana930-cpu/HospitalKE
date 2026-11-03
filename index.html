@@ -3,34 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diana Rose Hospital - Enterprise System v2.6</title>
+<title>Diana Rose Hospital - Enterprise v2.7 Final</title>
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,Arial}
 body{background:#f5faf5}
 .landing{position:fixed;inset:0;background:linear-gradient(135deg,#e8f5e9,#ffffff);display:flex;align-items:flex-start;justify-content:center;z-index:10000;padding:20px;overflow-y:auto}
-.landing-box{background:white;border-radius:20px;padding:28px;box-shadow:0 15px 40px rgba(46,125,50,0.15);border:1.5px solid #c8e6c9;max-width:780px;width:100%;text-align:center;margin:20px 0}
-.sales-hero{background:linear-gradient(135deg,#0d2818,#1b5e20);color:white;border-radius:16px;padding:24px;margin-bottom:20px;text-align:left}
-.sales-hero h1{font-size:22px;font-weight:900;margin-bottom:6px}
-.sales-hero p{font-size:12px;opacity:0.9;line-height:1.6}
-.sales-badges{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-.badge{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:20px;font-size:10px;font-weight:700}
-.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
-.btn-cta{padding:14px;border:none;border-radius:12px;font-weight:900;cursor:pointer;font-size:12px}
-.btn-quote{background:#25D366;color:white}
+.landing-box{background:white;border-radius:20px;padding:32px;box-shadow:0 15px 40px rgba(46,125,50,0.15);border:1.5px solid #c8e6c9;max-width:920px;width:100%;text-align:center;margin:20px auto}
+.sales-hero{background:linear-gradient(135deg,#0d2818,#1b5e20);color:white;border-radius:18px;padding:32px;margin-bottom:24px;text-align:left;line-height:1.6}
+.sales-hero h1{font-size:24px;font-weight:900;margin-bottom:8px;letter-spacing:0.3px}
+.sales-hero h2{font-size:15px;font-weight:600;margin-bottom:10px;opacity:0.95}
+.sales-hero p{font-size:13px;opacity:0.92;line-height:1.8;white-space:normal;word-wrap:break-word;max-width:100%}
+.sales-badges{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);padding:7px 14px;border-radius:24px;font-size:11px;font-weight:700;letter-spacing:0.2px}
+.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0}
+.btn-cta{padding:16px;border:none;border-radius:14px;font-weight:900;cursor:pointer;font-size:13px;letter-spacing:0.3px}
+.btn-quote{background:#25D366;color:white;box-shadow:0 4px 12px rgba(37,211,102,0.3)}
 .btn-demo-enterprise{background:white;color:#1b5e20;border:2px solid #1b5e20}
-.features-sales{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0;text-align:left}
-.feat-sales{background:#f1f8e9;border:1px solid #c8e6c9;border-radius:10px;padding:14px}
-.feat-sales h4{font-size:11px;font-weight:800;color:#1b5e20}
-.feat-sales p{font-size:10px;color:#555}
-.trust-box{background:linear-gradient(135deg,#f1f8e9,#ffffff);border:1.5px solid #1b5e20;border-radius:14px;padding:16px;margin:16px 0;text-align:left}
-.portal-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
-.portal-card{border:2px solid #c8e6c9;border-radius:16px;padding:24px 16px;cursor:pointer;background:#fafafa}
+.features-sales{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;text-align:left}
+.feat-sales{background:#f8fdf8;border:1.5px solid #c8e6c9;border-radius:14px;padding:18px;line-height:1.6;transition:0.2s}
+.feat-sales h4{font-size:13px;font-weight:900;color:#1b5e20;margin-bottom:8px}
+.feat-sales p{font-size:11.5px;color:#444;line-height:1.6}
+.trust-box{background:linear-gradient(135deg,#f1f8e9,#ffffff);border:2px solid #1b5e20;border-radius:16px;padding:20px;margin:20px 0;text-align:left}
+.trust-box h3{font-size:14px;color:#1b5e20;font-weight:900;margin-bottom:12px}
+.trust-box ul{font-size:12px;color:#222;line-height:2;margin-left:18px}
+.portal-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}
+.portal-card{border:2px solid #c8e6c9;border-radius:18px;padding:28px 18px;cursor:pointer;background:#fafafa;transition:0.2s}
 .portal-card.staff{border-color:#1b5e20;background:linear-gradient(135deg,#f1f8e9,white)}
 .portal-card.patient{border-color:#0288d1;background:linear-gradient(135deg,#e1f5fe,white)}
-.portal-card .p-icon{font-size:36px;margin-bottom:8px}
-.portal-card h3{font-size:15px;font-weight:900;color:#1b5e20}
-.portal-card .features{font-size:10px;color:#2e7d32;margin-top:10px;text-align:left;background:white;padding:8px;border-radius:8px;border:1px solid #e8f5e9}
+.portal-card .p-icon{font-size:40px;margin-bottom:10px}
+.portal-card h3{font-size:16px;font-weight:900;color:#1b5e20}
+.portal-card .features{font-size:11px;color:#2e7d32;margin-top:12px;text-align:left;background:white;padding:10px;border-radius:10px;border:1px solid #e8f5e9;line-height:1.6}
 .login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#e8f5e9,#ffffff);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px}
 .login-box{background:white;padding:28px;border-radius:18px;box-shadow:0 10px 30px rgba(46,125,50,0.12);border:1.5px solid #c8e6c9;width:100%;max-width:400px;text-align:center}
 .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
@@ -69,15 +72,15 @@ input,select{width:100%;padding:10px;margin:4px 0;border:1px solid #a5d6a7;borde
 table{width:100%;border-collapse:collapse;font-size:11px}th{background:#e8f5e9;color:#1b5e20;padding:9px;text-align:left}td{padding:9px;border-bottom:1px solid #e8f5e9}
 .hidden{display:none!important}.role-badge{font-size:10px;padding:5px 10px;border-radius:20px;font-weight:800;border:1px solid #c8e6c9}
 .patient-card{background:linear-gradient(135deg,#e1f5fe,#ffffff);border:2px solid #81d4fa;border-radius:16px;padding:20px;margin-bottom:12px}
-@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.hub{grid-template-columns:repeat(2,1fr)}.portal-grid{grid-template-columns:1fr}.features-sales{grid-template-columns:1fr}.cta-row{grid-template-columns:1fr}}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.hub{grid-template-columns:repeat(2,1fr)}.portal-grid{grid-template-columns:1fr}.features-sales{grid-template-columns:1fr}.cta-row{grid-template-columns:1fr}.landing-box{padding:20px}}
 </style>
 </head>
 <body>
 <div id="landing" class="landing"><div class="landing-box">
 <div class="sales-hero">
 <h1>🏥 Diana Rose Hospital</h1>
-<h2 style="font-size:14px;font-weight:700;margin:4px 0;opacity:0.9">Enterprise Hospital Management System</h2>
-<p>Trusted by Diana Rose Hospital, Thika. QR Verified Billing, Role-Based Security, Patient Self-Service Portal, Real-Time Reporting.</p>
+<h2>Enterprise Hospital Management System</h2>
+<p>Trusted by Diana Rose Hospital, Thika. The complete solution for modern hospitals: QR Verified Billing, Role-Based Security, Patient Self-Service Portal, Real-Time Reporting and Financial Intelligence.</p>
 <div class="sales-badges">
 <span class="badge">🏆 ENTERPRISE GRADE</span>
 <span class="badge">✅ QR VERIFIED</span>
@@ -90,34 +93,34 @@ table{width:100%;border-collapse:collapse;font-size:11px}th{background:#e8f5e9;c
 <button class="btn-cta btn-demo-enterprise" onclick="bookDemo()">🎥 Book Live Demo</button>
 </div>
 <div class="features-sales">
-<div class="feat-sales"><h4>🔐 Enterprise Security</h4><p>Admin, Doctor, Reception, Pharmacy - Secure role-based access.</p></div>
-<div class="feat-sales"><h4>🧾 QR Verified Receipts</h4><p>Every receipt has QR code + PAID stamp. Scan to verify authenticity.</p></div>
-<div class="feat-sales"><h4>👤 Patient Portal</h4><p>Patients book appointments online, view own bills, download receipts.</p></div>
-<div class="feat-sales"><h4>💊 Smart Pharmacy</h4><p>Real-time stock control, auto-deduct on billing, low stock alerts.</p></div>
-<div class="feat-sales"><h4>💰 Financial Intelligence</h4><p>Daily M-Pesa, Cash, Pending breakdown. Real-time revenue tracking.</p></div>
-<div class="feat-sales"><h4>📋 Workflow Automation</h4><p>Booking → Doctor adds bill → Reception prints QR receipt → Seamless.</p></div>
+<div class="feat-sales"><h4>🔐 Enterprise Security</h4><p>Admin Full Access, Doctor Add Bills, Reception Receipt Only, Pharmacy Stock Control - Secure role-based access.</p></div>
+<div class="feat-sales"><h4>🧾 QR Verified Receipts</h4><p>Every receipt has QR code + PAID stamp. Scan to verify authenticity. No fake receipts possible. Print ready.</p></div>
+<div class="feat-sales"><h4>👤 Patient Portal</h4><p>Patients book appointments online, view own bills only, download verified QR receipts. Self-service portal.</p></div>
+<div class="feat-sales"><h4>💊 Smart Pharmacy</h4><p>Real-time stock control, auto-deduct on billing, low stock alerts, medicine tracking and reporting.</p></div>
+<div class="feat-sales"><h4>💰 Financial Intelligence</h4><p>Daily M-Pesa, Cash, Pending breakdown. Real-time revenue tracking and financial reporting dashboard.</p></div>
+<div class="feat-sales"><h4>📋 Workflow Automation</h4><p>Patient booking → Doctor adds bill → Reception prints QR receipt → Seamless automated workflow.</p></div>
 </div>
-<div class="trust-box" style="background:linear-gradient(135deg,#f1f8e9,#ffffff);border:1.5px solid #1b5e20;border-radius:14px;padding:16px;margin:16px 0;text-align:left">
-<h3 style="font-size:13px;color:#1b5e20;font-weight:900;margin-bottom:8px">🌟 Why Leading Hospitals Choose Diana Rose System</h3>
-<ul style="font-size:11px;color:#333;line-height:1.8;margin-left:16px">
-<li>✅ <b>Live & Proven:</b> Currently powering Diana Rose Hospital, Thika</li>
-<li>✅ <b>Enterprise Features:</b> Built for hospitals, not small clinics - Built for scale</li>
-<li>✅ <b>Custom Branding:</b> We install with YOUR hospital name, logo, colors</li>
-<li>✅ <b>Complete Training:</b> Staff training + 6 months support + Free updates</li>
-<li>✅ <b>No Monthly Fees:</b> One-time enterprise license - You own it forever</li>
+<div class="trust-box">
+<h3>🌟 Why Leading Hospitals Choose Diana Rose System</h3>
+<ul>
+<li>✅ <b>Live & Proven:</b> Currently powering Diana Rose Hospital, Thika - Real hospital, real patients</li>
+<li>✅ <b>Enterprise Features:</b> Built for hospitals, not small clinics - Built for scale and growth</li>
+<li>✅ <b>Custom Branding:</b> We install with YOUR hospital name, logo, colors, receipt design</li>
+<li>✅ <b>Complete Training:</b> Staff training + 6 months support + Free updates + No monthly fees</li>
+<li>✅ <b>No Monthly Fees:</b> One-time enterprise license - You own it forever - Enterprise ownership</li>
 </ul>
 </div>
-<div style="background:#0d2818;color:white;border-radius:12px;padding:14px;margin:16px 0">
-<p style="font-size:12px;font-weight:800">📞 Enterprise Sales: Peter Muithi</p>
-<p style="font-size:11px;margin-top:4px;opacity:0.9">📍 Thika, Kenya • 📱 0763424343 • Enterprise inquiries only</p>
-<p style="font-size:9px;margin-top:6px;opacity:0.7">We work with hospitals, clinics, and medical centers across Kenya. Request quote for your facility size.</p>
+<div style="background:#0d2818;color:white;border-radius:14px;padding:18px;margin:20px 0">
+<p style="font-size:13px;font-weight:800">📞 Enterprise Sales: Peter Muithi</p>
+<p style="font-size:12px;margin-top:6px;opacity:0.9">📍 Thika, Kenya • 📱 0763424343 • Enterprise inquiries only • Custom installation available across Kenya</p>
+<p style="font-size:10px;margin-top:8px;opacity:0.7;line-height:1.6">We work with hospitals, clinics, and medical centers across Kenya. Request enterprise quote for your facility size. Professional installation and training included.</p>
 </div>
-<div style="border-top:2px dashed #c8e6c9;padding-top:16px;margin-top:16px">
-<h2 style="color:#1b5e20;font-size:16px;font-weight:900">🔐 Live System Demo 👇</h2>
-<p style="font-size:11px;color:#666;margin:6px 0">Experience the enterprise system - Login below</p>
+<div style="border-top:2px dashed #c8e6c9;padding-top:20px;margin-top:20px">
+<h2 style="color:#1b5e20;font-size:18px;font-weight:900">🔐 Live System Demo 👇</h2>
+<p style="font-size:12px;color:#666;margin:8px 0">Experience the enterprise system - Login below to test full functionality</p>
 <div class="portal-grid">
-<div class="portal-card staff" onclick="openStaffLogin()"><div class="p-icon">🔐</div><h3>STAFF PORTAL DEMO</h3><div class="features">👑 Admin — Full Access<br>👨‍⚕️ Doctor — Add Bills<br>💊 Pharmacy — Stock<br>📋 Reception — Receipts + QR + Pending</div><div style="margin-top:12px;background:#1b5e20;color:white;padding:8px;border-radius:20px;font-size:11px;font-weight:800">Enterprise Staff Login →</div></div>
-<div class="portal-card patient" onclick="openPatientLogin()"><div class="p-icon">👤</div><h3>PATIENT PORTAL DEMO</h3><div class="features">✅ Book Appointment<br>✅ View My Bill (Pending/Paid)<br>✅ Download QR Receipt<br>✅ Prescription History</div><div style="margin-top:12px;background:#0288d1;color:white;padding:8px;border-radius:20px;font-size:11px;font-weight:800">Patient Demo Login →</div></div>
+<div class="portal-card staff" onclick="openStaffLogin()"><div class="p-icon">🔐</div><h3>STAFF PORTAL DEMO</h3><div class="features">👑 Admin — Full Access<br>👨‍⚕️ Doctor — Add Bills + Edit<br>💊 Pharmacy — Stock Control<br>📋 Reception — Receipts + QR + Pending Status</div><div style="margin-top:14px;background:#1b5e20;color:white;padding:10px;border-radius:24px;font-size:12px;font-weight:800">Enterprise Staff Login →</div></div>
+<div class="portal-card patient" onclick="openPatientLogin()"><div class="p-icon">👤</div><h3>PATIENT PORTAL DEMO</h3><div class="features">✅ Book Appointment Online<br>✅ View My Bill (Pending/Paid)<br>✅ Download QR Verified Receipt<br>✅ Prescription History</div><div style="margin-top:14px;background:#0288d1;color:white;padding:10px;border-radius:24px;font-size:12px;font-weight:800">Patient Demo Login →</div></div>
 </div>
 </div>
 </div></div>
@@ -134,7 +137,7 @@ table{width:100%;border-collapse:collapse;font-size:11px}th{background:#e8f5e9;c
 <div id="qrcode" style="display:inline-block;padding:8px;border:2px solid #1b5e20;background:white"></div>
 <p style="font-size:8px;color:#2e7d32;margin-top:6px;font-weight:800">Scan to Verify Receipt • Diana Rose Hospital</p>
 <div style="margin-top:10px;background:#1b5e20;color:white;font-weight:900;padding:8px;border-radius:20px;font-size:12px;border:2px solid #1b5e20;letter-spacing:1px">✅ PAID • VERIFIED • THIKA HOSPITAL STAMP</div>
-<p style="font-size:7px;color:#888;margin-top:6px">This receipt is QR verified. System v2.6 Enterprise</p>
+<p style="font-size:7px;color:#888;margin-top:6px">This receipt is QR verified. System v2.7 Enterprise Final</p>
 </div>
 <div style="text-align:center;margin-top:14px"><button class="btn" onclick="window.print()">🖨️ Print Receipt with QR</button><button class="btn" style="background:#777;margin-top:6px" onclick="closeReceipt()">Close</button></div>
 </div>
@@ -195,7 +198,7 @@ let appointmentsHtml = a.map((x,idx)=>{
   } else {
     return `<tr><td>${x.date} ${x.time}</td><td><b>${x.patientName||''}</b></td><td>${x.doctorName||''}</td><td>${x.reason||''}</td><td><button class="btn btn-small" style="background:#2e7d32" onclick="billFromAppointment(${idx})">💰 Add Bill</button></td></tr>`;
   }
-}).join('')||'<tr><td colspan=5 style="text-align:center;color:#999">No appointments</td></tr>';
+}).join('')||'<tr><td colspan=5 style="text-align:center;color:#999">No appointments - patient bookings appear here</td></tr>';
 document.getElementById('appointments-list').innerHTML=appointmentsHtml;
 document.getElementById('p-medicine').innerHTML='<option value="">Select Medicine</option>'+m.map(x=>`<option value="${x.name}">${x.name} (${x.stock})</option>`).join('');
 document.getElementById('a-patient').innerHTML='<option value="">Patient</option>'+p.map(x=>`<option value="${x.id}">${x.name}</option>`).join('');
@@ -203,17 +206,17 @@ document.getElementById('a-doctor').innerHTML='<option value="">Doctor</option>'
 document.getElementById('pat-doctor').innerHTML='<option value="">Select Doctor</option>'+d.map(x=>`<option value="${x.id}">${x.name} - ${x.specialization}</option>`).join('');
 }
 function renderPatient(){if(!currentPatient)return;document.getElementById('patientWelcome').innerText="Welcome, "+currentPatient.name+"!";document.getElementById('patientInfo').innerText=(currentPatient.phone||"")+" • Age "+(currentPatient.age||"");document.getElementById('pat-bill').innerText="KSh "+(currentPatient.bill||0);document.getElementById('pat-med').innerText=currentPatient.medicine||"None";document.getElementById('pat-app').innerText=getData('appointments').filter(a=>a.patientId==currentPatient.id).length;let p=currentPatient;document.getElementById('patientBills').innerHTML=`<tr><td>${new Date().toLocaleDateString()}</td><td style="color:#01579b;font-weight:bold">KSh ${p.bill||0}</td><td>${p.medicine||''} - ${p.pay||'Pending'}</td><td><button class="btn btn-small" style="background:#0288d1" onclick="printPatientReceipt()">🧾 QR Receipt</button></td></tr>`;let apps=getData('appointments').filter(a=>a.patientId==currentPatient.id);document.getElementById('patientAppointments').innerHTML=apps.map(x=>`<tr><td>${x.date}</td><td>${x.time}</td><td>${x.doctorName||'Dr'}</td><td>${x.reason||''}</td></tr>`).join('')||'<tr><td colspan=4 style="text-align:center;color:#999">No appointments yet</td></tr>';}
-function patientBookAppointment(){if(!currentPatient)return;let docId=document.getElementById('pat-doctor').value;let date=document.getElementById('pat-date').value;let time=document.getElementById('pat-time').value;let reason=document.getElementById('pat-reason').value;if(!date||!time)return alert('Enter date and time');let doctors=getData('doctors');let doc=doctors.find(d=>d.id==docId);let list=getData('appointments');list.unshift({id:Date.now(),patientId:currentPatient.id,patientName:currentPatient.name,date,time,reason,doctorName:doc?doc.name:"Dr. Peter"});setData('appointments',list);renderPatient();alert("✅ Booked for "+date+" at "+time);}
+function patientBookAppointment(){if(!currentPatient)return;let docId=document.getElementById('pat-doctor').value;let date=document.getElementById('pat-date').value;let time=document.getElementById('pat-time').value;let reason=document.getElementById('pat-reason').value;if(!date||!time)return alert('Enter date and time');let doctors=getData('doctors');let doc=doctors.find(d=>d.id==docId);let list=getData('appointments');list.unshift({id:Date.now(),patientId:currentPatient.id,patientName:currentPatient.name,date,time,reason,doctorName:doc?doc.name:"Dr. Peter"});setData('appointments',list);renderPatient();alert("✅ Appointment booked for "+date+" at "+time+" - Staff will see it and add bill!");}
 function printReceipt(idx){let p=getData('patients')[idx];document.getElementById('r-no').innerText="DRH-"+(1000+idx);document.getElementById('r-date').innerText=new Date().toLocaleDateString();document.getElementById('r-name').innerText=p.name;document.getElementById('r-med').innerText=p.medicine||'None';document.getElementById('r-bill').innerText="KSh "+(p.bill||0);document.getElementById('r-pay').innerText=p.pay||'';document.getElementById('receipt').style.display="block";document.getElementById('staffApp').classList.add('hidden');setTimeout(()=>{document.getElementById('qrcode').innerHTML='';new QRCode(document.getElementById('qrcode'),{text:"Diana Rose Hospital\nReceipt: DRH-"+(1000+idx)+"\nPatient: "+p.name+"\nBill: KSh "+(p.bill||0)+"\nMedicine: "+(p.medicine||'None')+"\nStatus: "+(p.pay||'Pending')+"\nDate: "+new Date().toLocaleDateString()+"\nVerified: TRUE - Thika",width:110,height:110});},150);}
 function printPatientReceipt(){if(!currentPatient)return;document.getElementById('r-no').innerText="DRH-"+currentPatient.id;document.getElementById('r-date').innerText=new Date().toLocaleDateString();document.getElementById('r-name').innerText=currentPatient.name;document.getElementById('r-med').innerText=currentPatient.medicine||'None';document.getElementById('r-bill').innerText="KSh "+(currentPatient.bill||0);document.getElementById('r-pay').innerText=currentPatient.pay||'';document.getElementById('receipt').style.display="block";document.getElementById('patientApp').classList.add('hidden');setTimeout(()=>{document.getElementById('qrcode').innerHTML='';new QRCode(document.getElementById('qrcode'),{text:"Diana Rose Hospital\nReceipt: DRH-"+currentPatient.id+"\nPatient: "+currentPatient.name+"\nBill: KSh "+(currentPatient.bill||0)+"\nDate: "+new Date().toLocaleDateString()+"\nStatus: "+(currentPatient.pay||'Pending')+"\nVerified: TRUE",width:110,height:110});},150);}
 function closeReceipt(){document.getElementById('receipt').style.display="none";let logged=localStorage.getItem('loggedIn');if(logged==='staff')document.getElementById('staffApp').classList.remove('hidden');else if(logged==='patient')document.getElementById('patientApp').classList.remove('hidden');}
-function addMedicine(){let name=document.getElementById('m-name').value.trim();if(!name)return alert('Enter medicine');let list=getData('medicines');list.unshift({id:Date.now(),name,stock:parseInt(document.getElementById('m-stock').value)||0,price:parseInt(document.getElementById('m-price').value)||0,category:document.getElementById('m-category').value});setData('medicines',list);renderStaff();alert(name+" added!");}
-function useMedicine(i){let list=getData('medicines');if(list[i].stock>0){list[i].stock--;setData('medicines',list);renderStaff();}else{alert("Out of stock!");}}
-function addPatient(){let name=document.getElementById('p-name').value.trim();if(!name)return alert('Enter name');let med=document.getElementById('p-medicine').value;let meds=getData('medicines');if(med){let f=meds.find(x=>x.name===med);if(f){if(f.stock<=0)return alert(med+" out of stock!");f.stock--;setData('medicines',meds);}}let list=getData('patients');list.unshift({id:Date.now(),name,phone:document.getElementById('p-phone').value,county:document.getElementById('p-county').value,condition:document.getElementById('p-condition').value,age:document.getElementById('p-age').value,bill:document.getElementById('p-bill').value||1500,pay:document.getElementById('p-pay').value||"Pending",medicine:med||"Paracetamol"});setData('patients',list);renderStaff();alert(name+" saved! Status: "+(document.getElementById('p-pay').value||"Pending"));}
-function addDoctor(){let name=document.getElementById('d-name').value.trim();if(!name)return alert('Enter name');let list=getData('doctors');list.unshift({id:Date.now(),name,specialization:document.getElementById('d-spec').value,phone:document.getElementById('d-phone').value});setData('doctors',list);renderStaff();alert("Doctor added!");}
-function addAppointment(){let pid=document.getElementById('a-patient').value;let did=document.getElementById('a-doctor').value;let doctors=getData('doctors');let patients=getData('patients');let doc=doctors.find(d=>d.id==did);let pat=patients.find(p=>p.id==pid);let list=getData('appointments');list.unshift({id:Date.now(),patientId:pid,patientName:pat?pat.name:"",date:document.getElementById('a-date').value,time:document.getElementById('a-time').value,reason:document.getElementById('a-reason').value,doctorName:doc?doc.name:""});setData('appointments',list);renderStaff();alert("Booked!");}
-function billFromAppointment(appIdx){let apps=getData('appointments');let app=apps[appIdx];let patients=getData('patients');let medicines=getData('medicines');let patIdx=patients.findIndex(p=>p.id==app.patientId || p.name==app.patientName);if(patIdx==-1){alert("Patient not found: "+app.patientName);sideNav('patients');return;}let bill=prompt("Enter Bill for "+app.patientName+" ("+app.reason+") - KSh:", patients[patIdx].bill||"1500");if(bill===null)return;let med=prompt("Enter Medicine:", patients[patIdx].medicine||"Paracetamol");if(med===null)return;let pay=prompt("Payment Method - Pending / M-Pesa / Cash / Paid:", patients[patIdx].pay||"Pending");if(pay===null)return;patients[patIdx].bill=parseInt(bill)||0;patients[patIdx].medicine=med;patients[patIdx].pay=pay;setData('patients',patients);let medFound=medicines.find(x=>x.name.toLowerCase()==med.toLowerCase());if(medFound && medFound.stock>0){medFound.stock--;setData('medicines',medicines);}alert("✅ Bill Updated! "+app.patientName+" now KSh "+bill+" Status: "+pay);renderStaff();}
-function editBill(pIdx){let patients=getData('patients');let p=patients[pIdx];let bill=prompt("Edit Bill for "+p.name+" - KSh:", p.bill||"0");if(bill===null)return;let med=prompt("Edit Medicine:", p.medicine||"");if(med===null)return;let pay=prompt("Payment Status - Pending / M-Pesa / Cash / Paid / Insurance:", p.pay||"Pending");if(pay===null)return;patients[pIdx].bill=parseInt(bill)||0;patients[pIdx].medicine=med;patients[pIdx].pay=pay;setData('patients',patients);alert("✅ Bill updated for "+p.name+"! Status: "+pay);renderStaff();}
+function addMedicine(){let name=document.getElementById('m-name').value.trim();if(!name)return alert('Enter medicine');let list=getData('medicines');list.unshift({id:Date.now(),name,stock:parseInt(document.getElementById('m-stock').value)||0,price:parseInt(document.getElementById('m-price').value)||0,category:document.getElementById('m-category').value});setData('medicines',list);renderStaff();alert("✅ "+name+" added!");}
+function useMedicine(i){let list=getData('medicines');if(list[i].stock>0){list[i].stock--;setData('medicines',list);renderStaff();}else{alert("❌ Out of stock!");}}
+function addPatient(){let name=document.getElementById('p-name').value.trim();if(!name)return alert('Enter name');let med=document.getElementById('p-medicine').value;let meds=getData('medicines');if(med){let f=meds.find(x=>x.name===med);if(f){if(f.stock<=0)return alert("❌ "+med+" out of stock!");f.stock--;setData('medicines',meds);}}let list=getData('patients');list.unshift({id:Date.now(),name,phone:document.getElementById('p-phone').value,county:document.getElementById('p-county').value,condition:document.getElementById('p-condition').value,age:document.getElementById('p-age').value,bill:document.getElementById('p-bill').value||1500,pay:document.getElementById('p-pay').value||"Pending",medicine:med||"Paracetamol"});setData('patients',list);renderStaff();alert("✅ "+name+" saved! Status: "+(document.getElementById('p-pay').value||"Pending"));}
+function addDoctor(){let name=document.getElementById('d-name').value.trim();if(!name)return alert('Enter name');let list=getData('doctors');list.unshift({id:Date.now(),name,specialization:document.getElementById('d-spec').value,phone:document.getElementById('d-phone').value});setData('doctors',list);renderStaff();alert("✅ Doctor added!");}
+function addAppointment(){let pid=document.getElementById('a-patient').value;let did=document.getElementById('a-doctor').value;let doctors=getData('doctors');let patients=getData('patients');let doc=doctors.find(d=>d.id==did);let pat=patients.find(p=>p.id==pid);let list=getData('appointments');list.unshift({id:Date.now(),patientId:pid,patientName:pat?pat.name:"",date:document.getElementById('a-date').value,time:document.getElementById('a-time').value,reason:document.getElementById('a-reason').value,doctorName:doc?doc.name:""});setData('appointments',list);renderStaff();alert("✅ Booked! Now add bill with 💰 button!");}
+function billFromAppointment(appIdx){let apps=getData('appointments');let app=apps[appIdx];let patients=getData('patients');let medicines=getData('medicines');let patIdx=patients.findIndex(p=>p.id==app.patientId || p.name==app.patientName);if(patIdx==-1){alert("❌ Patient not found! Create patient first with same name: "+app.patientName);sideNav('patients');return;}let bill=prompt("Enter Bill for "+app.patientName+" ("+app.reason+") - KSh:", patients[patIdx].bill||"1500");if(bill===null)return;let med=prompt("Enter Medicine for "+app.patientName+" (available: "+medicines.map(m=>m.name).join(', ')+"):", patients[patIdx].medicine||"Paracetamol");if(med===null)return;let pay=prompt("Payment Method - Pending / M-Pesa / Cash / Paid:", patients[patIdx].pay||"Pending");if(pay===null)return;patients[patIdx].bill=parseInt(bill)||0;patients[patIdx].medicine=med;patients[patIdx].pay=pay;setData('patients',patients);let medFound=medicines.find(x=>x.name.toLowerCase()==med.toLowerCase());if(medFound && medFound.stock>0){medFound.stock--;setData('medicines',medicines);}alert("✅ Bill Updated! "+app.patientName+" now KSh "+bill+" Status: "+pay);renderStaff();}
+function editBill(pIdx){let patients=getData('patients');let p=patients[pIdx];let bill=prompt("Edit Bill for "+p.name+" - KSh:", p.bill||"0");if(bill===null)return;let med=prompt("Edit Medicine for "+p.name+":", p.medicine||"");if(med===null)return;let pay=prompt("Payment Status - Pending / M-Pesa / Cash / Paid / Insurance:", p.pay||"Pending");if(pay===null)return;patients[pIdx].bill=parseInt(bill)||0;patients[pIdx].medicine=med;patients[pIdx].pay=pay;setData('patients',patients);alert("✅ Bill updated for "+p.name+"! Status: "+pay);renderStaff();}
 </script>
 </body>
 </html>
