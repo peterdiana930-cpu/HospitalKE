@@ -6,47 +6,54 @@
 <title>Diana Rose Hospital - Thika</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial}
-body{background:#f1f8f1;padding-bottom:80px}
+body{background:#f1f8f1;min-height:100vh}
 .login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#fff,#e8f5e9);display:flex;align-items:center;justify-content:center;z-index:9999}
 .login-box{background:white;padding:28px;border-radius:18px;box-shadow:0 10px 40px rgba(46,125,50,0.15);border:2px solid #e8f5e9;width:90%;max-width:380px;text-align:center}
 .btn-login{background:linear-gradient(135deg,#2e7d32,#66bb6a);color:white;padding:13px;border:none;border-radius:10px;width:100%;font-weight:700;cursor:pointer;margin-top:10px}
-.phone-header{background:white;margin:12px;border-radius:16px;padding:14px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.phone-header{background:white;margin:0;border-radius:0;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.06);width:100%}
 .phone-header h1{color:#0f3d2e;font-size:22px;font-weight:800}
-.phone-header p{color:#0f3d2e;font-size:12px}
+.phone-header p{color:#0f3d2e;font-size:13px}
 .pd-badge{width:44px;height:44px;background:white;border:3px solid #2e7d32;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#2e7d32;font-weight:800}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0 12px;margin:14px 0}
-.stat-card{background:white;border-radius:14px;padding:12px 6px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.04);border:1px solid #eee}
-.stat-icon{width:44px;height:44px;background:#c8e6c9;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:22px}
-.stat-card p{font-size:11px;color:#555}
-.stat-card h2{font-size:18px;color:#111;font-weight:800;margin-top:2px}
-.main-dash{background:#e8f5e9;margin:12px;border-radius:20px;padding:14px}
-.main-dash-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.main-dash-head h2{font-size:16px;color:#111}
-.main-dash-head p{font-size:11px;color:#555}
-.arrow-btn{width:28px;height:28px;border-radius:50%;border:1px solid #c8e6c9;display:flex;align-items:center;justify-content:center}
-.hub{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.hub-card{background:white;border-radius:14px;padding:14px 8px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.04);border:1px solid #dcedc8;cursor:pointer}
-.hub-card:hover{border-color:#2e7d32;transform:translateY(-2px)}
-.hub-icon{width:52px;height:52px;background:#c8e6c9;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:26px}
-.hub-card h4{font-size:13px;color:#111;margin-bottom:3px}
-.hub-card .desc{font-size:10px;color:#555;margin-bottom:6px;line-height:1.2}
-.hub-card .count{font-size:13px;color:#1b8a3c;font-weight:800}
-.container{max-width:600px;margin:0 auto}
-.card{background:white;padding:14px;border-radius:14px;margin:10px 12px;box-shadow:0 4px 14px rgba(46,125,50,0.08);border:1px solid #e8f5e9}
-.card h3{color:#1b5e20;margin-bottom:8px;font-size:13px}
-input,select{width:100%;padding:10px;margin:4px 0;border:1.5px solid #c8e6c9;border-radius:8px;outline:none;font-size:12px}
-.btn{background:linear-gradient(135deg,#2e7d32,#66bb6a);color:white;padding:10px;border:none;border-radius:10px;width:100%;font-weight:700;cursor:pointer;font-size:12px}
-.btn-small{padding:5px 10px;font-size:10px;width:auto;display:inline-block;margin:2px}
-.btn-back{background:#fff;color:#1b5e20;padding:8px 14px;border:1px solid #c8e6c9;border-radius:20px;font-weight:700;cursor:pointer;font-size:11px}
-table{width:100%;border-collapse:collapse;font-size:11px}
-th{background:#e8f5e9;color:#1b5e20;padding:7px;text-align:left}
-td{padding:7px;border-bottom:1px solid #f1f8e9}
+.container{width:100%;max-width:100%;margin:0;padding:0}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:16px 20px;margin:0}
+.stat-card{background:white;border-radius:16px;padding:16px 10px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid #eee}
+.stat-icon{width:50px;height:50px;background:#c8e6c9;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:26px}
+.stat-card p{font-size:12px;color:#555}
+.stat-card h2{font-size:22px;color:#111;font-weight:800;margin-top:2px}
+.main-dash{background:#e8f5e9;margin:0 20px 20px 20px;border-radius:20px;padding:20px}
+.main-dash-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.main-dash-head h2{font-size:18px;color:#111}
+.main-dash-head p{font-size:12px;color:#555}
+.hub{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.hub-card{background:white;border-radius:16px;padding:20px 12px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid #dcedc8;cursor:pointer;transition:0.2s}
+.hub-card:hover{border-color:#2e7d32;transform:translateY(-3px);box-shadow:0 6px 20px rgba(46,125,50,0.15)}
+.hub-icon{width:60px;height:60px;background:#c8e6c9;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:30px}
+.hub-card h4{font-size:15px;color:#111;margin-bottom:4px}
+.hub-card .desc{font-size:11px;color:#555;margin-bottom:8px;line-height:1.2}
+.hub-card .count{font-size:15px;color:#1b8a3c;font-weight:800}
+.card{background:white;padding:16px;border-radius:16px;margin:12px 20px;box-shadow:0 4px 14px rgba(46,125,50,0.08);border:1px solid #e8f5e9}
+.card h3{color:#1b5e20;margin-bottom:8px;font-size:14px}
+input,select{width:100%;padding:12px;margin:5px 0;border:1.5px solid #c8e6c9;border-radius:10px;outline:none;font-size:13px}
+.btn{background:linear-gradient(135deg,#2e7d32,#66bb6a);color:white;padding:12px;border:none;border-radius:10px;width:100%;font-weight:700;cursor:pointer;font-size:13px}
+.btn-small{padding:6px 12px;font-size:11px;width:auto;display:inline-block;margin:2px}
+.btn-back{background:#fff;color:#1b5e20;padding:8px 16px;border:1px solid #c8e6c9;border-radius:20px;font-weight:700;cursor:pointer;font-size:12px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:#e8f5e9;color:#1b5e20;padding:10px;text-align:left}
+td{padding:10px;border-bottom:1px solid #f1f8e9}
 .hidden{display:none!important}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 0 12px;max-width:600px;margin:0 auto;border-radius:20px 20px 0 0;box-shadow:0 -2px 10px rgba(0,0,0,0.05)}
-.nav-item{text-align:center;cursor:pointer;color:#999;font-size:10px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:10px 0 14px;width:100%;box-shadow:0 -2px 10px rgba(0,0,0,0.05)}
+.nav-item{text-align:center;cursor:pointer;color:#999;font-size:11px;flex:1}
 .nav-item.active{color:#2e7d32}
-.nav-item .nav-icon{font-size:22px;margin-bottom:2px}
+.nav-item .nav-icon{font-size:24px;margin-bottom:2px}
 .low{color:#c62828;font-weight:bold;background:#ffebee;padding:2px 6px;border-radius:4px}
+/* PHONE VIEW - Make it 2 columns on phone */
+@media(max-width:768px){
+.stat-grid{grid-template-columns:repeat(2,1fr);padding:12px;gap:8px}
+.hub{grid-template-columns:repeat(2,1fr);gap:10px}
+.main-dash{margin:0 12px 80px 12px;padding:14px}
+.phone-header{padding:12px 14px}
+.card{margin:10px 12px}
+}
 </style>
 </head>
 <body>
@@ -73,27 +80,29 @@ td{padding:7px;border-bottom:1px solid #f1f8e9}
 </div>
 
 <div class="main-dash">
-<div class="main-dash-head"><div><h2>Main Dashboard — Click to Open</h2><p>All hospital services under one dashboard</p></div><div class="arrow-btn">›</div></div>
+<div class="main-dash-head"><div><h2>Main Dashboard — Click to Open</h2><p>All hospital services under one dashboard</p></div></div>
 <div class="hub">
 <div class="hub-card" onclick="showTab('patients')"><div class="hub-icon">👥</div><h4>Patients & Billing</h4><div class="desc">Manage patient records & billing</div><div class="count" id="hub-p">1 patient</div></div>
 <div class="hub-card" onclick="showTab('pharmacy')"><div class="hub-icon">💊</div><h4>Pharmacy</h4><div class="desc">Stock & medicines inventory</div><div class="count" id="hub-ph">3 medicines</div></div>
 <div class="hub-card" onclick="showTab('reports')"><div class="hub-icon">💰</div><h4>Money Reports</h4><div class="desc">Revenue & expenses overview</div><div class="count" id="hub-money">KSh 1,500</div></div>
 <div class="hub-card" onclick="showTab('doctors')"><div class="hub-icon">👨‍⚕️</div><h4>Doctors</h4><div class="desc">Doctor profiles & schedules</div><div class="count" id="hub-d">1 doctor</div></div>
 <div class="hub-card" onclick="showTab('appointments')"><div class="hub-icon">📅</div><h4>Appointments</h4><div class="desc">Upcoming & past appointments</div><div class="count" id="hub-a">0 today</div></div>
-<div class="hub-card" onclick="showTab('patients')"><div class="hub-icon">🧾</div><h4>Print Receipt</h4><div class="desc">Generate & print receipts</div><div class="count">0 receipts</div></div>
+<div class="hub-card" onclick="showTab('patients')"><div class="hub-icon">🧾</div><h4>Print Receipt</h4><div class="desc">Generate & print receipts</div><div class="count">Fast Print</div></div>
+<div class="hub-card" onclick="showTab('patients')"><div class="hub-icon">🏥</div><h4>Admissions</h4><div class="desc">In-patient management</div><div class="count">Coming</div></div>
+<div class="hub-card" onclick="showTab('reports')"><div class="hub-icon">📊</div><h4>Analytics</h4><div class="desc">Hospital performance</div><div class="count">Live</div></div>
 </div>
 </div>
 </div>
 
-<div id="patients" class="tab hidden"><button class="btn-back" onclick="showTab('dashboard')">⬅ Back</button><div class="card" style="margin-top:10px"><h3>👥 Add Patient</h3><input id="p-name" placeholder="Full Name"><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px"><input id="p-county" placeholder="County"><input id="p-age" type="number" placeholder="Age"></div><input id="p-condition" placeholder="Condition"><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px"><input id="p-bill" type="number" placeholder="Bill KSh"><select id="p-pay"><option>M-Pesa</option><option>Cash</option><option>Insurance</option><option>Pending</option></select><select id="p-medicine"><option value="">Medicine</option></select></div><button class="btn" onclick="addPatient()">Save + Bill + Dispense</button></div><div class="card"><h3>Records - <span id="p-count">0</span></h3><table><thead><tr><th>Name</th><th>Bill</th><th>Med</th><th>Action</th></tr></thead><tbody id="patients-list"></tbody></table></div></div>
+<div id="patients" class="tab hidden"><button class="btn-back" onclick="showTab('dashboard')">⬅ Back to Dashboard</button><div class="card" style="margin-top:12px"><h3>👥 Add Patient</h3><input id="p-name" placeholder="Full Name"><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><input id="p-county" placeholder="County"><input id="p-age" type="number" placeholder="Age"></div><input id="p-condition" placeholder="Condition"><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px"><input id="p-bill" type="number" placeholder="Bill KSh"><select id="p-pay"><option>M-Pesa</option><option>Cash</option><option>Insurance</option><option>Pending</option></select><select id="p-medicine"><option value="">Medicine</option></select></div><button class="btn" onclick="addPatient()">Save + Bill + Dispense</button></div><div class="card"><h3>Records - <span id="p-count">0</span></h3><table><thead><tr><th>Name</th><th>Bill</th><th>Med</th><th>Action</th></tr></thead><tbody id="patients-list"></tbody></table></div></div>
 
-<div id="pharmacy" class="tab hidden"><button class="btn-back" onclick="showTab('dashboard')">⬅ Back</button><div class="card" style="margin-top:10px"><h3>💊 Add Medicine</h3><div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:4px"><input id="m-name" placeholder="Medicine"><input id="m-stock" type="number" placeholder="Stock"><input id="m-price" type="number" placeholder="Price"></div><input id="m-category" placeholder="Category"><button class="btn" onclick="addMedicine()">Add</button></div><div class="card"><h3>Stock</h3><table><thead><tr><th>Medicine</th><th>Stock</th><th>Price</th><th>Action</th></tr></thead><tbody id="pharmacy-list"></tbody></table></div></div>
+<div id="pharmacy" class="tab hidden"><button class="btn-back" onclick="showTab('dashboard')">⬅ Back</button><div class="card" style="margin-top:12px"><h3>💊 Add Medicine</h3><div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px"><input id="m-name" placeholder="Medicine"><input id="m-stock" type="number" placeholder="Stock"><input id="m-price" type="number" placeholder="Price"></div><input id="m-category" placeholder="Category"><button class="btn" onclick="addMedicine()">Add</button></div><div class="card"><h3>Stock</h3><table><thead><tr><th>Medicine</th><th>Stock</th><th>Price</th><th>Action</th></tr></thead><tbody id="pharmacy-list"></tbody></table></div></div>
 
-<div id="reports" class="tab hidden"><button class="btn-back" onclick="showTab('dashboard')">⬅ Back</button><div class="card" style="margin-top:10px"><h3>💰 Money Report - <span id="today-date"></span></h3><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px;text-align:center"><div><h3 id="r-total" style="color:#1b5e20">KSh 0</h3><p style="font-size:9px">TOTAL</p></div><div><h3 id="r-mpesa" style="color:#00c853">KSh 0</h3><p style="font-size:9px">M-PESA</p></div><div><h3 id="r-cash" style="color:#ff8f00">KSh 0</h3><p style="font-size:9px">CASH</p></div><div><h3 id="r-count" style="color:#1b5e20">0</h3><p style="font-size:9px">Patients</p></div></div></div><div class="card"><h3>Breakdown</h3><table><thead><tr><th>Patient</th><th>Bill</th><th>Method</th></tr></thead><tbody id="reports-list"></tbody></table><div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px"><button class="btn" onclick="window.print()">🖨️ Print</button><button class="btn" style="background:linear-gradient(135deg,#00c853,#69f0ae)" onclick="shareReport()">📱 WhatsApp</button></div></div></div>
+<div id="reports" class="tab hidden"><button class="btn-back" onclick="showTab('dashboard')">⬅ Back</button><div class="card" style="margin-top:12px"><h3>💰 Money Report - <span id="today-date"></span></h3><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px;text-align:center"><div><h3 id="r-total" style="color:#1b5e20">KSh 0</h3><p style="font-size:10px">TOTAL</p></div><div><h3 id="r-mpesa" style="color:#00c853">KSh 0</h3><p style="font-size:10px">M-PESA</p></div><div><h3 id="r-cash" style="color:#ff8f00">KSh 0</h3><p style="font-size:10px">CASH</p></div><div><h3 id="r-count" style="color:#1b5e20">0</h3><p style="font-size:10px">Patients</p></div></div></div><div class="card"><h3>Breakdown</h3><table><thead><tr><th>Patient</th><th>Bill</th><th>Method</th></tr></thead><tbody id="reports-list"></tbody></table><div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="btn" onclick="window.print()">🖨️ Print</button><button class="btn" style="background:linear-gradient(135deg,#00c853,#69f0ae)" onclick="shareReport()">📱 WhatsApp</button></div></div></div>
 
-<div id="doctors" class="tab hidden"><button class="btn-back" onclick="showTab('dashboard')">⬅ Back</button><div class="card" style="margin-top:10px"><h3>👨‍⚕️ Add Doctor</h3><input id="d-name" placeholder="Name"><input id="d-spec" placeholder="Spec"><input id="d-phone" placeholder="Phone"><button class="btn" onclick="addDoctor()">Save Doctor</button></div><div class="card"><h3>Team</h3><table><thead><tr><th>Name</th><th>Spec</th><th>Phone</th></tr></thead><tbody id="doctors-list"></tbody></table></div></div>
+<div id="doctors" class="tab hidden"><button class="btn-back" onclick="showTab('dashboard')">⬅ Back</button><div class="card" style="margin-top:12px"><h3>👨‍⚕️ Add Doctor</h3><input id="d-name" placeholder="Name"><input id="d-spec" placeholder="Spec"><input id="d-phone" placeholder="Phone"><button class="btn" onclick="addDoctor()">Save</button></div><div class="card"><h3>Team</h3><table><thead><tr><th>Name</th><th>Spec</th><th>Phone</th></tr></thead><tbody id="doctors-list"></tbody></table></div></div>
 
-<div id="appointments" class="tab hidden"><button class="btn-back" onclick="showTab('dashboard')">⬅ Back</button><div class="card" style="margin-top:10px"><h3>📅 Book Appointment</h3><select id="a-patient"></select><select id="a-doctor"></select><input id="a-date" type="date"><input id="a-time" type="time"><input id="a-reason" placeholder="Reason"><button class="btn" onclick="addAppointment()">Confirm</button></div><div class="card"><h3>Upcoming</h3><table><thead><tr><th>Date</th><th>Time</th><th>Reason</th></tr></thead><tbody id="appointments-list"></tbody></table></div></div>
+<div id="appointments" class="tab hidden"><button class="btn-back" onclick="showTab('dashboard')">⬅ Back</button><div class="card" style="margin-top:12px"><h3>📅 Book Appointment</h3><select id="a-patient"></select><select id="a-doctor"></select><input id="a-date" type="date"><input id="a-time" type="time"><input id="a-reason" placeholder="Reason"><button class="btn" onclick="addAppointment()">Confirm</button></div><div class="card"><h3>Upcoming</h3><table><thead><tr><th>Date</th><th>Time</th><th>Reason</th></tr></thead><tbody id="appointments-list"></tbody></table></div></div>
 
 </div>
 
