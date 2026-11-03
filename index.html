@@ -6,78 +6,78 @@
 <title>Diana Rose Hospital - Thika</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,Arial}
-body{background:#f7fbf7}
-.login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#ffffff,#e8f5e9);display:flex;align-items:center;justify-content:center;z-index:9999}
-.login-box{background:white;padding:28px;border-radius:18px;box-shadow:0 10px 40px rgba(46,125,50,0.12);border:2px solid #e8f5e9;width:90%;max-width:380px;text-align:center}
-.btn-login{background:linear-gradient(135deg,#0f3d2e,#2e7d32);color:white;padding:13px;border:none;border-radius:12px;width:100%;font-weight:800;cursor:pointer;margin-top:10px}
-/* CLEAN HEADER - WHITE */
-.header-bar{background:white;color:#0f3d2e;padding:14px 20px;display:flex;align-items:center;gap:16px;border-bottom:2px solid #e8f5e9;position:sticky;top:0;z-index:50}
-.menu-btn{background:#e8f5e9;border:none;color:#0f3d2e;width:44px;height:44px;border-radius:10px;font-size:22px;cursor:pointer;font-weight:900}
-.header-bar h1{font-size:18px;font-weight:800;color:#0f3d2e;flex:1}
+body{background:#f1f8f1}
+.login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#0f3d2e,#2e7d32);display:flex;align-items:center;justify-content:center;z-index:9999}
+.login-box{background:white;padding:28px;border-radius:18px;box-shadow:0 15px 40px rgba(0,0,0,0.2);width:90%;max-width:380px;text-align:center}
+.btn-login{background:#2e7d32;color:white;padding:13px;border:none;border-radius:12px;width:100%;font-weight:800;cursor:pointer;margin-top:10px;font-size:14px}
+/* HEADER - STRONG GREEN */
+.header-bar{background:#1b5e20;color:white;padding:14px 20px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(0,0,0,0.15)}
+.menu-btn{background:#2e7d32;border:2px solid #4caf50;color:white;width:46px;height:46px;border-radius:10px;font-size:24px;cursor:pointer;font-weight:900}
+.header-bar h1{font-size:18px;font-weight:800;flex:1;color:white}
 .layout{display:flex;max-width:1400px;margin:0 auto}
-.sidebar{width:270px;background:white;min-height:calc(100vh - 62px);box-shadow:2px 0 15px rgba(0,0,0,0.05);transition:0.3s;position:fixed;left:-270px;top:62px;z-index:60;height:calc(100vh - 62px)}
+.sidebar{width:270px;background:white;min-height:calc(100vh - 62px);box-shadow:4px 0 20px rgba(0,0,0,0.1);transition:0.3s;position:fixed;left:-270px;top:62px;z-index:60;height:calc(100vh - 62px);border-right:3px solid #2e7d32}
 .sidebar.open{left:0}
-.sidebar-overlay{position:fixed;inset:0;background:rgba(15,61,46,0.2);z-index:40;display:none;top:62px}
+.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:40;display:none;top:62px}
 .sidebar-overlay.show{display:block}
-.side-head{padding:20px;background:linear-gradient(135deg,#e8f5e9,#ffffff);border-bottom:2px solid #e8f5e9;display:flex;align-items:center;gap:12px}
-.side-head .ico{width:40px;height:40px;background:#0f3d2e;color:white;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px}
+.side-head{padding:20px;background:linear-gradient(135deg,#1b5e20,#2e7d32);color:white;display:flex;align-items:center;gap:12px}
+.side-head .ico{width:42px;height:42px;background:white;color:#1b5e20;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900}
 .side-menu{padding:12px}
-.side-item{padding:13px 14px;border-radius:12px;display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:4px;font-size:13px;font-weight:700;color:#0f3d2e;transition:0.2s;border:1px solid transparent}
-.side-item:hover{background:#e8f5e9;border-color:#c8e6c9}
-.side-item.active{background:#0f3d2e;color:white;border-color:#0f3d2e}
-.side-item .si{font-size:18px;width:24px;height:24px;background:#e8f5e9;border-radius:8px;display:flex;align-items:center;justify-content:center}
-.side-item.active .si{background:rgba(255,255,255,0.2)}
-.content{flex:1;padding:20px 20px 90px 20px;margin-left:0;transition:0.3s;width:100%}
+.side-item{padding:13px 14px;border-radius:12px;display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:6px;font-size:13px;font-weight:700;color:#1b5e20;transition:0.2s;border:2px solid transparent;background:#f1f8e9}
+.side-item:hover{background:#c8e6c9;border-color:#2e7d32}
+.side-item.active{background:#2e7d32;color:white;border-color:#1b5e20}
+.side-item .si{font-size:18px;width:28px;height:28px;background:#2e7d32;color:white;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.side-item.active .si{background:white;color:#2e7d32}
+.content{flex:1;padding:20px 20px 90px 20px;transition:0.3s;width:100%}
 .content.shift{margin-left:270px;width:calc(100% - 270px)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
-.stat{background:white;border-radius:16px;padding:16px;display:flex;align-items:center;gap:14px;box-shadow:0 2px 12px rgba(15,61,46,0.06);border:1.5px solid #e8f5e9}
-.stat-ico{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;color:#0f3d2e;background:#e8f5e9}
-.stat h2{font-size:22px;font-weight:900;color:#0f3d2e}.stat p{font-size:11px;color:#5a8a5e;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
-.main-box{background:white;border-radius:18px;padding:22px;box-shadow:0 2px 16px rgba(15,61,46,0.06);border:1.5px solid #e8f5e9}
-.main-head{margin-bottom:18px;padding-bottom:14px;border-bottom:2px solid #e8f5e9}
-.main-head h2{font-size:18px;font-weight:800;color:#0f3d2e}.main-head p{font-size:12px;color:#6aa86e;margin-top:4px}
+.stat{background:white;border-radius:16px;padding:16px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 12px rgba(46,125,50,0.12);border:2px solid #2e7d32}
+.stat-ico{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;color:white;background:linear-gradient(135deg,#2e7d32,#66bb6a)}
+.stat h2{font-size:22px;font-weight:900;color:#1b5e20}.stat p{font-size:11px;color:#2e7d32;font-weight:800;text-transform:uppercase}
+.main-box{background:white;border-radius:18px;padding:22px;box-shadow:0 4px 20px rgba(46,125,50,0.1);border:2px solid #2e7d32}
+.main-head{margin-bottom:18px;padding-bottom:14px;border-bottom:3px solid #2e7d32}
+.main-head h2{font-size:18px;font-weight:900;color:#1b5e20}.main-head p{font-size:12px;color:#2e7d32;margin-top:4px;font-weight:600}
 .hub{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.hub-card{background:white;border:1.5px solid #e8f5e9;border-radius:16px;padding:22px 14px;text-align:center;cursor:pointer;transition:0.25s}
-.hub-card:hover{background:#f7fbf7;border-color:#2e7d32;transform:translateY(-3px);box-shadow:0 10px 24px rgba(15,61,46,0.1)}
-.hub-ico{width:60px;height:60px;border-radius:16px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0f3d2e;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:1px solid #c8e6c9}
-.hub-card h4{font-size:14px;font-weight:800;color:#0f3d2e;margin-bottom:4px}.hub-card .desc{font-size:11px;color:#6aa86e;margin-bottom:10px;line-height:1.3}
-.hub-card .count{font-size:12px;font-weight:800;padding:5px 12px;background:#e8f5e9;border-radius:20px;display:inline-block;color:#0f3d2e;border:1px solid #c8e6c9}
-.card{background:white;padding:18px;border-radius:16px;margin-bottom:14px;box-shadow:0 2px 12px rgba(15,61,46,0.06);border:1.5px solid #e8f5e9}
-.card h3{color:#0f3d2e;margin-bottom:10px;font-size:13px;font-weight:800}
-input,select{width:100%;padding:11px;margin:4px 0;border:1.5px solid #c8e6c9;border-radius:10px;outline:none;font-size:12px;background:#fcfefc}
-input:focus,select:focus{border-color:#2e7d32;background:white}
-.btn{background:linear-gradient(135deg,#0f3d2e,#2e7d32);color:white;padding:11px;border:none;border-radius:10px;width:100%;font-weight:800;cursor:pointer;font-size:12px}
+.hub-card{background:white;border:2px solid #2e7d32;border-radius:16px;padding:22px 14px;text-align:center;cursor:pointer;transition:0.25s;box-shadow:0 2px 8px rgba(46,125,50,0.08)}
+.hub-card:hover{background:#e8f5e9;border-color:#1b5e20;transform:translateY(-4px);box-shadow:0 12px 24px rgba(46,125,50,0.2)}
+.hub-ico{width:64px;height:64px;border-radius:16px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:30px;color:white;background:linear-gradient(135deg,#1b5e20,#43a047);box-shadow:0 4px 12px rgba(46,125,50,0.3)}
+.hub-card h4{font-size:14px;font-weight:900;color:#1b5e20;margin-bottom:4px}.hub-card .desc{font-size:11px;color:#388e3c;margin-bottom:10px;font-weight:500}
+.hub-card .count{font-size:12px;font-weight:900;padding:6px 14px;background:#1b5e20;border-radius:20px;display:inline-block;color:white}
+.card{background:white;padding:18px;border-radius:16px;margin-bottom:14px;box-shadow:0 2px 12px rgba(46,125,50,0.08);border:2px solid #a5d6a7}
+.card h3{color:#1b5e20;margin-bottom:10px;font-size:13px;font-weight:900}
+input,select{width:100%;padding:11px;margin:4px 0;border:2px solid #66bb6a;border-radius:10px;outline:none;font-size:12px;background:#f1f8e9}
+input:focus,select:focus{border-color:#1b5e20;background:white}
+.btn{background:linear-gradient(135deg,#1b5e20,#2e7d32);color:white;padding:11px;border:none;border-radius:10px;width:100%;font-weight:900;cursor:pointer;font-size:12px;box-shadow:0 2px 8px rgba(46,125,50,0.3)}
 .btn-small{padding:6px 10px;font-size:10px;width:auto;display:inline-block}
-.btn-back{background:white;color:#0f3d2e;padding:8px 16px;border:1.5px solid #c8e6c9;border-radius:20px;font-weight:700;cursor:pointer;font-size:11px}
-table{width:100%;border-collapse:collapse;font-size:11px}th{background:#e8f5e9;color:#0f3d2e;padding:10px;text-align:left;font-weight:800}td{padding:10px;border-bottom:1px solid #f1f8f1}
+.btn-back{background:white;color:#1b5e20;padding:8px 16px;border:2px solid #2e7d32;border-radius:20px;font-weight:800;cursor:pointer;font-size:11px}
+table{width:100%;border-collapse:collapse;font-size:11px}th{background:#2e7d32;color:white;padding:10px;text-align:left;font-weight:800}td{padding:10px;border-bottom:1px solid #c8e6c9}
 .hidden{display:none!important}
 @media(max-width:900px){.content.shift{margin-left:0;width:100%}.stats{grid-template-columns:repeat(2,1fr)}.hub{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 <div id="loginScreen" class="login-screen">
-<div class="login-box"><h1 style="color:#0f3d2e">🏥 Diana Rose</h1><p style="color:#6aa86e;margin:6px 0">Thika • Clean Hospital System</p>
+<div class="login-box"><h1 style="color:#1b5e20">🏥 Diana Rose</h1><p style="color:#2e7d32;margin:6px 0;font-weight:700">Thika • Real Green Hospital System</p>
 <input id="loginPass" type="password" value="Hospital.test" style="margin-top:12px">
-<button class="btn-login" onclick="doLogin()">🔐 Login</button><div id="loginError" style="color:#c62828;margin-top:6px;font-size:10px"></div></div></div>
+<button class="btn-login" onclick="doLogin()">🔐 Login — Real Green</button><div id="loginError" style="color:#c62828;margin-top:6px;font-size:10px"></div></div></div>
 
 <div id="app" class="hidden">
 <div class="header-bar">
 <button class="menu-btn" onclick="toggleMenu()">☰</button>
 <h1>Diana Rose Hospital - Thika</h1>
-<div style="display:flex;gap:10px;align-items:center"><span style="font-size:10px;background:#e8f5e9;padding:5px 10px;border-radius:10px;font-weight:800;color:#0f3d2e">CLEAN</span><div style="width:36px;height:36px;background:#0f3d2e;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px">PD</div></div>
+<div style="display:flex;gap:10px;align-items:center"><span style="font-size:10px;background:#4caf50;padding:6px 12px;border-radius:20px;font-weight:900;color:white">GREEN</span><div style="width:38px;height:38px;background:white;color:#1b5e20;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900">PD</div></div>
 </div>
 
 <div class="sidebar" id="sidebar">
-<div class="side-head"><div class="ico">DR</div><div><div style="font-weight:800;font-size:14px;color:#0f3d2e">Diana Rose</div><div style="font-size:11px;color:#6aa86e">Hospital System</div></div></div>
+<div class="side-head"><div class="ico">DR</div><div><div style="font-weight:900;font-size:15px">Diana Rose</div><div style="font-size:11px;opacity:0.9">Real Green System</div></div></div>
 <div class="side-menu">
 <div class="side-item active" onclick="sideNav('dashboard',this)"><span class="si">🏠</span><div>Dashboard</div></div>
-<div class="side-item" onclick="sideNav('patients',this)"><span class="si">👥</span><div><div>Patients & Billing</div><div style="font-size:10px;color:#6aa86e">Records & billing</div></div></div>
-<div class="side-item" onclick="sideNav('pharmacy',this)"><span class="si">💊</span><div><div>Pharmacy</div><div style="font-size:10px;color:#6aa86e">Stock & medicines</div></div></div>
-<div class="side-item" onclick="sideNav('reports',this)"><span class="si">💰</span><div><div>Money Reports</div><div style="font-size:10px;color:#6aa86e">Revenue overview</div></div></div>
-<div class="side-item" onclick="sideNav('doctors',this)"><span class="si">👨‍⚕️</span><div><div>Doctors</div><div style="font-size:10px;color:#6aa86e">Medical team</div></div></div>
-<div class="side-item" onclick="sideNav('appointments',this)"><span class="si">📅</span><div><div>Appointments</div><div style="font-size:10px;color:#6aa86e">Bookings</div></div></div>
+<div class="side-item" onclick="sideNav('patients',this)"><span class="si">👥</span><div><div>Patients & Billing</div><div style="font-size:10px;color:#2e7d32">Records & billing</div></div></div>
+<div class="side-item" onclick="sideNav('pharmacy',this)"><span class="si">💊</span><div><div>Pharmacy</div><div style="font-size:10px;color:#2e7d32">Stock & medicines</div></div></div>
+<div class="side-item" onclick="sideNav('reports',this)"><span class="si">💰</span><div><div>Money Reports</div><div style="font-size:10px;color:#2e7d32">Revenue overview</div></div></div>
+<div class="side-item" onclick="sideNav('doctors',this)"><span class="si">👨‍⚕️</span><div><div>Doctors</div><div style="font-size:10px;color:#2e7d32">Medical team</div></div></div>
+<div class="side-item" onclick="sideNav('appointments',this)"><span class="si">📅</span><div><div>Appointments</div><div style="font-size:10px;color:#2e7d32">Bookings</div></div></div>
 </div>
-<div style="padding:16px;border-top:1.5px solid #e8f5e9;margin-top:10px"><div style="display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;background:#e8f5e9;border-radius:50%;display:flex;align-items:center;justify-content:center">👤</div><div><div style="font-weight:800;font-size:12px;color:#0f3d2e">Dr. Peter Muithi</div><div style="font-size:10px;color:#2e7d32">Admin • Online</div></div></div><div style="margin-top:14px;cursor:pointer;color:#6aa86e;font-size:12px;font-weight:700" onclick="logout()">🚪 Log out</div></div>
+<div style="padding:16px;border-top:2px solid #2e7d32;margin-top:10px"><div style="display:flex;align-items:center;gap:10px"><div style="width:38px;height:38px;background:#2e7d32;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center">👤</div><div><div style="font-weight:900;font-size:12px;color:#1b5e20">Dr. Peter Muithi</div><div style="font-size:10px;color:#2e7d32;font-weight:700">Admin • Online</div></div></div><div style="margin-top:14px;cursor:pointer;color:#1b5e20;font-size:12px;font-weight:800" onclick="logout()">🚪 Log out</div></div>
 </div>
 
 <div id="overlay" class="sidebar-overlay" onclick="toggleMenu()"></div>
@@ -91,7 +91,7 @@ table{width:100%;border-collapse:collapse;font-size:11px}th{background:#e8f5e9;c
 <div class="stat"><div class="stat-ico">💰</div><div><h2 id="c-money">2,500</h2><p>KSh Total</p></div></div>
 </div>
 <div class="main-box">
-<div class="main-head"><h2>Main Dashboard — Click to Open</h2><p>Clean hospital management — White & Green only</p></div>
+<div class="main-head"><h2>Main Dashboard — Real Green Edition</h2><p>Strong green hospital management — No more pale!</p></div>
 <div class="hub">
 <div class="hub-card" onclick="sideNav('patients')"><div class="hub-ico">👥</div><h4>Patients & Billing</h4><div class="desc">Manage patient records & billing</div><div class="count" id="hub-p">4 patients</div></div>
 <div class="hub-card" onclick="sideNav('pharmacy')"><div class="hub-ico">💊</div><h4>Pharmacy</h4><div class="desc">Stock & medicines inventory</div><div class="count" id="hub-ph">4 medicines</div></div>
@@ -107,7 +107,7 @@ table{width:100%;border-collapse:collapse;font-size:11px}th{background:#e8f5e9;c
 
 <div id="pharmacy" class="tab hidden"><button class="btn-back" onclick="sideNav('dashboard')">⬅ Dashboard</button><div class="card" style="margin-top:10px"><h3>💊 Add Medicine</h3><div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:4px"><input id="m-name" placeholder="Medicine"><input id="m-stock" type="number" placeholder="Stock"><input id="m-price" type="number" placeholder="Price"></div><input id="m-category" placeholder="Category"><button class="btn" onclick="addMedicine()">Add</button></div><div class="card"><h3>Stock</h3><table><thead><tr><th>Medicine</th><th>Stock</th><th>Price</th><th>Action</th></tr></thead><tbody id="pharmacy-list"></tbody></table></div></div>
 
-<div id="reports" class="tab hidden"><button class="btn-back" onclick="sideNav('dashboard')">⬅ Dashboard</button><div class="card" style="margin-top:10px"><h3>💰 Money Report - <span id="today-date"></span></h3><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px;text-align:center"><div><h3 id="r-total" style="color:#0f3d2e">KSh 0</h3><p style="font-size:9px">TOTAL</p></div><div><h3 id="r-mpesa" style="color:#2e7d32">KSh 0</h3><p style="font-size:9px">M-PESA</p></div><div><h3 id="r-cash" style="color:#0f3d2e">KSh 0</h3><p style="font-size:9px">CASH</p></div><div><h3 id="r-count" style="color:#0f3d2e">0</h3><p style="font-size:9px">Patients</p></div></div></div><div class="card"><h3>Breakdown</h3><table><thead><tr><th>Patient</th><th>Bill</th><th>Method</th></tr></thead><tbody id="reports-list"></tbody></table></div></div>
+<div id="reports" class="tab hidden"><button class="btn-back" onclick="sideNav('dashboard')">⬅ Dashboard</button><div class="card" style="margin-top:10px"><h3>💰 Money Report - <span id="today-date"></span></h3><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px;text-align:center"><div><h3 id="r-total" style="color:#1b5e20">KSh 0</h3><p style="font-size:9px">TOTAL</p></div><div><h3 id="r-mpesa" style="color:#2e7d32">KSh 0</h3><p style="font-size:9px">M-PESA</p></div><div><h3 id="r-cash" style="color:#1b5e20">KSh 0</h3><p style="font-size:9px">CASH</p></div><div><h3 id="r-count" style="color:#1b5e20">0</h3><p style="font-size:9px">Patients</p></div></div></div><div class="card"><h3>Breakdown</h3><table><thead><tr><th>Patient</th><th>Bill</th><th>Method</th></tr></thead><tbody id="reports-list"></tbody></table></div></div>
 
 <div id="doctors" class="tab hidden"><button class="btn-back" onclick="sideNav('dashboard')">⬅ Dashboard</button><div class="card" style="margin-top:10px"><h3>👨‍⚕️ Add Doctor</h3><input id="d-name" placeholder="Name"><input id="d-spec" placeholder="Spec"><input id="d-phone" placeholder="Phone"><button class="btn" onclick="addDoctor()">Save</button></div><div class="card"><h3>Team</h3><table><thead><tr><th>Name</th><th>Spec</th><th>Phone</th></tr></thead><tbody id="doctors-list"></tbody></table></div></div>
 
@@ -117,7 +117,7 @@ table{width:100%;border-collapse:collapse;font-size:11px}th{background:#e8f5e9;c
 </div>
 </div>
 
-<div id="receipt" style="display:none;background:white;padding:28px;max-width:400px;margin:20px auto;border:2px solid #0f3d2e"><div style="text-align:center;border-bottom:2px solid #0f3d2e;padding-bottom:10px;margin-bottom:12px"><h2 style="color:#0f3d2e">🏥 Diana Rose</h2><p style="font-size:10px">Thika, Kenya • 0763424343</p></div><h3 style="text-align:center;margin-bottom:10px">OFFICIAL RECEIPT</h3><p style="font-size:11px">Receipt No: <b id="r-no"></b></p><p style="font-size:11px">Date: <b id="r-date"></b></p><p style="font-size:11px">Patient: <b id="r-name"></b></p><p style="font-size:11px">Medicine: <b id="r-med"></b></p><div style="border-top:1px dashed #999;margin:10px 0;padding-top:10px"><p style="font-size:13px">Bill: <b style="color:#0f3d2e" id="r-bill"></b></p><p style="font-size:11px">Payment: <b id="r-pay"></b></p></div><div style="text-align:center;margin-top:14px"><button class="btn" onclick="window.print()">🖨️ Print</button><button class="btn" style="background:#777;margin-top:6px" onclick="closeReceipt()">Close</button></div></div>
+<div id="receipt" style="display:none;background:white;padding:28px;max-width:400px;margin:20px auto;border:3px solid #1b5e20"><div style="text-align:center;border-bottom:3px solid #1b5e20;padding-bottom:10px;margin-bottom:12px"><h2 style="color:#1b5e20">🏥 Diana Rose</h2><p style="font-size:10px">Thika, Kenya • 0763424343</p></div><h3 style="text-align:center;margin-bottom:10px">OFFICIAL RECEIPT</h3><p style="font-size:11px">Receipt No: <b id="r-no"></b></p><p style="font-size:11px">Date: <b id="r-date"></b></p><p style="font-size:11px">Patient: <b id="r-name"></b></p><p style="font-size:11px">Medicine: <b id="r-med"></b></p><div style="border-top:1px dashed #999;margin:10px 0;padding-top:10px"><p style="font-size:13px">Bill: <b style="color:#1b5e20" id="r-bill"></b></p><p style="font-size:11px">Payment: <b id="r-pay"></b></p></div><div style="text-align:center;margin-top:14px"><button class="btn" onclick="window.print()">🖨️ Print</button><button class="btn" style="background:#777;margin-top:6px" onclick="closeReceipt()">Close</button></div></div>
 
 <script>
 const PASS="Hospital.test";
@@ -134,9 +134,9 @@ function toggleMenu(){let sb=document.getElementById('sidebar');let ov=document.
 function sideNav(id,el){document.querySelectorAll('.side-item').forEach(x=>x.classList.remove('active'));if(el)el.classList.add('active');showTab(id);if(window.innerWidth<=900){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('show');}}
 function showTab(n){document.querySelectorAll('.tab').forEach(t=>t.classList.add('hidden'));document.getElementById(n).classList.remove('hidden');render();}
 function render(){let p=getData('patients');let d=getData('doctors');let m=getData('medicines');let a=getData('appointments');document.getElementById('c-p').innerText=p.length;document.getElementById('c-d').innerText=d.length;document.getElementById('c-ph').innerText=m.length;let total=p.reduce((s,x)=>s+(parseInt(x.bill)||0),0);document.getElementById('c-money').innerText=total.toLocaleString();document.getElementById('hub-p').innerText=p.length+" patients";document.getElementById('hub-ph').innerText=m.length+" medicines";document.getElementById('hub-d').innerText=d.length+" doctors";document.getElementById('hub-a').innerText=a.length+" today";document.getElementById('hub-money').innerText="KSh "+total.toLocaleString();document.getElementById('p-count').innerText=p.length;let td=document.getElementById('today-date');if(td)td.innerText=new Date().toLocaleDateString();let rt=document.getElementById('r-total');if(rt){rt.innerText="KSh "+total.toLocaleString();document.getElementById('r-mpesa').innerText="KSh "+p.filter(x=>x.pay==='M-Pesa').reduce((s,x)=>s+(parseInt(x.bill)||0),0).toLocaleString();document.getElementById('r-cash').innerText="KSh "+p.filter(x=>x.pay==='Cash').reduce((s,x)=>s+(parseInt(x.bill)||0),0).toLocaleString();document.getElementById('r-count').innerText=p.length;}
-document.getElementById('patients-list').innerHTML=p.map((x,i)=>`<tr><td><b>${x.name}</b></td><td style="color:#0f3d2e;font-weight:bold">KSh ${x.bill||0}</td><td>${x.medicine||''}</td><td><button class="btn btn-small" onclick="printReceipt(${i})">🧾</button></td></tr>`).join('');
+document.getElementById('patients-list').innerHTML=p.map((x,i)=>`<tr><td><b>${x.name}</b></td><td style="color:#1b5e20;font-weight:bold">KSh ${x.bill||0}</td><td>${x.medicine||''}</td><td><button class="btn btn-small" onclick="printReceipt(${i})">🧾</button></td></tr>`).join('');
 document.getElementById('pharmacy-list').innerHTML=m.map((x,i)=>`<tr><td><b>${x.name}</b></td><td>${x.stock}</td><td>KSh ${x.price}</td><td><button class="btn btn-small" style="background:#c62828" onclick="useMedicine(${i})">Use</button></td></tr>`).join('');
-let rl=document.getElementById('reports-list');if(rl)rl.innerHTML=p.map(x=>`<tr><td>${x.name}</td><td style="color:#0f3d2e;font-weight:bold">KSh ${x.bill||0}</td><td>${x.pay}</td></tr>`).join('');
+let rl=document.getElementById('reports-list');if(rl)rl.innerHTML=p.map(x=>`<tr><td>${x.name}</td><td style="color:#1b5e20;font-weight:bold">KSh ${x.bill||0}</td><td>${x.pay}</td></tr>`).join('');
 document.getElementById('doctors-list').innerHTML=d.map(x=>`<tr><td><b>${x.name}</b></td><td>${x.specialization}</td><td>${x.phone||''}</td></tr>`).join('');
 document.getElementById('appointments-list').innerHTML=a.map(x=>`<tr><td>${x.date}</td><td>${x.time}</td><td>${x.reason||''}</td></tr>`).join('')||'<tr><td colspan=3 style="text-align:center;color:#999">No appointments</td></tr>';
 document.getElementById('p-medicine').innerHTML='<option value="">Select Medicine</option>'+m.map(x=>`<option value="${x.name}">${x.name} (${x.stock})</option>`).join('');
