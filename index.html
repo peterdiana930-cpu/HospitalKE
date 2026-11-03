@@ -1,22 +1,154 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HospitalKE</title>
-<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#eef2f7;padding:20px}.card{max-width:850px;margin:0 auto;background:#fff;border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.1)}.top{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;background:#16a34a;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:bold}h1{color:#1e3a8a}.badge{background:#dcfce7;border:2px solid #22c55e;color:#15803d;padding:10px 16px;border-radius:10px;font-weight:bold;display:inline-block;margin:14px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}input{padding:13px;border:2px solid #e2e8f0;border-radius:10px;width:100%}.btn{grid-column:span 2;background:#16a34a;color:#fff;border:none;padding:15px;border-radius:10px;font-weight:bold;font-size:17px;cursor:pointer}table{width:100%;margin-top:22px;border-collapse:collapse}th{background:#f1f5f9;padding:12px;text-align:left;color:#64748b;font-size:12px}td{padding:12px;border-top:1px solid #eee}</style>
-</head><body><div class="card"><div class="top"><div class="logo">+</div><h1>HospitalKE — Permanent DB</h1></div>
-<div class="badge">✅ Connected • Data will NEVER disappear again!</div>
-<h3 style="margin-top:10px">Add New Patient</h3>
-<div class="grid">
-<input id="n" placeholder="Patient Name - e.g. Aisha Wanjiru">
-<input id="c" placeholder="County - e.g. Nairobi">
-<input id="co" placeholder="Condition - e.g. Malaria">
-<input id="a" type="number" placeholder="Age">
-<button class="btn" onclick="add()">+ Add Patient — Save Forever</button>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diana Rose Hospital - Professional System</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f0f4f8}
+.header{background:#0d47a1;color:white;padding:15px;text-align:center}
+.nav{display:flex;background:white;box-shadow:0 2px 5px rgba(0,0,0,0.1);overflow-x:auto}
+.nav button{flex:1;padding:15px;border:none;background:white;cursor:pointer;font-weight:bold;border-bottom:3px solid transparent}
+.nav button.active{border-bottom:3px solid #0d47a1;color:#0d47a1;background:#e3f2fd}
+.container{max-width:1000px;margin:20px auto;padding:0 15px}
+.card{background:white;padding:20px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);margin-bottom:20px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-bottom:20px}
+.stat{background:white;padding:20px;border-radius:10px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+.stat h2{font-size:32px;color:#0d47a1}
+input,select,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:6px}
+button.btn{background:#0d47a1;color:white;padding:12px 20px;border:none;border-radius:6px;cursor:pointer;width:100%;font-weight:bold}
+button.btn:hover{background:#1565c0}
+table{width:100%;border-collapse:collapse;margin-top:15px}
+th,td{padding:10px;text-align:left;border-bottom:1px solid #ddd}
+th{background:#e3f2fd}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🏥 Diana Rose Hospital</h1>
+<p>Professional Management System - Thika, Kenya</p>
 </div>
-<h2 style="margin-top:26px">Patient Records <span id="cnt" style="float:right;font-size:13px;color:#666"></span></h2>
-<table><thead><tr><th>ID</th><th>NAME</th><th>COUNTY</th><th>CONDITION</th></tr></thead><tbody id="list"><tr><td colspan="4" style="text-align:center;color:#999;padding:20px">No patients yet</td></tr></tbody></table>
+<div class="nav">
+<button onclick="showTab('dashboard')" id="tab-dashboard" class="active">📊 Dashboard</button>
+<button onclick="showTab('patients')" id="tab-patients">👥 Patients</button>
+<button onclick="showTab('doctors')" id="tab-doctors">👨‍⚕️ Doctors</button>
+<button onclick="showTab('appointments')" id="tab-appointments">📅 Appointments</button>
 </div>
+
+<div class="container">
+<!-- DASHBOARD -->
+<div id="dashboard" class="tab">
+<div class="stats">
+<div class="stat"><h2 id="count-patients">0</h2><p>Patients</p></div>
+<div class="stat"><h2 id="count-doctors">0</h2><p>Doctors</p></div>
+<div class="stat"><h2 id="count-appointments">0</h2><p>Appointments</p></div>
+</div>
+<div class="card">
+<h3>Welcome Dr. Peter & Diana!</h3>
+<p style="margin-top:10px">This is your professional system. Manage patients, doctors, and bookings in real-time. All data is saved in Supabase cloud.</p>
+</div>
+</div>
+
+<!-- PATIENTS -->
+<div id="patients" class="tab hidden">
+<div class="card">
+<h3>Add New Patient</h3>
+<input id="p-name" placeholder="Full Name (e.g. John Kamau)">
+<input id="p-county" placeholder="County (e.g. Nairobi)">
+<input id="p-condition" placeholder="Condition (e.g. Malaria)">
+<input id="p-age" type="number" placeholder="Age">
+<button class="btn" onclick="addPatient()">Add Patient</button>
+</div>
+<div class="card">
+<h3>Patient List</h3>
+<table><thead><tr><th>Name</th><th>County</th><th>Condition</th><th>Age</th></tr></thead><tbody id="patients-list"></tbody></table>
+</div>
+</div>
+
+<!-- DOCTORS -->
+<div id="doctors" class="tab hidden">
+<div class="card">
+<h3>Add New Doctor</h3>
+<input id="d-name" placeholder="Dr. Name">
+<input id="d-spec" placeholder="Specialization">
+<input id="d-phone" placeholder="Phone">
+<button class="btn" onclick="addDoctor()">Add Doctor</button>
+</div>
+<div class="card">
+<h3>Doctors Available</h3>
+<table><thead><tr><th>Name</th><th>Specialization</th><th>Phone</th></tr></thead><tbody id="doctors-list"></tbody></table>
+</div>
+</div>
+
+<!-- APPOINTMENTS -->
+<div id="appointments" class="tab hidden">
+<div class="card">
+<h3>Book Appointment</h3>
+<select id="a-patient"></select>
+<select id="a-doctor"></select>
+<input id="a-date" type="date">
+<input id="a-time" type="time">
+<input id="a-reason" placeholder="Reason">
+<button class="btn" onclick="addAppointment()">Book Appointment</button>
+</div>
+<div class="card">
+<h3>Appointments List</h3>
+<table><thead><tr><th>Date</th><th>Time</th><th>Reason</th><th>Status</th></tr></thead><tbody id="appointments-list"></tbody></table>
+</div>
+</div>
+</div>
+
 <script>
-let patients=JSON.parse(localStorage.getItem('hospitalke_final_v2')||'[]');
-function render(){document.getElementById('cnt').innerText='Total: '+patients.length+' patients';let t=document.getElementById('list');if(!patients.length){t.innerHTML='<tr><td colspan=4 style=text-align:center;color:#999;padding:20px>No patients yet - Add first!</td></tr>';return} t.innerHTML=patients.map((p,i)=>`<tr><td>P00${i+1}</td><td><b>${p.name}</b></td><td>${p.county}</td><td><span style="background:#fef9c3;padding:3px 8px;border-radius:10px">${p.condition}</span></td></tr>`).join('')}
-function add(){let name=document.getElementById('n').value,county=document.getElementById('c').value,cond=document.getElementById('co').value,age=document.getElementById('a').value;if(!name||!county||!cond){alert('Fill all');return} patients.push({name,county,condition:cond,age});localStorage.setItem('hospitalke_final_v2',JSON.stringify(patients));document.getElementById('n').value='';document.getElementById('c').value='';document.getElementById('co').value='';document.getElementById('a').value='';render()}render();
-</script></body></html>
+const SUPABASE_URL = "https://xhguvilkavzkydkkeajgf.supabase.co";
+const SUPABASE_KEY = "sb_publishable_tapBaeOUfFI-Ax1r6XtVdw_8VDqAzNg";
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+function showTab(name){
+document.querySelectorAll('.tab').forEach(t=>t.classList.add('hidden'));
+document.getElementById(name).classList.remove('hidden');
+document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+document.getElementById('tab-'+name).classList.add('active');
+if(name!=='dashboard') loadAll();
+}
+
+async function loadAll(){
+const {data:patients}=await supabase.from('patients').select('*').order('id',{ascending:false});
+const {data:doctors}=await supabase.from('doctors').select('*').order('id',{ascending:false});
+const {data:appointments}=await supabase.from('appointments').select('*').order('id',{ascending:false});
+
+document.getElementById('count-patients').innerText=patients?.length||0;
+document.getElementById('count-doctors').innerText=doctors?.length||0;
+document.getElementById('count-appointments').innerText=appointments?.length||0;
+
+document.getElementById('patients-list').innerHTML=(patients||[]).map(p=>`<tr><td>${p.name}</td><td>${p.county}</td><td>${p.condition}</td><td>${p.age}</td></tr>`).join('');
+document.getElementById('doctors-list').innerHTML=(doctors||[]).map(d=>`<tr><td>${d.name}</td><td>${d.specialization}</td><td>${d.phone}</td></tr>`).join('');
+document.getElementById('appointments-list').innerHTML=(appointments||[]).map(a=>`<tr><td>${a.date}</td><td>${a.time}</td><td>${a.reason}</td><td>${a.status}</td></tr>`).join('');
+
+document.getElementById('a-patient').innerHTML=(patients||[]).map(p=>`<option value="${p.id}">${p.name}</option>`).join('');
+document.getElementById('a-doctor').innerHTML=(doctors||[]).map(d=>`<option value="${d.id}">${d.name} - ${d.specialization}</option>`).join('');
+}
+
+async function addPatient(){
+const name=document.getElementById('p-name').value;
+if(!name) return alert('Enter name');
+await supabase.from('patients').insert([{name,county:document.getElementById('p-county').value,condition:document.getElementById('p-condition').value,age:parseInt(document.getElementById('p-age').value)}]);
+alert('Patient Added!');loadAll();
+}
+async function addDoctor(){
+const name=document.getElementById('d-name').value;
+if(!name) return alert('Enter name');
+await supabase.from('doctors').insert([{name,specialization:document.getElementById('d-spec').value,phone:document.getElementById('d-phone').value}]);
+alert('Doctor Added!');loadAll();
+}
+async function addAppointment(){
+await supabase.from('appointments').insert([{patient_id:document.getElementById('a-patient').value,doctor_id:document.getElementById('a-doctor').value,date:document.getElementById('a-date').value,time:document.getElementById('a-time').value,reason:document.getElementById('a-reason').value}]);
+alert('Appointment Booked!');loadAll();
+}
+
+loadAll();
+</script>
+</body>
+</html>
