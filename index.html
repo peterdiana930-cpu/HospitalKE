@@ -1,96 +1,110 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diana Rose v4.0 ULTIMATE - FIXED BUTTONS</title>
+<title>Diana Rose Hospital - Original</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:sans-serif;background:#f8fafc}
-.header{background:linear-gradient(135deg,#0f172a,#1e40af);color:#fff;padding:15px;display:flex;justify-content:space-between}
-.nav{display:flex;gap:6px;overflow:auto;padding:10px;background:#fff;position:sticky;top:0;z-index:100}
-.nav button{padding:8px 12px;border:1px solid #ddd;border-radius:20px;background:#fff;font-weight:700;font-size:12px;cursor:pointer}
-.nav button.active{background:#1e40af;color:#fff}
-.card{background:#fff;border-radius:10px;padding:14px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
-.stat{padding:20px;border-radius:12px;color:#fff;text-align:center} .stat h3{font-size:28px}
-.btn{padding:10px 14px;border:none;border-radius:8px;font-weight:700;cursor:pointer}
-.btn-blue{background:#1e40af;color:#fff} .btn-green{background:#059669;color:#fff} .btn-red{background:#dc2626;color:#fff}
-table{width:100%;border-collapse:collapse;font-size:12px} th,td{padding:8px;border-bottom:1px solid #eee;text-align:left}
-.input{padding:9px;border:1px solid #ddd;border-radius:6px;width:100%;margin:5px 0}
-.badge{padding:3px 7px;border-radius:10px;font-size:11px;font-weight:700} .free{background:#dcfce7;color:#166534} .low{background:#fef3c7;color:#92400e} .exp{background:#fecaca;color:#7f1d1d}
-.alert{padding:10px;border-radius:6px;margin:6px 0;font-size:12px;font-weight:600}
-.alert-red{background:#fee2e2;color:#991b1b} .alert-yellow{background:#fef3c7;color:#92400e} .alert-green{background:#dcfce7;color:#166534}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:#f1f5f9;display:flex}
+.sidebar{width:250px;background:#0f2a4d;color:#fff;min-height:100vh;position:fixed;left:0;top:0;padding:15px}
+.menu a{display:flex;align-items:center;gap:12px;padding:12px 15px;color:#cbd5e1;text-decoration:none;border-radius:8px;margin:4px 0;font-size:14px;cursor:pointer}
+.menu a.active,.menu a:hover{background:#1e88e5;color:#fff}
+.main{margin-left:250px;flex:1}
+.topbar{background:#fff;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.1);position:sticky;top:0;z-index:10}
+.search{width:380px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:20px;padding:8px 15px;display:flex;gap:10px;align-items:center}
+.search input{border:none;outline:none;background:transparent;width:100%}
+.banner{background:linear-gradient(90deg,#0f2a5a,#1e88e5);border-radius:12px;margin:15px 20px;color:#fff;padding:22px 25px;display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden}
+.banner img{position:absolute;right:0;top:0;height:100%;width:50%;object-fit:cover;opacity:.85}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin:0 20px}
+.stat-card{background:#fff;border-radius:12px;padding:15px;display:flex;align-items:center;gap:15px}
+.stat-icon{width:55px;height:55px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.mid{display:grid;grid-template-columns:1.2fr .8fr .6fr;gap:15px;margin:15px 20px}
+.card{background:#fff;border-radius:12px;padding:15px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qbtn{background:#eff6ff;border:1px solid #dbeafe;border-radius:10px;padding:12px;text-align:center;cursor:pointer;font-size:11px;font-weight:600;color:#1e40af}
+.qbtn i{font-size:18px;display:block;margin-bottom:4px}
+.bottom{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:15px;margin:0 20px 20px 20px}
+.input{width:100%;padding:8px;border:1px solid #e2e8f0;border-radius:6px;margin:3px 0;font-size:12px}
+.btn-blue{background:#1e88e5;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:600}
+.table{width:100%;border-collapse:collapse;font-size:12px} .table th,.table td{padding:7px;border-bottom:1px solid #f1f5f9;text-align:left}
+.badge{padding:3px 8px;border-radius:12px;font-size:10px;font-weight:600} .confirmed{background:#dcfce7;color:#166534} .pending{background:#fef3c7;color:#92400e}
+.hidden{display:none} .page{padding-bottom:20px}
+@media(max-width:900px){.sidebar{width:100%;position:relative;min-height:auto}.main{margin-left:0}.stats,.mid,.bottom{grid-template-columns:1fr}}
 </style></head><body>
-<div class="header"><div><b>DIANA ROSE v4.0 ULTIMATE</b><br><small>5M+ - Charts + Theatre | Blood | Maternity | Payroll | SMS | Expiry</small></div><div><small id="t"></small></div></div>
-<div class="nav">
-<button onclick="show('dash',this)" class="active">📊 Dash</button>
-<button onclick="show('wards',this)">🛏️ Wards</button>
-<button onclick="show('pharma',this)">💊 Pharma</button>
-<button onclick="show('theatre',this)">🏥 Theatre</button>
-<button onclick="show('blood',this)">🩸 Blood</button>
-<button onclick="show('mat',this)">👶 Maternity</button>
-<button onclick="show('pay',this)">💰 Payroll</button>
-<button onclick="show('sms',this)">📱 SMS</button>
+<div class="sidebar">
+<h2 style="display:flex;align-items:center;gap:10px"><i class="fa-solid fa-heart-circle-plus" style="background:#1e88e5;padding:8px;border-radius:50%"></i> Diana Rose Hospital</h2>
+<small style="margin-left:10px;font-size:11px;opacity:.8">Better Care. Healthier Community.</small>
+<div class="menu" style="margin-top:20px">
+<a onclick="showPage('dashboard',this)" class="active"><i class="fa-solid fa-house"></i> Dashboard</a>
+<a onclick="showPage('patients',this)"><i class="fa-solid fa-users"></i> Patients</a>
+<a onclick="showPage('appointments',this)"><i class="fa-regular fa-calendar"></i> Appointments</a>
+<a onclick="showPage('doctors',this)"><i class="fa-solid fa-stethoscope"></i> Doctors</a>
+<a onclick="showPage('departments',this)"><i class="fa-solid fa-building"></i> Departments</a>
+<a onclick="showPage('pharmacy',this)"><i class="fa-solid fa-pills"></i> Pharmacy - Expiry</a>
+<a onclick="showPage('lab',this)"><i class="fa-solid fa-flask"></i> Lab Results</a>
+<a onclick="showPage('billing',this)"><i class="fa-solid fa-credit-card"></i> Billing & Payments</a>
+<a onclick="showPage('reports',this)"><i class="fa-solid fa-chart-simple"></i> Reports</a>
+<a onclick="showPage('theatre',this)" style="background:#7c3aed;color:#fff;margin-top:12px"><i class="fa-solid fa-bed-pulse"></i> Theatre</a>
+<a onclick="showPage('blood',this)" style="background:#dc2626;color:#fff"><i class="fa-solid fa-droplet"></i> Blood Bank</a>
+<a onclick="showPage('maternity',this)" style="background:#ec4899;color:#fff"><i class="fa-solid fa-baby"></i> Maternity</a>
+<a onclick="showPage('payroll',this)" style="background:#059669;color:#fff"><i class="fa-solid fa-money-bill"></i> Payroll & HR</a>
 </div>
-<div style="padding:12px;max-width:1200px;margin:auto">
-<div id="dash" class="sec">
-<div class="grid">
-<div class="stat" style="background:linear-gradient(135deg,#1e40af,#3b82f6)"><p>Revenue Today</p><h3 id="rev">KSh 280K</h3></div>
-<div class="stat" style="background:linear-gradient(135deg,#059669,#10b981)"><p>Bed Occupancy</p><h3 id="occ">0%</h3></div>
-<div class="stat" style="background:linear-gradient(135deg,#dc2626,#ef4444)"><p>Low Stock</p><h3 id="low">0</h3></div>
-<div class="stat" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#000"><p>Theatre Today</p><h3 id="thC">1</h3></div>
 </div>
-<div class="grid" style="margin-top:12px">
-<div class="card"><h4>📈 Daily Revenue</h4><canvas id="c1" height="200"></canvas></div>
-<div class="card"><h4>🛏️ Ward Occupancy</h4><canvas id="c2" height="200"></canvas></div>
+<div class="main">
+<div class="topbar">
+<div class="search"><i class="fa-solid fa-magnifying-glass" style="color:#94a3b8"></i><input placeholder="Search patients, doctors..."></div>
+<div style="display:flex;align-items:center;gap:12px"><i class="fa-solid fa-bell" style="color:#1e40af;font-size:18px"></i><img src="https://randomuser.me/api/portraits/women/44.jpg" style="width:32px;height:32px;border-radius:50%"><div><b style="font-size:12px">Diana Petrona</b><br><small style="font-size:10px;color:#64748b">Admin</small></div></div>
 </div>
-<div class="card"><h4>🔔 Live Alerts</h4><div id="alerts"></div></div>
+
+<div id="dashboard" class="page">
+<div class="banner"><div style="z-index:2"><h1>Welcome, Diana!</h1><p>Manage patients, appointments and services easily.</p></div><img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=600&q=80"></div>
+
+<div class="stats">
+<div class="stat-card" style="background:#e8f0fe"><div class="stat-icon" style="background:#dbeafe;color:#1e88e5"><i class="fa-solid fa-users"></i></div><div><div style="font-size:11px">Total Patients</div><h3>1,250</h3><small style="color:#10b981">↑ 12%</small></div></div>
+<div class="stat-card" style="background:#e6f9ed"><div class="stat-icon" style="background:#dcfce7;color:#16a34a"><i class="fa-regular fa-calendar"></i></div><div><div style="font-size:11px">Today's Appointments</div><h3>86</h3><small style="color:#10b981">↑ 8%</small></div></div>
+<div class="stat-card" style="background:#f3e8ff"><div class="stat-icon" style="background:#e9d5ff;color:#7c3aed"><i class="fa-solid fa-bed"></i></div><div><div style="font-size:11px">Available Beds</div><h3>42</h3><small style="color:#7c3aed">↑ 5%</small></div></div>
+<div class="stat-card" style="background:#fff7e6"><div class="stat-icon" style="background:#ffedd5;color:#f59e0b"><i class="fa-solid fa-plus"></i></div><div><div style="font-size:11px">Pending Bills</div><h3>34</h3><small style="color:#10b981">↑ 3%</small></div></div>
 </div>
-<div id="wards" class="sec" style="display:none"><div class="card"><h3>🛏️ Wards & Beds</h3><div id="wList"></div></div></div>
-<div id="pharma" class="sec" style="display:none"><div class="card"><h3>💊 Pharmacy v4.0 Expiry</h3><input id="mN" class="input" placeholder="Medicine"><input id="mS" class="input" type="number" placeholder="Stock"><input id="mE" class="input" type="date"><input id="mM" class="input" type="number" placeholder="Min e.g.20"><button class="btn btn-blue" onclick="addM()">Add</button><table><thead><tr><th>Medicine</th><th>Stock</th><th>Expiry</th><th>Status</th></tr></thead><tbody id="pTable"></tbody></table></div></div>
-<div id="theatre" class="sec" style="display:none"><div class="card"><h3>🏥 Theatre Booking</h3><input id="tP" class="input" placeholder="Patient"><input id="tO" class="input" placeholder="Operation"><select id="tT" class="input"><option>Theatre 1</option><option>Theatre 2</option><option>Minor</option></select><input id="tS" class="input" placeholder="Surgeon"><input id="tD" class="input" type="datetime-local"><button class="btn btn-blue" onclick="addT()">Book</button><table><thead><tr><th>Patient</th><th>Op</th><th>Theatre</th><th>Surgeon</th><th>Date</th></tr></thead><tbody id="tTable"></tbody></table></div></div>
-<div id="blood" class="sec" style="display:none"><div class="card"><h3>🩸 Blood Bank</h3><select id="bG" class="input"><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>O+</option><option>O-</option><option>AB+</option><option>AB-</option></select><input id="bQ" class="input" type="number" placeholder="Units"><input id="bD" class="input" placeholder="Donor"><button class="btn btn-red" onclick="addB()">Add</button><div id="bStats" class="grid" style="margin-top:10px"></div><table><thead><tr><th>Group</th><th>Units</th><th>Donor</th></tr></thead><tbody id="bTable"></tbody></table></div></div>
-<div id="mat" class="sec" style="display:none"><div class="card"><h3>👶 Maternity</h3><input id="maM" class="input" placeholder="Mother"><input id="maB" class="input" placeholder="Baby"><select id="maG" class="input"><option>Male</option><option>Female</option></select><input id="maW" class="input" placeholder="Weight kg"><button class="btn btn-green" onclick="addMa()">Add Birth</button><table><thead><tr><th>Cert No</th><th>Mother</th><th>Baby</th><th>Weight</th></tr></thead><tbody id="maTable"></tbody></table></div></div>
-<div id="pay" class="sec" style="display:none"><div class="card"><h3>💰 Payroll & HR</h3><input id="sN" class="input" placeholder="Staff Name"><select id="sR" class="input"><option>Doctor</option><option>Nurse</option><option>Lab Tech</option><option>Pharmacy</option></select><input id="sS" class="input" type="number" placeholder="Salary KSh"><button class="btn btn-blue" onclick="addS()">Add Staff</button><div style="margin-top:10px">Total: <b id="tPay">KSh 0</b> | Staff: <b id="tStaff">0</b> <button class="btn btn-green" onclick="payAll()">Pay All</button></div><table><thead><tr><th>Name</th><th>Role</th><th>Salary</th><th>Status</th></tr></thead><tbody id="sTable"></tbody></table></div></div>
-<div id="sms" class="sec" style="display:none"><div class="card"><h3>📱 SMS Center</h3><input id="smsTo" class="input" placeholder="Phone 07..."><textarea id="smsMsg" class="input" placeholder="Message"></textarea><button class="btn btn-blue" onclick="sendS()">Send SMS</button><div id="smsLog" style="margin-top:10px"></div></div></div>
+
+<div class="mid">
+<div class="card"><h4>Patient Visits (Last 7 Days)</h4><canvas id="visits" height="180"></canvas></div>
+<div class="card"><h4>Department Overview</h4><div style="display:flex;align-items:center;gap:15px"><div style="width:130px"><canvas id="dept"></canvas></div><div style="font-size:11px;line-height:20px"><div>🔵 General Medicine 35%</div><div>🟢 Surgery 28%</div><div>🟣 Pediatrics 20%</div><div>🟠 Others 17%</div></div></div></div>
+<div class="card"><h4>Quick Actions</h4><div class="quick"><div class="qbtn"><i class="fa-solid fa-user-plus"></i>Register Patient</div><div class="qbtn"><i class="fa-regular fa-calendar"></i>Book Appointment</div><div class="qbtn"><i class="fa-solid fa-chart-simple"></i>View Reports</div><div class="qbtn"><i class="fa-solid fa-flask"></i>Check Lab Results</div></div></div>
+</div>
+
+<div class="bottom">
+<div class="card"><h4> Patient Registration</h4><div style="display:flex;gap:10px;margin-top:10px"><img src="https://randomuser.me/api/portraits/women/44.jpg" style="width:70px;height:80px;border-radius:8px;object-fit:cover"><div style="flex:1"><label style="font-size:10px">Full Name:</label><input class="input" value="Mary Wanjiku"><label style="font-size:10px">Phone:</label><input class="input" value="0712 345678"><label style="font-size:10px">Gender:</label><div style="font-size:11px"><input type="radio"> Male <input type="radio" checked> Female</div><label style="font-size:10px">Date of Birth:</label><input class="input" type="date" value="2004-05-12"><button class="btn-blue" style="width:100%;margin-top:6px">Register Patient</button></div></div></div>
+<div class="card"><h4> Appointments</h4><table class="table"><tr><th>Date</th><th>Time</th><th>Patient</th><th>Doctor</th><th>Status</th></tr><tr><td>Nov 3, 2026</td><td>09:00 AM</td><td>Mary Wanjiku</td><td>Dr. A. Kimani</td><td><span class="badge confirmed">Confirmed</span></td></tr><tr><td>Nov 3, 2026</td><td>10:30 AM</td><td>John Mwangi</td><td>Dr. S. Otieno</td><td><span class="badge pending">Pending</span></td></tr><tr><td>Nov 3, 2026</td><td>11:00 AM</td><td>Amina Yusuf</td><td>Dr. L. Njoroge</td><td><span class="badge confirmed">Confirmed</span></td></tr></table></div>
+<div class="card"><h4> Patient Record</h4><div style="display:flex;gap:8px;margin-top:8px"><img src="https://randomuser.me/api/portraits/women/44.jpg" style="width:55px;height:55px;border-radius:8px"><div style="font-size:11px;line-height:16px"><b>ID:</b> P-001245<br><b>Name:</b> Mary Wanjiku<br><b>Age:</b> 22 years<br><b>Gender:</b> Female<br><b>Phone:</b> 0712 345678</div></div><div style="margin-top:8px;border-top:1px solid #eee;padding-top:6px;font-size:10px"><b>Medical History</b><li>Fever – 20/10/2026</li><li>Flu – 05/09/2026</li></div></div>
+</div>
+</div>
+
+<div id="pharmacy" class="page hidden"><div class="card" style="margin:20px"><h3>💊 Pharmacy + Expiry Alerts</h3><input id="mN" class="input" placeholder="Medicine"><input id="mS" class="input" type="number" placeholder="Stock"><input id="mE" class="input" type="date"><button class="btn-blue" onclick="addM()">Add</button><table class="table"><thead><tr><th>Medicine</th><th>Stock</th><th>Expiry</th><th>Status</th></tr></thead><tbody id="pTable"></tbody></table></div></div>
+<div id="theatre" class="page hidden"><div class="card" style="margin:20px"><h3>🏥 Theatre Booking</h3><input id="tP" class="input" placeholder="Patient"><input id="tO" class="input" placeholder="Operation"><select id="tT" class="input"><option>Theatre 1</option><option>Theatre 2</option></select><input id="tS" class="input" placeholder="Surgeon"><input id="tD" class="input" type="datetime-local"><button class="btn-blue" onclick="addT()">Book</button><table class="table"><thead><tr><th>Patient</th><th>Op</th><th>Theatre</th></tr></thead><tbody id="tTable"></tbody></table></div></div>
+<div id="blood" class="page hidden"><div class="card" style="margin:20px"><h3>🩸 Blood Bank</h3><select id="bG" class="input"><option>A+</option><option>O+</option></select><input id="bQ" class="input" type="number" placeholder="Units"><input id="bD" class="input" placeholder="Donor"><button class="btn-blue" onclick="addB()">Add</button><table class="table"><thead><tr><th>Group</th><th>Units</th><th>Donor</th></tr></thead><tbody id="bTable"></tbody></table></div></div>
+<div id="patients" class="page hidden"><div class="card" style="margin:20px"><h3>Patients - 1,250 registered</h3></div></div>
+<div id="appointments" class="page hidden"><div class="card" style="margin:20px"><h3>Appointments - 86 today</h3></div></div>
+<div id="doctors" class="page hidden"><div class="card" style="margin:20px"><h3>Doctors</h3></div></div>
+<div id="maternity" class="page hidden"><div class="card" style="margin:20px"><h3>Maternity + Birth Certificates</h3></div></div>
+<div id="payroll" class="page hidden"><div class="card" style="margin:20px"><h3>Payroll & HR</h3></div></div>
 </div>
 <script>
-let beds=[],meds=[{name:'Paracetamol',stock:15,min:20,expiry:'2026-11-20'},{name:'Amoxicillin',stock:100,min:30,expiry:'2027-06-15'},{name:'Insulin',stock:5,min:10,expiry:'2026-11-05'}],theatres=[{p:'Jane Wanjiku',o:'C-Section',th:'Theatre 1',s:'Dr Kimani',d:'2026-11-04 09:00'}],bloods=[{g:'O+',q:12,d:'Peter M'},{g:'A+',q:3,d:'Mary A'}],births=[{cert:'DRH-BIRTH-2026-001',mo:'Grace',ba:'Hope',w:'3.2kg'}],staff=[{n:'Dr Kimani',r:'Doctor',s:250000,st:'Paid'},{n:'Nurse Wafula',r:'Nurse',s:45000,st:'Paid'}],rev=[120000,180000,220000,190000,250000,300000,280000];
-function show(id,btn){
- document.querySelectorAll('.sec').forEach(s=>s.style.display='none');
- document.getElementById(id).style.display='block';
- document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
- if(btn) btn.classList.add('active');
+let theatres=[],bloods=[{g:'O+',q:12,d:'Peter'}],meds=[{name:'Paracetamol',stock:15,expiry:'2026-11-20'}];
+function showPage(id,el){
+ document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+ document.getElementById(id).classList.remove('hidden');
+ document.querySelectorAll('.menu a').forEach(a=>a.classList.remove('active'));
+ if(el) el.classList.add('active');
 }
-function init(){
- let w=['Ward A','Ward A','Ward A','Ward A','Ward A','Ward B','Ward B','Ward B','Ward B','Ward B','ICU','ICU','ICU','ICU','ICU','Maternity','Maternity','Maternity','Maternity','Maternity'];
- w.forEach((x,i)=>beds.push({id:i+1,ward:x,st:Math.random()>0.5?'Occupied':'Free'}));
- render();
- try{
-  new Chart(document.getElementById('c1'),{type:'line',data:{labels:['Mon',[STRIPPED] KSh',data:rev,[STRIPPED]
-  new Chart(document.getElementById('c2'),{type:'doughnut',data:{labels:['Occupied',[STRIPPED]
- }catch(e){console.log(e)}
- document.getElementById('t').innerText=new Date().toLocaleString();
- setInterval(()=>{document.getElementById('t').innerText=new Date().toLocaleString()},1000);
+function addT(){let p=document.getElementById('tP').value,o=document.getElementById('tO').value,th=document.getElementById('tT').value;theatres.push({p,o,th});document.getElementById('tTable').innerHTML=theatres.map(t=>`<tr><td>${t.p}</td><td>${t.o}</td><td>${t.th}</td></tr>`).join('')}
+function addB(){let g=document.getElementById('bG').value,q=document.getElementById('bQ').value,d=document.getElementById('bD').value;bloods.push({g,q,d});document.getElementById('bTable').innerHTML=bloods.map(b=>`<tr><td>${b.g}</td><td>${b.q}</td><td>${b.d}</td></tr>`).join('')}
+function addM(){let n=document.getElementById('mN').value,s=document.getElementById('mS').value,e=document.getElementById('mE').value;meds.push({name:n,stock:s,expiry:e});document.getElementById('pTable').innerHTML=meds.map(m=>{let d=Math.ceil((new Date(m.expiry)-new Date())/86400000);let st=d<0?'EXPIRED':d<30?'Expires '+d+'d':'OK';return `<tr><td>${m.name}</td><td>${m.stock}</td><td>${m.expiry}</td><td>${st}</td></tr>`}).join('')}
+window.onload=()=>{
+ new Chart(document.getElementById('visits'),{type:'line',data:{labels:['Mon',[STRIPPED]
+ new Chart(document.getElementById('dept'),{type:'doughnut',data:{labels:['GM','Surgery','Peds','Others'],datasets:[{data:[35,[STRIPPED]
+ document.getElementById('pTable').innerHTML=meds.map(m=>`<tr><td>${m.name}</td><td>${m.stock}</td><td>${m.expiry}</td><td>OK</td></tr>`).join('');
+ document.getElementById('bTable').innerHTML=bloods.map(b=>`<tr><td>${b.g}</td><td>${b.q}</td><td>${b.d}</td></tr>`).join('');
 }
-function render(){
-document.getElementById('wList').innerHTML=beds.map(b=>`<span style="display:inline-block;padding:6px 10px;margin:4px;border-radius:8px;background:${b.st=='Free'?'#dcfce7':'#fee2e2'}">${b.ward}-Bed${b.id}:${b.st}</span>`).join('');
-document.getElementById('occ').innerText=Math.round(beds.filter(b=>b.st=='Occupied').length/beds.length*100)+'%';
-document.getElementById('pTable').innerHTML=meds.map(m=>{let d=Math.ceil((new Date(m.expiry)-new Date())/86400000);let st='OK',cl='free';if(d<0){st='EXPIRED';cl='exp'}else if(d<30){st='Expires '+d+'d';cl='exp'}else if(m.stock<=m.min){st='Low';cl='low'}return `<tr><td>${m.name}</td><td>${m.stock}</td><td>${m.expiry}</td><td><span class="badge ${cl}">${st}</span></td></tr>`}).join('');
-document.getElementById('low').innerText=meds.filter(m=>{let d=Math.ceil((new Date(m.expiry)-new Date())/86400000);return d<30||m.stock<=m.min}).length;
-document.getElementById('alerts').innerHTML=`<div class="alert alert-red">Pharmacy: ${meds.filter(m=>new Date(m.expiry)<new Date()).length} expired</div><div class="alert alert-yellow">Blood: A+ LOW</div><div class="alert alert-green">Theatre: 1 scheduled</div>`;
-document.getElementById('tTable').innerHTML=theatres.map(t=>`<tr><td>${t.p}</td><td>${t.o}</td><td>${t.th}</td><td>${t.s}</td><td>${t.d}</td></tr>`).join('');
-document.getElementById('thC').innerText=theatres.length;
-document.getElementById('bTable').innerHTML=bloods.map(b=>`<tr><td>${b.g}</td><td>${b.q}</td><td>${b.d}</td></tr>`).join('');
-let groups=['A+','A-','B+','B-','O+','O-','AB+','AB-'];document.getElementById('bStats').innerHTML=groups.map(g=>{let tot=bloods.filter(b=>b.g==g).reduce((s,b)=>s+b.q,0);return `<div class="card" style="padding:6px;text-align:center;background:${tot<5?'#fee2e2':'#f0fdf4'}"><b>${g}</b><br>${tot} units</div>`}).join('');
-document.getElementById('maTable').innerHTML=births.map(b=>`<tr><td>${b.cert}</td><td>${b.mo}</td><td>${b.ba}</td><td>${b.w}</td></tr>`).join('');
-document.getElementById('sTable').innerHTML=staff.map(s=>`<tr><td>${s.n}</td><td>${s.r}</td><td>KSh ${s.s.toLocaleString()}</td><td>${s.st}</td></tr>`).join('');
-document.getElementById('tPay').innerText='KSh '+staff.reduce((a,b)=>a+b.s,0).toLocaleString();document.getElementById('tStaff').innerText=staff.length;
-document.getElementById('rev').innerText='KSh 280,000';
-}
-function addM(){let n=document.getElementById('mN').value,s=parseInt(document.getElementById('mS').value),e=document.getElementById('mE').value,m=parseInt(document.getElementById('mM').value);meds.push({name:n,stock:s,min:m||20,expiry:e});render()}
-function addT(){let p=document.getElementById('tP').value,o=document.getElementById('tO').value,th=document.getElementById('tT').value,s=document.getElementById('tS').value,d=document.getElementById('tD').value;theatres.push({p:p,o:o,th:th,s:s,d:d});render()}
-function addB(){let g=document.getElementById('bG').value,q=parseInt(document.getElementById('bQ').value),d=document.getElementById('bD').value;bloods.push({g:g,q:q,d:d});render()}
-function addMa(){let mo=document.getElementById('maM').value,ba=document.getElementById('maB').value,w=document.getElementById('maW').value;let cert='DRH-BIRTH-'+new Date().getFullYear()+'-'+String(births.length+1).padStart(3,'0');births.push({cert:cert,mo:mo,ba:ba,w:w});render()}
-function addS(){let n=document.getElementById('sN').value,r=document.getElementById('sR').value,s=parseInt(document.getElementById('sS').value);staff.push({n:n,r:r,s:s,st:'Pending'});render()}
-function payAll(){staff.forEach(s=>s.st='Paid');render()}
-function sendS(){let to=document.getElementById('smsTo').value,msg=document.getElementById('smsMsg').value;document.getElementById('smsLog').innerHTML=`<div>To ${to}: ${msg} Sent!</div>`+document.getElementById('smsLog').innerHTML}
-window.onload=init;
-</script></body></html>
+</script>
+</body>
+</html>
