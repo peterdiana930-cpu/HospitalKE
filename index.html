@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diana Rose Hospital - 7 ROLES LOGIN</title>
+<title>Diana Rose Hospital - Professional System</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
 body{background:#f1f5f9;overflow-x:hidden}
-#loginPage{position:fixed;inset:0;background:linear-gradient(135deg,#0f2a4d,#1e88e5);display:flex;align-items:center;justify-content:center;z-index:9999}
-.login-box{background:#fff;border-radius:16px;padding:30px;width:420px;box-shadow:0 10px 30px rgba(0,0,0,.3);text-align:center;max-height:95vh;overflow:auto}
-.login-input{width:100%;padding:11px;border:1px solid #e2e8f0;border-radius:8px;margin:6px 0;font-size:13px}
-.btn-login{background:#1e88e5;color:#fff;border:none;padding:12px;width:100%;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;margin-top:10px}
-.role-card{padding:8px;border:1px solid #e2e8f0;border-radius:8px;margin:4px 0;cursor:pointer;text-align:left;font-size:11px;display:flex;justify-content:space-between;align-items:center}
-.role-card:hover{background:#eff6ff;border-color:#1e88e5}
-.role-card.selected{background:#1e88e5;color:#fff;border-color:#1e88e5}
+/* PROFESSIONAL LOGIN - SPLIT SCREEN */
+#loginPage{position:fixed;inset:0;display:flex;z-index:9999;background:#fff}
+.login-left{flex:1.2;background:linear-gradient(135deg,#0f2a4d 0%,#1e40af 50%,#3b82f6 100%);color:#fff;padding:50px 45px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.login-left::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80');background-size:cover;opacity:.15}
+.login-left-content{position:relative;z-index:2}
+.login-left h1{font-size:36px;margin-bottom:10px;line-height:1.2}
+.login-left h1 span{color:#93c5fd}
+.login-left p{font-size:15px;opacity:.9;line-height:1.6;margin:15px 0}
+.features{margin-top:30px;display:grid;gap:14px}
+.feat{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.08);padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.12)}
+.feat i{font-size:18px;background:rgba(255,255,255,.15);width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;flex-shrink:0}
+.feat b{font-size:13px} .feat small{font-size:11px;opacity:.8;display:block;margin-top:2px}
+.login-right{flex:1;background:#fff;display:flex;align-items:center;justify-content:center;padding:30px}
+.login-box{width:380px;max-width:100%}
+.login-logo{width:64px;height:64px;background:#eff6ff;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#1e88e5;font-size:30px}
+.login-box h2{font-size:24px;color:#0f172a;text-align:center} .login-box .sub{font-size:13px;color:#64748b;text-align:center;margin:6px 0 20px}
+.label{font-size:12px;font-weight:600;color:#334155;margin:10px 0 5px;display:block}
+.input-prof{width:100%;padding:12px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:14px;outline:none;transition:.2s}
+.input-prof:focus{border-color:#1e88e5;box-shadow:0 0 0 3px rgba(30,136,229,.12)}
+.select-prof{width:100%;padding:12px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:13px;background:#fff;cursor:pointer}
+.btn-login-prof{background:#1e88e5;color:#fff;border:none;padding:13px;width:100%;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;margin-top:18px;transition:.2s}
+.btn-login-prof:hover{background:#1565c0;transform:translateY(-1px)}
+.demo-box{margin-top:18px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px}
+.demo-box summary{font-size:12px;font-weight:700;color:#0f2a4d;cursor:pointer}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;font-size:10px}
+.demo-item{padding:6px 8px;background:#fff;border:1px solid #e2e8f0;border-radius:6px}
+.error{color:#dc2626;font-size:12px;margin-top:8px;display:none;background:#fee2e2;padding:8px 10px;border-radius:8px}
+/* APP STYLES */
 .sidebar{width:260px;background:#0f2a4d;color:#fff;min-height:100vh;position:fixed;left:0;top:0;padding:15px;transition:0.3s;z-index:100}
 .sidebar.closed{left:-260px}
 .menu a{display:flex;align-items:center;gap:12px;padding:11px 15px;color:#cbd5e1;text-decoration:none;border-radius:8px;margin:3px 0;font-size:13px;cursor:pointer}
@@ -24,36 +45,55 @@ body{background:#f1f5f9;overflow-x:hidden}
 .banner{background:linear-gradient(90deg,#0f2a5a,#1e88e5);border-radius:12px;margin:15px 20px;color:#fff;padding:20px 25px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 20px}
 .stat-card{background:#fff;border-radius:12px;padding:14px;display:flex;align-items:center;gap:12px}
-.stat-icon{width:50px;height:50px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
 .mid{display:grid;grid-template-columns:1.2fr .8fr .6fr;gap:12px;margin:12px 20px}
 .card{background:#fff;border-radius:12px;padding:14px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
 .quick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .qbtn{background:#eff6ff;border:1px solid #dbeafe;border-radius:8px;padding:10px;text-align:center;cursor:pointer;font-size:10px;font-weight:700;color:#1e40af}
 .qbtn:hover{background:#1e88e5;color:#fff}
 .table{width:100%;border-collapse:collapse;font-size:11px} .table th,.table td{padding:6px;border-bottom:1px solid #f1f5f9;text-align:left}
-.badge{padding:2px 6px;border-radius:10px;font-size:10px;font-weight:600} .confirmed{background:#dcfce7;color:#166534}
 .hidden{display:none}
+@media(max-width:900px){#loginPage{flex-direction:column}.login-left{padding:25px}.login-left h1{font-size:24px}.stats,.mid{grid-template-columns:1fr}.sidebar{left:-260px}.sidebar.open{left:0}.main{margin-left:0}}
 </style></head><body>
+
 <div id="loginPage">
+<div class="login-left">
+<div class="login-left-content">
+<h1>Diana Rose<br><span>Hospital System</span></h1>
+<p>Complete Hospital Management System for better care and healthier community. Manage patients, pharmacy, finance, theatre, blood bank and maternity in one professional platform.</p>
+<div class="features">
+<div class="feat"><i class="fa-solid fa-users"></i><div><b>Patient Management</b><small>Register, track medical history, appointments & records securely</small></div></div>
+<div class="feat"><i class="fa-solid fa-pills"></i><div><b>Pharmacy & Expiry Alerts</b><small>Real-time stock, automatic low-stock & expiry warnings for safety</small></div></div>
+<div class="feat"><i class="fa-solid fa-money-bill-trend-up"></i><div><b>Finance & Payroll</b><small>Revenue tracking, billing, staff payroll and financial reports</small></div></div>
+<div class="feat"><i class="fa-solid fa-bed-pulse"></i><div><b>Theatre, Blood & Maternity</b><small>Operation scheduling, blood bank inventory and birth certificates</small></div></div>
+</div>
+<div style="margin-top:25px;display:flex;gap:15px;font-size:11px;opacity:.8"><span><i class="fa-solid fa-shield-halved"></i> Secure & Encrypted</span><span><i class="fa-solid fa-clock"></i> 24/7 Access</span><span><i class="fa-solid fa-headset"></i> Support</span></div>
+</div>
+</div>
+<div class="login-right">
 <div class="login-box">
-<div style="background:#e3f2fd;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 10px"><i class="fa-solid fa-heart-circle-plus" style="font-size:28px;color:#1e88e5"></i></div>
-<h2>Diana Rose Hospital</h2><small>Better Care. Healthier Community.</small>
-<p style="font-size:11px;font-weight:700;margin-top:12px;color:#0f2a4d">SELECT YOUR ROLE - CLICK ONE:</p>
-<div style="margin-top:8px">
-<div class="role-card" onclick="selectRole('admin',this)"><span><b>👑 Admin</b> - Full Access</span><span>admin / admin123</span></div>
-<div class="role-card" onclick="selectRole('doctor',this)"><span><b>🩺 Doctor</b> - Patients, Theatre</span><span>doctor / doctor123</span></div>
-<div class="role-card" onclick="selectRole('nurse',this)"><span><b>💉 Nurse</b> - Patients, Maternity</span><span>nurse / nurse123</span></div>
-<div class="role-card" onclick="selectRole('pharmacist',this)"><span><b>💊 Pharmacist</b> - Pharmacy Only</span><span>pharma / pharma123</span></div>
-<div class="role-card" onclick="selectRole('finance',this)"><span><b>💰 Finance</b> - Billing, Payroll</span><span>finance / finance123</span></div>
-<div class="role-card" onclick="selectRole('reception',this)"><span><b>📋 Reception</b> - Appointments</span><span>reception / recep123</span></div>
-<div class="role-card" onclick="selectRole('patient',this)"><span><b>🧑 Patient</b> - My Record, Bills</span><span>patient / patient123</span></div>
+<div class="login-logo"><i class="fa-solid fa-heart-circle-plus"></i></div>
+<h2>Welcome Back</h2><p class="sub">Sign in to Diana Rose Hospital System</p>
+<label class="label">Select Your Role</label>
+<select id="roleSelect" class="select-prof" onchange="onRoleChange()">
+<option value="">-- Choose your role --</option>
+<option value="admin">👑 Admin - Full Access</option>
+<option value="doctor">🩺 Doctor - Patients & Theatre</option>
+<option value="nurse">💉 Nurse - Patients & Maternity</option>
+<option value="pharmacist">💊 Pharmacist - Pharmacy Management</option>
+<option value="finance">💰 Finance - Billing & Payroll</option>
+<option value="reception">📋 Reception - Appointments</option>
+<option value="patient">🧑 Patient - My Record & Bills</option>
+</select>
+<label class="label">Username</label><input id="u" class="input-prof" placeholder="Enter your username">
+<label class="label">Password</label><input id="p" class="input-prof" type="password" placeholder="Enter your password">
+<div id="roleExplain" style="margin-top:12px;padding:10px;background:#eff6ff;border-radius:8px;font-size:11px;color:#1e40af;display:none"></div>
+<button class="btn-login-prof" onclick="login()">Login to Dashboard →</button>
+<div id="loginError" class="error"></div>
+<details class="demo-box"><summary>🔑 Demo Credentials (Click to view)</summary><div class="demo-grid">
+<div class="demo-item"><b>Admin</b><br>admin / admin123</div><div class="demo-item"><b>Doctor</b><br>doctor / doctor123</div><div class="demo-item"><b>Nurse</b><br>nurse / nurse123</div><div class="demo-item"><b>Pharmacist</b><br>pharma / pharma123</div><div class="demo-item"><b>Finance</b><br>finance / finance123</div><div class="demo-item"><b>Reception</b><br>reception / recep123</div><div class="demo-item"><b>Patient</b><br>patient / patient123</div>
+</div><small style="font-size:10px;color:#64748b;display:block;margin-top:6px">For demo only - In production each staff has unique password</small></details>
+<p style="font-size:11px;color:#94a3b8;text-align:center;margin-top:14px">© 2026 Diana Rose Hospital. Secure Hospital System v4.0</p>
 </div>
-<div style="margin-top:12px;text-align:left">
-<label style="font-size:11px;font-weight:600">Username</label><input id="u" class="login-input" placeholder="Enter username">
-<label style="font-size:11px;font-weight:600">Password</label><input id="p" class="login-input" type="password" placeholder="Enter password">
-</div>
-<button class="btn-login" onclick="login()">Login to Dashboard</button>
-<p id="loginError" style="color:#dc2626;font-size:11px;margin-top:6px;display:none"></p>
 </div>
 </div>
 
@@ -77,24 +117,13 @@ body{background:#f1f5f9;overflow-x:hidden}
 </div>
 <div class="main" id="main">
 <div class="topbar"><div style="display:flex;align-items:center;gap:10px"><div class="hamburger" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></div><b id="welcomeRole" style="font-size:13px">Diana Rose Hospital</b></div><div style="display:flex;align-items:center;gap:10px"><span id="userBadge" style="background:#dbeafe;color:#1e40af;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700">Admin</span><button onclick="logout()" style="background:#dc2626;color:#fff;border:none;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">Logout</button></div></div>
-
-<div id="dashboard" class="page">
-<div class="banner"><div><h2 id="bannerTitle">Welcome, Admin!</h2><p id="bannerDesc">Full hospital management access</p></div></div>
-<div class="stats">
-<div class="stat-card"><div class="stat-icon" style="background:#dbeafe;color:#1e88e5"><i class="fa-solid fa-users"></i></div><div><div style="font-size:10px">Total Patients</div><h3>1,250</h3></div></div>
-<div class="stat-card"><div class="stat-icon" style="background:#dcfce7;color:#16a34a"><i class="fa-solid fa-pills"></i></div><div><div style="font-size:10px">Pharmacy Stock</div><h3>86 Items</h3></div></div>
-<div class="stat-card"><div class="stat-icon" style="background:#ffedd5;color:#f59e0b"><i class="fa-solid fa-money-bill"></i></div><div><div style="font-size:10px">Revenue Today</div><h3>KSh 280K</h3></div></div>
-<div class="stat-card"><div class="stat-icon" style="background:#e9d5ff;color:#7c3aed"><i class="fa-solid fa-bed"></i></div><div><div style="font-size:10px">Available Beds</div><h3>42</h3></div></div>
-</div>
-<div class="mid"><div class="card"><h4>Patient Visits</h4><canvas id="visits" height="160"></canvas></div><div class="card"><h4>Department Overview</h4><canvas id="dept" height="160"></canvas></div><div class="card"><h4>Quick Actions</h4><div class="quick"><div class="qbtn" onclick="showPage('patients',null)">Patients</div><div class="qbtn" onclick="showPage('pharmacy',null)">Pharmacy</div><div class="qbtn" onclick="showPage('billing',null)">Billing</div><div class="qbtn" onclick="showPage('payroll',null)">Payroll</div></div></div></div>
-</div>
-
-<div id="patients" class="page hidden"><div class="card" style="margin:15px"><h3>Patients - 1,250 registered</h3><table class="table"><thead><tr><th>ID</th><th>Name</th><th>Phone</th></tr></thead><tbody><tr><td>P-001245</td><td>Mary Wanjiku</td><td>0712 345678</td></tr></tbody></table></div></div>
-<div id="pharmacy" class="page hidden"><div class="card" style="margin:15px"><h3>💊 Pharmacy - Pharmacist</h3><div style="padding:10px;background:#fef3c7;border-radius:6px;font-size:11px"><b>⚠️ Expiry:</b> Insulin expires in 2 days! Paracetamol low!</div><table class="table" style="margin-top:10px"><thead><tr><th>Medicine</th><th>Stock</th><th>Expiry</th></tr></thead><tbody><tr><td>Paracetamol</td><td>15</td><td>2026-11-20</td></tr><tr><td>Insulin</td><td>5</td><td>2026-11-05</td></tr></tbody></table></div></div>
-<div id="billing" class="page hidden"><div class="card" style="margin:15px"><h3>💰 Finance - Billing</h3><table class="table"><thead><tr><th>Patient</th><th>Amount</th><th>Status</th></tr></thead><tbody><tr><td>Mary Wanjiku</td><td>KSh 2,500</td><td>Paid</td></tr></tbody></table></div></div>
-<div id="payroll" class="page hidden"><div class="card" style="margin:15px"><h3>💰 Payroll & Finance</h3><table class="table"><thead><tr><th>Staff</th><th>Salary</th></tr></thead><tbody><tr><td>Dr Kimani</td><td>KSh 250K</td></tr></tbody></table></div></div>
-<div id="mypatient" class="page hidden"><div class="card" style="margin:15px"><h3>🧑 My Patient Record - Patient Login</h3><p><b>Name:</b> Mary Wanjiku (You)<br><b>ID:</b> P-001245<br><b>Phone:</b> 0712 345678</p></div></div>
-<div id="mybills" class="page hidden"><div class="card" style="margin:15px"><h3>💳 My Bills - Patient</h3><table class="table"><thead><tr><th>Date</th><th>Amount</th><th>Status</th></tr></thead><tbody><tr><td>03 Nov</td><td>KSh 3,500</td><td>Paid</td></tr></tbody></table></div></div>
+<div id="dashboard" class="page"><div class="banner"><div><h2 id="bannerTitle">Welcome, Admin!</h2><p id="bannerDesc">Full hospital management access</p></div></div><div class="stats"><div class="stat-card"><div style="background:#dbeafe;color:#1e88e5;width:50px;height:50px;border-radius:10px;display:flex;align-items:center;justify-content:center"><i class="fa-solid fa-users"></i></div><div><div style="font-size:10px">Total Patients</div><h3>1,250</h3></div></div><div class="stat-card"><div style="background:#dcfce7;color:#16a34a;width:50px;height:50px;border-radius:10px;display:flex;align-items:center;justify-content:center"><i class="fa-solid fa-pills"></i></div><div><div style="font-size:10px">Pharmacy</div><h3>86 Items</h3></div></div><div class="stat-card"><div style="background:#ffedd5;color:#f59e0b;width:50px;height:50px;border-radius:10px;display:flex;align-items:center;justify-content:center"><i class="fa-solid fa-money-bill"></i></div><div><div style="font-size:10px">Revenue</div><h3>KSh 280K</h3></div></div><div class="stat-card"><div style="background:#e9d5ff;color:#7c3aed;width:50px;height:50px;border-radius:10px;display:flex;align-items:center;justify-content:center"><i class="fa-solid fa-bed"></i></div><div><div style="font-size:10px">Beds</div><h3>42</h3></div></div></div><div class="mid"><div class="card"><h4>Patient Visits</h4><canvas id="visits" height="160"></canvas></div><div class="card"><h4>Department Overview</h4><canvas id="dept" height="160"></canvas></div><div class="card"><h4>Quick Actions</h4><div class="quick"><div class="qbtn" onclick="showPage('patients',null)">Patients</div><div class="qbtn" onclick="showPage('pharmacy',null)">Pharmacy</div><div class="qbtn" onclick="showPage('billing',null)">Billing</div><div class="qbtn" onclick="showPage('payroll',null)">Payroll</div></div></div></div></div>
+<div id="pharmacy" class="page hidden"><div class="card" style="margin:15px"><h3>💊 Pharmacy - Pharmacist</h3><div style="padding:10px;background:#fef3c7;border-radius:8px;font-size:11px;margin-top:10px"><b>Explanation:</b> Pharmacist manages medicines, checks expiry alerts, low stock warnings, and dispenses drugs. Only pharmacy role can add/dispense.</div><table class="table" style="margin-top:10px"><thead><tr><th>Medicine</th><th>Stock</th><th>Expiry</th><th>Action</th></tr></thead><tbody><tr><td>Paracetamol</td><td>15</td><td>2026-11-20</td><td>Low Stock ⚠️</td></tr><tr><td>Insulin</td><td>5</td><td>2026-11-05</td><td>Expires Soon!</td></tr></tbody></table></div></div>
+<div id="billing" class="page hidden"><div class="card" style="margin:15px"><h3>💰 Finance - Billing & Payroll</h3><div style="padding:10px;background:#eff6ff;border-radius:8px;font-size:11px;margin-top:10px"><b>Explanation:</b> Finance manages all money - patient bills, revenue tracking, staff salaries, payroll reports. Only Finance & Admin can access.</div><table class="table" style="margin-top:10px"><thead><tr><th>Patient</th><th>Amount</th><th>Status</th></tr></thead><tbody><tr><td>Mary Wanjiku</td><td>KSh 2,500</td><td>Paid</td></tr></tbody></table></div></div>
+<div id="patients" class="page hidden"><div class="card" style="margin:15px"><h3>Patients</h3><p>1,250 patients - Doctor, Nurse, Reception, Admin access</p></div></div>
+<div id="mypatient" class="page hidden"><div class="card" style="margin:15px"><h3>🧑 My Record - Patient</h3><div style="padding:10px;background:#f0fdf4;border-radius:8px;font-size:11px;margin-top:10px"><b>Explanation:</b> Patient can only view own medical history, prescriptions, lab results. Cannot see other patients.</div><p style="margin-top:10px"><b>Name:</b> Mary Wanjiku<br><b>ID:</b> P-001245</p></div></div>
+<div id="mybills" class="page hidden"><div class="card" style="margin:15px"><h3>💳 My Bills - Patient</h3><div style="padding:10px;background:#fff7e6;border-radius:8px;font-size:11px;margin-top:10px"><b>Explanation:</b> Patient views own bills, payment history, pending amounts. Secure private access.</div></div></div>
+<div id="payroll" class="page hidden"><div class="card" style="margin:15px"><h3>Payroll</h3><p>Finance access</p></div></div>
 <div id="appointments" class="page hidden"><div class="card" style="margin:15px"><h3>Appointments</h3></div></div>
 <div id="theatre" class="page hidden"><div class="card" style="margin:15px"><h3>Theatre</h3></div></div>
 <div id="blood" class="page hidden"><div class="card" style="margin:15px"><h3>Blood Bank</h3></div></div>
@@ -102,28 +131,37 @@ body{background:#f1f5f9;overflow-x:hidden}
 <div id="reports" class="page hidden"><div class="card" style="margin:15px"><h3>Reports</h3></div></div>
 </div>
 <script>
-let currentRole='';
 const users={
- admin:{p:'admin123',role:'admin',name:'Admin Diana',desc:'Full hospital management access',menus:['dashboard','patients','appointments','pharmacy','theatre','blood','maternity','billing','payroll','reports']},
- doctor:{p:'doctor123',role:'doctor',name:'Dr Kimani',desc:'Patients, Theatre, Lab',menus:['dashboard','patients','theatre','blood','maternity','reports']},
- nurse:{p:'nurse123',role:'nurse',name:'Nurse Wafula',desc:'Patients, Maternity, Wards',menus:['dashboard','patients','maternity','blood']},
- pharma:{p:'pharma123',role:'pharmacist',name:'Pharmacist John',desc:'Pharmacy stock, expiry, dispense only',menus:['dashboard','pharmacy']},
- finance:{p:'finance123',role:'finance',name:'Finance Officer',desc:'Billing, Payroll, Revenue only',menus:['dashboard','billing','payroll','reports']},
- reception:{p:'recep123',role:'reception',name:'Reception Mary',desc:'Appointments, Patients registration',menus:['dashboard','patients','appointments']},
- patient:{p:'patient123',role:'patient',name:'Mary Wanjiku (Patient)',desc:'View your own record & bills only',menus:['dashboard','mypatient','mybills']}
+ admin:{p:'admin123',role:'admin',name:'Admin Diana',desc:'Full hospital management access - You can see everything and manage all departments',explain:'Admin has full control: patients, pharmacy, finance, theatre, blood, maternity, payroll, reports',menus:['dashboard','patients','appointments','pharmacy','theatre','blood','maternity','billing','payroll','reports']},
+ doctor:{p:'doctor123',role:'doctor',name:'Dr Kimani',desc:'Doctor access - Patients, Theatre, Blood Bank, Maternity',explain:'Doctor: View patients, schedule operations, check blood bank, maternity cases, write prescriptions',menus:['dashboard','patients','theatre','blood','maternity','reports']},
+ nurse:{p:'nurse123',role:'nurse',name:'Nurse Wafula',desc:'Nurse access - Patients, Maternity, Blood Bank',explain:'Nurse: Manage ward beds, assist in maternity, monitor patients, check blood availability',menus:['dashboard','patients','maternity','blood']},
+ pharmacist:{p:'pharma123',role:'pharmacist',name:'Pharmacist John',desc:'Pharmacist - Pharmacy stock & expiry management only',explain:'Pharmacist: Manage medicine stock, expiry alerts, low-stock warnings, dispense drugs. Cannot access finance or patient full records',menus:['dashboard','pharmacy']},
+ finance:{p:'finance123',role:'finance',name:'Finance Officer',desc:'Finance - Billing, Payroll, Revenue reports',explain:'Finance: Track all hospital revenue, patient bills, pending payments, staff salaries, generate financial reports. Cannot access medical records',menus:['dashboard','billing','payroll','reports']},
+ reception:{p:'recep123',role:'reception',name:'Reception Mary',desc:'Reception - Appointments & Patient registration',explain:'Reception: Register new patients, book appointments, manage front desk, check bed availability',menus:['dashboard','patients','appointments']},
+ patient:{p:'patient123',role:'patient',name:'Mary Wanjiku',desc:'Patient portal - View own record & bills',explain:'Patient: View ONLY your own medical record, lab results, prescriptions, and your bills. Private and secure - cannot see other patients',menus:['dashboard','mypatient','mybills']}
 };
-function selectRole(key,el){
- document.querySelectorAll('.role-card').forEach(c=>c.classList.remove('selected'));
- el.classList.add('selected');
- document.getElementById('u').value=key;
- document.getElementById('p').value=users[key].p;
+function onRoleChange(){
+ let key=document.getElementById('roleSelect').value;
+ let explainDiv=document.getElementById('roleExplain');
+ if(!key){explainDiv.style.display='none';document.getElementById('u').value='';document.getElementById('p').value='';return}
+ let user=users[key==='pharmacist'?'pharma':key==='finance'?'finance':key];
+ if(key==='pharmacist') user=users.pharma;
+ if(key==='finance') user=users.finance;
+ // map
+ let map={admin:'admin',doctor:'doctor',nurse:'nurse',pharmacist:'pharma',finance:'finance',reception:'reception',patient:'patient'};
+ let uKey=map[key];
+ let u=users[uKey];
+ document.getElementById('u').value=uKey;
+ document.getElementById('p').value=u.p;
+ explainDiv.style.display='block';
+ explainDiv.innerHTML='<b>'+u.name+' - '+u.role+'</b><br>'+u.explain;
 }
 function login(){
  let u=document.getElementById('u').value.trim().toLowerCase();
  let p=document.getElementById('p').value.trim();
  let err=document.getElementById('loginError');
- if(!users[u]){err.innerText='Click a role card above!';err.style.display='block';return}
- if(users[u].p!==p){err.innerText='Wrong password!';err.style.display='block';return}
+ if(!users[u]){err.innerText='Please select your role from dropdown!';err.style.display='block';return}
+ if(users[u].p!==p){err.innerText='Wrong password! Check demo credentials.';err.style.display='block';return}
  document.getElementById('loginPage').style.display='none';
  setupRole(users[u]);
  initCharts();
@@ -136,16 +174,12 @@ function setupRole(user){
  document.getElementById('bannerDesc').innerText=user.desc;
  document.querySelectorAll('.menu a').forEach(a=>{if(a.id.startsWith('m-'))a.classList.add('hidden')});
  user.menus.forEach(m=>{let el=document.getElementById('m-'+m);if(el) el.classList.remove('hidden')});
- if(user.role==='pharmacist'){document.getElementById('bannerTitle').innerText='💊 Pharmacy Dashboard';document.getElementById('bannerDesc').innerText='Manage medicines, check expiry alerts, low stock';}
- if(user.role==='finance'){document.getElementById('bannerTitle').innerText='💰 Finance Dashboard';document.getElementById('bannerDesc').innerText='Track revenue, bills, payroll';}
- if(user.role==='patient'){document.getElementById('bannerTitle').innerText='🧑 Patient Portal - Welcome Mary!';document.getElementById('bannerDesc').innerText='View your medical record, bills, appointments';}
  showPage('dashboard',document.getElementById('m-dashboard'));
 }
-function logout(){document.getElementById('loginPage').style.display='flex';document.getElementById('u').value='';document.getElementById('p').value='';}
+function logout(){document.getElementById('loginPage').style.display='flex';document.getElementById('u').value='';document.getElementById('p').value='';document.getElementById('roleSelect').value='';document.getElementById('roleExplain').style.display='none';}
 function toggleSidebar(){const sb=document.getElementById('sidebar'),main=document.getElementById('main');if(sb.classList.contains('closed')){sb.classList.remove('closed');main.classList.remove('full')}else{sb.classList.add('closed');main.classList.add('full')}}
 function showPage(id,el){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));let t=document.getElementById(id);if(t) t.classList.remove('hidden');document.querySelectorAll('.menu a').forEach(a=>a.classList.remove('active'));if(el) el.classList.add('active')}
-function initCharts(){try{new Chart(document.getElementById('visits'),{type:'line',data:{labels:['Mon',[STRIPPED]
-}
+function initCharts(){try{new Chart(document.getElementById('visits'),{type:'line',data:{labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],datasets:[{label:'Visits',data:[45,60,55,70,65,80,75],borderColor:'#1e88e5',tension:.4}]},options:{responsive:true}});new Chart(document.getElementById('dept'),{type:'doughnut',data:{labels:['Med','Surg','Peds','Other'],datasets:[{data:[35,28,20,17],backgroundColor:['#1e88e5','#16a34a','#7c3aed','#f59e0b']}]},options:{responsive:true}})}catch(e){}}
 </script>
 </body>
 </html>
