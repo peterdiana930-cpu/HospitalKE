@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diana Rose v4.0 ULTIMATE</title>
+<title>Diana Rose v4.0 ULTIMATE - FIXED BUTTONS</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:sans-serif;background:#f8fafc}
 .header{background:linear-gradient(135deg,#0f172a,#1e40af);color:#fff;padding:15px;display:flex;justify-content:space-between}
-.nav{display:flex;gap:6px;overflow:auto;padding:10px;background:#fff;position:sticky;top:0}
+.nav{display:flex;gap:6px;overflow:auto;padding:10px;background:#fff;position:sticky;top:0;z-index:100}
 .nav button{padding:8px 12px;border:1px solid #ddd;border-radius:20px;background:#fff;font-weight:700;font-size:12px;cursor:pointer}
 .nav button.active{background:#1e40af;color:#fff}
 .card{background:#fff;border-radius:10px;padding:14px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
@@ -20,14 +20,14 @@ table{width:100%;border-collapse:collapse;font-size:12px} th,td{padding:8px;bord
 </style></head><body>
 <div class="header"><div><b>DIANA ROSE v4.0 ULTIMATE</b><br><small>5M+ - Charts + Theatre | Blood | Maternity | Payroll | SMS | Expiry</small></div><div><small id="t"></small></div></div>
 <div class="nav">
-<button onclick="show('dash')" class="active">📊 Dash</button>
-<button onclick="show('wards')">🛏️ Wards</button>
-<button onclick="show('pharma')">💊 Pharma</button>
-<button onclick="show('theatre')">🏥 Theatre</button>
-<button onclick="show('blood')">🩸 Blood</button>
-<button onclick="show('mat')">👶 Maternity</button>
-<button onclick="show('pay')">💰 Payroll</button>
-<button onclick="show('sms')">📱 SMS</button>
+<button onclick="show('dash',this)" class="active">📊 Dash</button>
+<button onclick="show('wards',this)">🛏️ Wards</button>
+<button onclick="show('pharma',this)">💊 Pharma</button>
+<button onclick="show('theatre',this)">🏥 Theatre</button>
+<button onclick="show('blood',this)">🩸 Blood</button>
+<button onclick="show('mat',this)">👶 Maternity</button>
+<button onclick="show('pay',this)">💰 Payroll</button>
+<button onclick="show('sms',this)">📱 SMS</button>
 </div>
 <div style="padding:12px;max-width:1200px;margin:auto">
 <div id="dash" class="sec">
@@ -53,15 +53,23 @@ table{width:100%;border-collapse:collapse;font-size:12px} th,td{padding:8px;bord
 </div>
 <script>
 let beds=[],meds=[{name:'Paracetamol',stock:15,min:20,expiry:'2026-11-20'},{name:'Amoxicillin',stock:100,min:30,expiry:'2027-06-15'},{name:'Insulin',stock:5,min:10,expiry:'2026-11-05'}],theatres=[{p:'Jane Wanjiku',o:'C-Section',th:'Theatre 1',s:'Dr Kimani',d:'2026-11-04 09:00'}],bloods=[{g:'O+',q:12,d:'Peter M'},{g:'A+',q:3,d:'Mary A'}],births=[{cert:'DRH-BIRTH-2026-001',mo:'Grace',ba:'Hope',w:'3.2kg'}],staff=[{n:'Dr Kimani',r:'Doctor',s:250000,st:'Paid'},{n:'Nurse Wafula',r:'Nurse',s:45000,st:'Paid'}],rev=[120000,180000,220000,190000,250000,300000,280000];
+function show(id,btn){
+ document.querySelectorAll('.sec').forEach(s=>s.style.display='none');
+ document.getElementById(id).style.display='block';
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+ if(btn) btn.classList.add('active');
+}
 function init(){
  let w=['Ward A','Ward A','Ward A','Ward A','Ward A','Ward B','Ward B','Ward B','Ward B','Ward B','ICU','ICU','ICU','ICU','ICU','Maternity','Maternity','Maternity','Maternity','Maternity'];
  w.forEach((x,i)=>beds.push({id:i+1,ward:x,st:Math.random()>0.5?'Occupied':'Free'}));
  render();
- new Chart(document.getElementById('c1'),{type:'line',data:{labels:['Mon',[STRIPPED] KSh',data:rev,[STRIPPED]
- new Chart(document.getElementById('c2'),{type:'doughnut',data:{labels:['Occupied',[STRIPPED]
- setInterval(()=>document.getElementById('t').innerText=new Date().toLocaleString(),1000);
+ try{
+  new Chart(document.getElementById('c1'),{type:'line',data:{labels:['Mon',[STRIPPED] KSh',data:rev,[STRIPPED]
+  new Chart(document.getElementById('c2'),{type:'doughnut',data:{labels:['Occupied',[STRIPPED]
+ }catch(e){console.log(e)}
+ document.getElementById('t').innerText=new Date().toLocaleString();
+ setInterval(()=>{document.getElementById('t').innerText=new Date().toLocaleString()},1000);
 }
-function show(id){document.querySelectorAll('.sec').forEach(s=>s.style.display='none');document.getElementById(id).style.display='block';document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));event.target.classList.add('active')}
 function render(){
 document.getElementById('wList').innerHTML=beds.map(b=>`<span style="display:inline-block;padding:6px 10px;margin:4px;border-radius:8px;background:${b.st=='Free'?'#dcfce7':'#fee2e2'}">${b.ward}-Bed${b.id}:${b.st}</span>`).join('');
 document.getElementById('occ').innerText=Math.round(beds.filter(b=>b.st=='Occupied').length/beds.length*100)+'%';
@@ -84,5 +92,5 @@ function addMa(){let mo=document.getElementById('maM').value,ba=document.getElem
 function addS(){let n=document.getElementById('sN').value,r=document.getElementById('sR').value,s=parseInt(document.getElementById('sS').value);staff.push({n:n,r:r,s:s,st:'Pending'});render()}
 function payAll(){staff.forEach(s=>s.st='Paid');render()}
 function sendS(){let to=document.getElementById('smsTo').value,msg=document.getElementById('smsMsg').value;document.getElementById('smsLog').innerHTML=`<div>To ${to}: ${msg} Sent!</div>`+document.getElementById('smsLog').innerHTML}
-init();
+window.onload=init;
 </script></body></html>
