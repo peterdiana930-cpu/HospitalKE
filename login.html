@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login - Diana Rose HMS - 0756255760</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}body{background:#f8fafc;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:24px;width:380px;max-width:100%}.input{width:100%;padding:11px;border:1px solid #e2e8f0;border-radius:10px;margin:6px 0}.btn{width:100%;padding:12px;background:#0f172a;color:#fff;border:none;border-radius:10px;font-weight:700;cursor:pointer;margin-top:10px}.badge{padding:3px 8px;border-radius:20px;font-size:9px;font-weight:700;display:inline-block}</style></head><body>
+<div class="card">
+<div style="text-align:center;margin-bottom:14px"><b>Diana Rose HMS</b><br><small style="color:#64748b">Owner 0756255760 - Direct Login - No cache</small><div style="margin-top:8px"><span class="badge" style="background:#dcfce7;color:#065f46">pale green</span><span class="badge" style="background:#dbeafe;color:#1e40af">light blue</span><span class="badge" style="background:#bfdbfe;color:#1e40af">blue</span><span class="badge" style="background:#fed7aa;color:#92400e">orange</span><span class="badge" style="background:#ddd6fe;color:#5b21b6">purple</span><span class="badge" style="background:#fecaca;color:#991b1b">red</span></div></div>
+<label style="font-size:10px;font-weight:700">USERNAME</label><input id="u" class="input" value="admin" placeholder="admin">
+<label style="font-size:10px;font-weight:700">PASSWORD</label><input id="p" class="input" type="password" value="admin123" placeholder="admin123">
+<button type="button" onclick="login()" class="btn">Login - Works 100%</button>
+<div id="error" style="display:none;background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:8px;border-radius:8px;font-size:11px;margin-top:10px"></div>
+<div style="margin-top:12px;font-size:10px;background:#f8fafc;border:1px solid #e2e8f0;padding:8px;border-radius:8px">admin/admin123 = Admin<br>doctor/doctor123 | nurse/nurse123<br>pharma/pharma123 | finance/finance123<br><br>Patient: P-001245 / 0712345678</div>
+<div style="margin-top:10px;text-align:center"><a href="index.html" style="font-size:10px;color:#64748b">Back to Home - Diana Rose</a></div>
+</div>
+<script>
+var users={admin:"admin123",doctor:"doctor123",pharma:"pharma123",finance:"finance123",nurse:"nurse123",reception:"recep123"};
+function login(){
+var u=document.getElementById('u').value.trim().toLowerCase();
+var p=document.getElementById('p').value.trim();
+var err=document.getElementById('error');
+if(users[u]&&users[u]===p){
+alert('Login Success! Welcome '+u+' - Owner Peter 0756255760 - Now redirecting to index.html with login success');
+localStorage.setItem('hms_user',u);
+window.location.href='index.html#loggedin='+u;
+}else{
+err.innerHTML='Wrong! Try admin / admin123 - You typed: '+u+' / '+p;
+err.style.display='block';
+}
+}
+document.addEventListener('DOMContentLoaded',function(){
+document.getElementById('p').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();login();}});
+});
+</script></body></html>
