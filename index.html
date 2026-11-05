@@ -1,293 +1,227 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diana Rose Hospital - Owner 0756255760</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{background:#f8fafc;color:#1e293b}
-.nav{background:#fff;border-bottom:1px solid #e2e8f0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
-.hero{background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 50%,#ffffff 100%);padding:50px 20px;border-bottom:1px solid #bbf7d0}
-.hero-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
-.hero h1{font-size:36px;color:#14532d;line-height:1.2} .hero h1 span{color:#16a34a}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.feat-grid{max-width:1100px;margin:0 auto;padding:30px 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.feat{border-left:3px solid #16a34a}
-.btn{padding:11px 20px;border-radius:8px;font-weight:600;font-size:13px;cursor:pointer;border:none;text-decoration:none;display:inline-block}
-.btn-green{background:#16a34a;color:#fff} .btn-dark{background:#14532d;color:#fff} .btn-white{background:#fff;color:#14532d;border:1px solid #bbf7d0}
-.owner{max-width:1100px;margin:20px auto;background:#14532d;color:#fff;border-radius:14px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.contact-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:14px;margin:8px 0}
-#loginOverlay{position:fixed;inset:0;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
-.login-modal{background:#fff;border-radius:16px;width:440px;max-width:100%;padding:0;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.15)}
-.login-header{background:linear-gradient(135deg,#f0fdf4,#dcfce7);padding:20px;border-bottom:1px solid #bbf7d0}
-.tabs{display:flex;gap:6px;background:#f0fdf4;padding:4px;border-radius:8px;margin-top:12px}
-.tab{flex:1;padding:8px;text-align:center;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;color:#15803d}
-.tab.active{background:#16a34a;color:#fff}
-.login-body{padding:20px}
-.input{width:100%;padding:11px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:13px;margin:6px 0;outline:none}
-.input:focus{border-color:#16a34a;background:#f0fdf4}
-.btn-login{background:#16a34a;color:#fff;border:none;padding:12px;width:100%;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;margin-top:12px}
-.btn-login:hover{background:#15803d}
-.sidebar{width:250px;background:#14532d;color:#fff;min-height:100vh;position:fixed;left:0;top:0;padding:16px;display:none;z-index:10}
-.menu a{display:flex;gap:10px;padding:10px;color:#bbf7d0;text-decoration:none;border-radius:8px;margin:3px 0;font-size:12.5px;cursor:pointer}
-.menu a.active,.menu a:hover{background:#16a34a;color:#fff}
-.menu a.hidden{display:none!important}
-.main{margin-left:250px;display:none}
-.topbar{background:#fff;border-bottom:1px solid #e2e8f0;padding:10px 18px;display:flex;justify-content:space-between;align-items:center}
-.banner{background:linear-gradient(90deg,#14532d,#16a34a);border-radius:12px;margin:14px;color:#fff;padding:18px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 14px}
-.stat{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px}
-.table{width:100%;border-collapse:collapse;font-size:11px} .table th{background:#f0fdf4;padding:8px;text-align:left;color:#14532d} .table td{padding:8px;border-bottom:1px solid #f1f5f9}
-.badge{padding:3px 8px;border-radius:12px;font-size:9px;font-weight:700}
-.paid{background:#dcfce7;color:#14532d} .pending{background:#fef3c7;color:#92400e} .critical{background:#fee2e2;color:#991b1b}
-.hidden{display:none}
-@media(max-width:900px){.hero-grid,.owner,.feat-grid,.stats{grid-template-columns:1fr}.main{margin-left:0}.sidebar{position:relative;width:100%;min-height:auto}}
+body{background:#f0fdf4;color:#14532d}
+.nav{background:#fff;border-bottom:2px solid #bbf7d0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+.hero{max-width:1000px;margin:30px auto;padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:#fff;border:1px solid #bbf7d0;border-radius:12px;padding:20px}
+.input{width:100%;padding:12px;border:1.5px solid #bbf7d0;border-radius:8px;margin:8px 0;font-size:14px}
+.input:focus{border-color:#16a34a;outline:none;background:#f0fdf4}
+.btn{padding:12px 20px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;border:none}
+.btn-green{background:#16a34a;color:#fff;width:100%}
+.btn-green:hover{background:#15803d}
+.tab{display:inline-block;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;margin-right:6px}
+.tab.active{background:#16a34a;color:#fff} .tab.inactive{background:#dcfce7;color:#14532d}
+#dashboard{display:none;max-width:1100px;margin:20px auto;padding:20px}
+.table{width:100%;border-collapse:collapse;font-size:12px} .table th{background:#f0fdf4;padding:8px;text-align:left} .table td{padding:8px;border-bottom:1px solid #dcfce7}
+@media(max-width:800px){.hero{grid-template-columns:1fr}}
 </style></head><body>
 
 <div id="landing">
 <div class="nav">
-<div style="display:flex;align-items:center;gap:8px"><i class="fa-solid fa-heart-circle-plus" style="color:#16a34a;font-size:22px"></i><b style="color:#14532d">Diana Rose</b><small style="color:#16a34a;margin-left:8px;font-weight:600">Hospital System</small><small style="color:#64748b;margin-left:8px">Owner 0756255760</small></div>
-<button type="button" onclick="openLogin()" class="btn btn-green">Login</button>
+<div><i class="fa-solid fa-heart-circle-plus" style="color:#16a34a"></i> <b>Diana Rose Hospital</b> <small style="color:#16a34a">- Owner 0756255760</small></div>
 </div>
 
 <div class="hero">
-<div class="hero-grid">
-<div>
-<h1>Diana Rose<br><span>Hospital System</span></h1>
-<p style="margin:12px 0;font-size:14px;color:#475569;line-height:1.6">Complete hospital management for Kenyan hospitals. Patients with room tracking, diagnosis, doctor assignment, billing with M-Pesa, NHIF, insurance and receipts, pharmacy expiry, theatre, blood bank, maternity and reports.</p>
-<div style="margin-top:16px">
-<button type="button" onclick="openLogin()" class="btn btn-green">Login to System</button>
-<a href="#contact" class="btn btn-white">Contact Owner</a>
-</div>
-<div style="margin-top:14px;display:flex;gap:10px;font-size:11px;color:#15803d"><span><i class="fa-solid fa-check"></i> Room tracking</span><span><i class="fa-solid fa-check"></i> M-Pesa & NHIF</span><span><i class="fa-solid fa-check"></i> Receipts</span></div>
-</div>
 <div class="card">
-<h3 style="font-size:13px;color:#14532d">System Includes</h3>
-<div style="margin-top:10px;font-size:11px;line-height:22px">
-<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0fdf4"><span>Patient Room</span><b>Ward A-12 Bed 4, ICU-3</b></div>
-<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0fdf4"><span>Diagnosis</span><b>Malaria + Typhoid</b></div>
-<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0fdf4"><span>Doctor</span><b>Dr. Kimani</b></div>
-<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0fdf4"><span>Bill</span><b>KSh 12,200</b></div>
-<div style="display:flex;justify-content:space-between;padding:6px 0"><span>Payment</span><b>M-Pesa QGH7Y2 - RCPT-1123</b></div>
-</div>
-</div>
+<h2 style="color:#14532d">Diana Rose Hospital System</h2>
+<p style="font-size:13px;color:#475569;margin:10px 0;line-height:1.5">Patients with room tracking, diagnosis, doctor, billing with M-Pesa, NHIF, insurance, receipt, pharmacy expiry, reports.</p>
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px;font-size:11px;margin-top:10px">
+<b>Owner: Peter - 0756255760</b><br>
+WhatsApp: <a href="https://wa.me/254756255760" target="_blank">0756255760</a> - Call: <a href="tel:0756255760">0756255760</a>
 </div>
 </div>
 
-<div class="feat-grid">
-<div class="card feat"><b style="color:#14532d">Room & Ward Tracking</b><p style="font-size:11px;color:#64748b;margin-top:6px">Ward A-12 Bed 4, ICU-3, Theatre 1 → Ward B-08, Maternity Bed 5. Every patient shows where they are.</p></div>
-<div class="card feat"><b style="color:#14532d">Diagnosis & Doctor</b><p style="font-size:11px;color:#64748b;margin-top:6px">Malaria + Typhoid, Appendicitis, Pneumonia. Doctor assigned: Dr. Kimani, Dr. Otieno. Treatment and review dates.</p></div>
-<div class="card feat"><b style="color:#14532d">Billing & Payment Method</b><p style="font-size:11px;color:#64748b;margin-top:6px">Amount, M-Pesa Code QGH7Y2, NHIF Card, Insurance #8821, Receipt RCPT-2026-1123. Supports M-Pesa, NHIF, Cash, Insurance.</p></div>
+<div class="card">
+<h3 style="color:#14532d;text-align:center">Login</h3>
+
+<div style="margin:12px 0;text-align:center">
+<span id="tab1" class="tab active" onclick="showStaff()">Staff Login</span>
+<span id="tab2" class="tab inactive" onclick="showPatient()">Patient Login</span>
 </div>
 
-<div class="owner" id="contact">
-<div>
-<h2 style="font-size:20px">Contact Owner</h2>
-<p style="font-size:12px;opacity:.8;margin:8px 0">For purchase and installation - Nairobi, Kenya</p>
-<div class="contact-box">
-<div style="display:flex;gap:10px;align-items:center"><img src="https://randomuser.me/api/portraits/men/32.jpg" style="width:48px;height:48px;border-radius:50%"><div><b>Peter</b><br><small style="opacity:.8">Owner & Developer</small><br><small style="opacity:.8">Diana Rose Systems - 0756255760</small></div></div>
-</div>
-<div class="contact-box">
-<div style="font-size:11px;opacity:.7">PHONE / WHATSAPP</div>
-<div style="font-size:22px;font-weight:800;color:#4ade80">0756255760</div>
-<a href="https://wa.me/254756255760?text=Hi%20Peter%20I%20am%20interested%20in%20Diana%20Rose%20Hospital%20System" target="_blank" style="display:block;background:#fff;color:#14532d;text-align:center;padding:11px;border-radius:8px;text-decoration:none;font-weight:700;margin:8px 0;font-size:13px">WhatsApp: 0756255760</a>
-<a href="tel:0756255760" style="display:block;border:1px solid rgba(255,255,255,.2);color:#fff;text-align:center;padding:11px;border-radius:8px;text-decoration:none;font-weight:600">Call: 0756255760</a>
-</div>
-</div>
-<div>
-<div style="background:#fff;color:#0f172a;border-radius:12px;padding:18px">
-<h3 style="font-size:13px;color:#14532d">Quick Message</h3>
-<input id="cName" placeholder="Your name / Hospital" class="input">
-<input id="cPhone" placeholder="Your phone" class="input">
-<textarea id="cMsg" placeholder="Message - beds, county" class="input" style="height:70px"></textarea>
-<a href="#" id="waLink" target="_blank" onclick="return sendWA()" class="btn btn-green" style="display:block;text-align:center;margin-top:10px">Send via WhatsApp</a>
-</div>
-</div>
-</div>
-</div>
-
-<!-- LOGIN OVERLAY - FIXED - PALE GREEN WHITE -->
-<div id="loginOverlay">
-<div class="login-modal">
-<div class="login-header">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<div style="display:flex;align-items:center;gap:8px"><i class="fa-solid fa-heart-circle-plus" style="color:#16a34a;font-size:20px"></i><b style="color:#14532d">Diana Rose Login</b></div>
-<button type="button" onclick="closeLogin()" style="background:#fff;border:1px solid #bbf7d0;width:28px;height:28px;border-radius:50%;cursor:pointer">✕</button>
-</div>
-<div class="tabs">
-<div id="tabStaff" class="tab active" onclick="switchTab('staff')">Staff Login</div>
-<div id="tabPatient" class="tab" onclick="switchTab('patient')">Patient Login</div>
-</div>
-</div>
-
-<div class="login-body">
-<div id="staffForm">
-<p style="font-size:11px;color:#64748b">Login for hospital staff - Admin, Doctor, Nurse, Pharmacist, Finance</p>
-<label style="font-size:11px;font-weight:600;display:block;margin-top:10px">Username</label>
+<div id="staffBox">
+<label style="font-size:11px;font-weight:700">USERNAME - type admin</label>
 <input id="u" class="input" placeholder="admin" value="admin">
-<label style="font-size:11px;font-weight:600;display:block">Password</label>
+<label style="font-size:11px;font-weight:700">PASSWORD - type admin123</label>
 <input id="p" class="input" type="password" placeholder="admin123" value="admin123">
-<!-- BUTTON TYPE BUTTON - WILL NOT RELOAD PAGE - FIXED -->
-<button type="button" id="staffLoginBtn" onclick="doLoginStaff()" class="btn-login">Login as Staff</button>
-<div style="margin-top:10px;font-size:10px;background:#f0fdf4;border:1px solid #bbf7d0;padding:8px;border-radius:6px;line-height:16px">
-<b>Staff accounts:</b><br>
-admin / admin123 = Admin (full access)<br>
+<button type="button" onclick="loginStaff()" class="btn btn-green">LOGIN AS STAFF - CLICK HERE</button>
+<div style="font-size:10px;background:#f0fdf4;padding:8px;border-radius:6px;margin-top:8px">
+admin / admin123 = Admin<br>
 doctor / doctor123 = Doctor<br>
-pharma / pharma123 = Pharmacist<br>
+pharma / pharma123 = Pharmacy<br>
 finance / finance123 = Finance<br>
 nurse / nurse123 = Nurse
 </div>
 </div>
 
-<div id="patientForm" class="hidden">
-<p style="font-size:11px;color:#64748b">Patients login with ID and phone to view own record</p>
-<label style="font-size:11px;font-weight:600;display:block;margin-top:10px">Patient ID</label>
-<input id="pId" class="input" placeholder="P-001245" value="P-001245">
-<label style="font-size:11px;font-weight:600;display:block">Phone Number</label>
-<input id="pPhone" class="input" placeholder="0712345678" value="0712345678">
-<button type="button" id="patientLoginBtn" onclick="doLoginPatient()" class="btn-login">Login as Patient</button>
-<div style="margin-top:10px;font-size:10px;background:#f0fdf4;border:1px solid #bbf7d0;padding:8px;border-radius:6px">
-<b>Demo Patient:</b><br>
-ID: P-001245 Phone: 0712345678<br>
-Mary Wanjiku - Ward A-12 Bed 4 - Malaria + Typhoid - KSh 12,200 - M-Pesa QGH7Y2
+<div id="patientBox" style="display:none">
+<label style="font-size:11px;font-weight:700">PATIENT ID - type P-001245</label>
+<input id="pid" class="input" placeholder="P-001245" value="P-001245">
+<label style="font-size:11px;font-weight:700">PHONE - type 0712345678</label>
+<input id="pphone" class="input" placeholder="0712345678" value="0712345678">
+<button type="button" onclick="loginPatient()" class="btn btn-green">LOGIN AS PATIENT - CLICK HERE</button>
+<div style="font-size:10px;background:#f0fdf4;padding:8px;border-radius:6px;margin-top:8px">
+Patient: P-001245 / 0712345678<br>
+Mary Wanjiku - Ward A-12 Bed 4
 </div>
 </div>
 
-<div id="loginError" style="display:none;background:#fee2e2;color:#991b1b;padding:8px;border-radius:6px;font-size:11px;margin-top:10px"></div>
+<div id="error" style="display:none;background:#fee2e2;color:#991b1b;padding:8px;border-radius:6px;font-size:11px;margin-top:10px"></div>
+
 </div>
 </div>
 </div>
 
-<!-- APP AFTER LOGIN -->
-<div class="sidebar" id="sidebar"><h2 style="font-size:14px"><i class="fa-solid fa-heart-circle-plus" style="color:#4ade80"></i> Diana Rose</h2><small id="roleDisplay" style="font-size:10px;color:#bbf7d0">Admin</small>
-<div class="menu" style="margin-top:14px">
-<a id="m-dashboard" onclick="showPage('dashboard',this)" class="active"><i class="fa-solid fa-house"></i> Dashboard</a>
-<a id="m-patients" onclick="showPage('patients',this)"><i class="fa-solid fa-users"></i> Patients</a>
-<a id="m-billing" onclick="showPage('billing',this)"><i class="fa-solid fa-credit-card"></i> Billing</a>
-<a id="m-pharmacy" onclick="showPage('pharmacy',this)"><i class="fa-solid fa-pills"></i> Pharmacy</a>
-<a id="m-reports" onclick="showPage('reports',this)"><i class="fa-solid fa-chart-simple"></i> Reports</a>
-<a id="m-mypatient" onclick="showPage('mypatient',this)" class="hidden"><i class="fa-solid fa-file-medical"></i> My Record</a>
-<a id="m-mybills" onclick="showPage('mybills',this)" class="hidden"><i class="fa-solid fa-file-invoice"></i> My Bills</a>
-<a onclick="logout()" style="margin-top:16px;background:#fff;color:#14532d"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
-</div>
-<div style="margin-top:20px;font-size:10px;color:#86efac;padding:8px;border-top:1px solid #166534">Owner Peter<br>0756255760</div>
+<div id="dashboard">
+<div class="nav">
+<div><b id="welcome">Welcome</b> <small id="roleShow">- Admin</small></div>
+<button type="button" onclick="logout()" class="btn" style="background:#14532d;color:#fff;padding:8px 14px">Logout - Back to Login</button>
 </div>
 
-<div class="main" id="main">
-<div class="topbar"><b id="welcomeRole" style="font-size:12px;color:#14532d">ADMIN</b><div><span id="userBadge" style="background:#dcfce7;color:#14532d;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:700">ADMIN</span> <button type="button" onclick="logout()" style="background:#14532d;color:#fff;border:none;padding:6px 12px;border-radius:6px;font-size:10px;cursor:pointer">Logout</button></div></div>
+<div style="margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+<div class="card"><b>1,250</b><br><small>Patients - Ward A-12, ICU-3</small></div>
+<div class="card"><b>86 Items</b><br><small>Pharmacy - 2 Expiring</small></div>
+<div class="card"><b>KSh 284K</b><br><small>Revenue - M-Pesa 60%</small></div>
+<div class="card"><b>42 Beds</b><br><small>Available</small></div>
+</div>
 
-<div id="dashboard" class="page"><div class="banner"><h2 id="bannerTitle" style="font-size:16px">Welcome</h2><p id="bannerDesc" style="font-size:11px;opacity:.9">Diana Rose Hospital System</p></div><div class="stats"><div class="stat"><small style="font-size:10px;color:#16a34a;font-weight:700">PATIENTS</small><h3>1,250</h3><small style="font-size:9px">Ward A-12, ICU-3, Maternity</small></div><div class="stat"><small style="font-size:10px;color:#16a34a;font-weight:700">PHARMACY</small><h3>86 Items</h3><small style="font-size:9px">2 Expiring Soon</small></div><div class="stat"><small style="font-size:10px;color:#16a34a;font-weight:700">REVENUE TODAY</small><h3>KSh 284K</h3><small style="font-size:9px">M-Pesa 60% NHIF 25%</small></div><div class="stat"><small style="font-size:10px;color:#16a34a;font-weight:700">BEDS</small><h3>42 / 120</h3><small style="font-size:9px">Available</small></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 14px"><div class="card"><h4 style="font-size:11px;color:#14532d">Patient Visits</h4><canvas id="visits" height="140"></canvas></div><div class="card"><h4 style="font-size:11px;color:#14532d">Departments</h4><canvas id="dept" height="140"></canvas></div></div></div>
+<div class="card" style="margin-top:14px">
+<h3 style="color:#14532d">Patients - Room, Diagnosis, Doctor, Bill, Payment Method</h3>
+<table class="table" style="margin-top:10px">
+<thead><tr><th>ID</th><th>Name</th><th>Room/Ward</th><th>Diagnosis</th><th>Doctor</th><th>Bill</th><th>Payment Method</th><th>Receipt</th><th>Status</th></tr></thead>
+<tbody id="ptable"></tbody>
+</table>
+</div>
 
-<div id="patients" class="page hidden"><div class="card" style="margin:14px"><h3 style="font-size:13px;color:#14532d">Patients - Room, Diagnosis, Doctor, Bill, Payment Method</h3><table class="table"><thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Room/Ward</th><th>Diagnosis</th><th>Doctor</th><th>Bill</th><th>Payment Method</th><th>Status</th></tr></thead><tbody id="patientsTable"></tbody></table></div></div>
-<div id="billing" class="page hidden"><div class="card" style="margin:14px"><h3 style="font-size:13px;color:#14532d">Billing - Diagnosis, Room, Amount, Payment, Receipt</h3><table class="table"><thead><tr><th>Date</th><th>Patient</th><th>Diagnosis</th><th>Room</th><th>Service</th><th>Amount</th><th>Payment Method</th><th>Receipt</th><th>Status</th></tr></thead><tbody id="billingTable"></tbody></table></div></div>
-<div id="pharmacy" class="page hidden"><div class="card" style="margin:14px"><h3 style="font-size:13px;color:#14532d">Pharmacy - Shelf, Expiry, Stock</h3><table class="table"><thead><tr><th>Medicine</th><th>Batch</th><th>Stock</th><th>Shelf/Room</th><th>Expiry</th><th>Status</th></tr></thead><tbody><tr><td>Paracetamol 500mg</td><td>BATCH-2026-04</td><td>15</td><td>Shelf A-12</td><td>2026-11-20</td><td><span class="badge critical">Low Stock</span></td></tr><tr><td>Insulin</td><td>BATCH-2025-11</td><td>5</td><td>Fridge R-2</td><td>2026-11-05</td><td><span class="badge critical">Expires Tomorrow</span></td></tr></tbody></table></div></div>
-<div id="reports" class="page hidden"><div class="card" style="margin:14px"><h3 style="font-size:13px;color:#14532d">Reports - Revenue & Payment Methods</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px"><div class="card"><canvas id="revChart" height="140"></canvas></div><div class="card"><canvas id="payChart" height="140"></canvas></div></div></div></div>
-<div id="mypatient" class="page hidden"><div class="card" style="margin:14px"><h3 style="font-size:13px;color:#14532d">My Medical Record</h3><div style="margin-top:10px;font-size:12px;line-height:22px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><b>Patient ID:</b> P-001245</div><div><b>Room:</b> Ward A-12 Bed 4</div><div><b>Name:</b> Mary Wanjiku</div><div><b>Age:</b> 22 Female</div><div><b>Phone:</b> 0712345678</div><div><b>Blood Group:</b> O+</div><div><b>Doctor:</b> Dr. A. Kimani</div><div><b>Diagnosis:</b> Malaria + Typhoid</div><div><b>Bill:</b> KSh 12,200</div><div><b>Payment:</b> M-Pesa QGH7Y2 + NHIF</div><div><b>Receipt:</b> RCPT-2026-1123</div></div></div></div></div>
-<div id="mybills" class="page hidden"><div class="card" style="margin:14px"><h3 style="font-size:13px;color:#14532d">My Bills</h3><table class="table"><thead><tr><th>Date</th><th>Diagnosis</th><th>Room / Service</th><th>Amount</th><th>Payment Method</th><th>Receipt</th></tr></thead><tbody><tr><td>03 Nov 2026</td><td>Malaria + Typhoid</td><td>Ward A-12 (3 nights) + Lab + Drugs</td><td>KSh 8,700</td><td>M-Pesa QGH7Y2</td><td>RCPT-2026-1123</td></tr><tr><td>02 Nov 2026</td><td>Malaria</td><td>Consultation OPD-3</td><td>KSh 2,500</td><td>NHIF 12345678</td><td>RCPT-2026-1122</td></tr></tbody></table></div></div>
+<div class="card" style="margin-top:14px">
+<h3 style="color:#14532d">Billing - Diagnosis, Room, Service, Amount, Payment, Receipt</h3>
+<table class="table" style="margin-top:10px">
+<thead><tr><th>Date</th><th>Patient</th><th>Diagnosis</th><th>Room</th><th>Service</th><th>Amount</th><th>Payment Method</th><th>Receipt</th></tr></thead>
+<tbody id="btable"></tbody>
+</table>
+</div>
+
+<div id="patientOnly" style="display:none">
+<div class="card" style="margin-top:14px;background:#f0fdf4;border:2px solid #16a34a">
+<h3 style="color:#14532d">My Record - Patient P-001245</h3>
+<p style="font-size:12px;margin-top:8px;line-height:20px">
+<b>Name:</b> Mary Wanjiku | <b>Age:</b> 22 Female | <b>Room:</b> Ward A-12 Bed 4 | <b>Blood:</b> O+<br>
+<b>Diagnosis:</b> Malaria + Typhoid | <b>Doctor:</b> Dr. A. Kimani | <b>Phone:</b> 0712345678<br>
+<b>Bill:</b> KSh 12,200 | <b>Payment:</b> M-Pesa Code QGH7Y2 + NHIF Card 12345678 | <b>Receipt:</b> RCPT-2026-1123<br>
+<b>Treatment:</b> IV Quinine + Antibiotics, Review 05 Nov 2026
+</p>
+</div>
+</div>
+
 </div>
 
 <script>
-// USERS DATABASE
-const users={
- admin:{p:'admin123',role:'admin',name:'Admin Diana',menus:['dashboard','patients','billing','pharmacy','reports']},
- doctor:{p:'doctor123',role:'doctor',name:'Dr Kimani',menus:['dashboard','patients']},
- pharma:{p:'pharma123',role:'pharmacist',name:'Pharmacist John',menus:['dashboard','pharmacy']},
- finance:{p:'finance123',role:'finance',name:'Finance Officer',menus:['dashboard','billing','reports']},
- nurse:{p:'nurse123',role:'nurse',name:'Nurse Wafula',menus:['dashboard','patients']},
- reception:{p:'recep123',role:'reception',name:'Reception Mary',menus:['dashboard','patients']}
+// SIMPLE USERS - NO COMPLEX CODE
+var users = {
+"admin": "admin123",
+"doctor": "doctor123",
+"pharma": "pharma123",
+"finance": "finance123",
+"nurse": "nurse123",
+"reception": "recep123"
 };
-const patientsData=[
- {id:'P-001245',name:'Mary Wanjiku',age:'22 F',room:'Ward A-12 Bed 4',diagnosis:'Malaria + Typhoid',doctor:'Dr A. Kimani',bill:'KSh 12,200',payment:'M-Pesa QGH7Y2 + NHIF',status:'Admitted'},
- {id:'P-001246',name:'John Mwangi',age:'35 M',room:'Theatre 1 → Ward B-08',diagnosis:'Appendicitis',doctor:'Dr Kimani',bill:'KSh 45,000',payment:'Insurance Jubilee #8821',status:'In Theatre'},
- {id:'P-001247',name:'Amina Yusuf',age:'28 F',room:'Maternity Bed 5',diagnosis:'Labor',doctor:'Dr Njoroge',bill:'KSh 15,000',payment:'NHIF + M-Pesa',status:'Delivered'},
- {id:'P-001248',name:'Peter Otieno',age:'45 M',room:'ICU-3',diagnosis:'Pneumonia Severe',doctor:'Dr Otieno',bill:'KSh 32,500',payment:'Cash + NHIF',status:'Critical'}
+
+function showStaff(){
+document.getElementById('staffBox').style.display='block';
+document.getElementById('patientBox').style.display='none';
+document.getElementById('tab1').className='tab active';
+document.getElementById('tab2').className='tab inactive';
+document.getElementById('error').style.display='none';
+}
+function showPatient(){
+document.getElementById('staffBox').style.display='none';
+document.getElementById('patientBox').style.display='block';
+document.getElementById('tab1').className='tab inactive';
+document.getElementById('tab2').className='tab active';
+document.getElementById('error').style.display='none';
+}
+
+function loginStaff(){
+var u = document.getElementById('u').value;
+var p = document.getElementById('p').value;
+var err = document.getElementById('error');
+u = u.trim().toLowerCase();
+p = p.trim();
+
+console.log('Login attempt:',u,p);
+
+if(u==='' || p===''){err.innerHTML='Enter username and password';err.style.display='block';return;}
+
+if(users[u] && users[u]===p){
+// SUCCESS - SHOW DASHBOARD
+document.getElementById('landing').style.display='none';
+document.getElementById('dashboard').style.display='block';
+document.getElementById('welcome').innerText='Welcome '+u.toUpperCase();
+document.getElementById('roleShow').innerText='- '+u+' - Owner Peter 0756255760';
+document.getElementById('patientOnly').style.display='none';
+loadTables();
+alert('Login Success! Welcome '+u+' - Owner 0756255760');
+}else{
+err.innerHTML='Wrong username or password.<br>Try: admin / admin123<br>Your typed: '+u+' / '+p;
+err.style.display='block';
+}
+}
+
+function loginPatient(){
+var id = document.getElementById('pid').value;
+var phone = document.getElementById('pphone').value;
+var err = document.getElementById('error');
+id = id.trim().toUpperCase();
+phone = phone.trim();
+
+if(id==='P-001245' && phone==='0712345678'){
+document.getElementById('landing').style.display='none';
+document.getElementById('dashboard').style.display='block';
+document.getElementById('welcome').innerText='Welcome Mary Wanjiku';
+document.getElementById('roleShow').innerText='- Patient P-001245 - Owner 0756255760';
+document.getElementById('patientOnly').style.display='block';
+loadTables();
+alert('Patient Login Success! Ward A-12 Bed 4');
+}else{
+err.innerHTML='Wrong Patient ID or Phone.<br>Use: P-001245 / 0712345678<br>Your typed: '+id+' / '+phone;
+err.style.display='block';
+}
+}
+
+function loadTables(){
+var patients = [
+['P-001245','Mary Wanjiku','Ward A-12 Bed 4','Malaria + Typhoid','Dr Kimani','KSh 12,200','M-Pesa QGH7Y2 + NHIF','RCPT-2026-1123','Admitted'],
+['P-001246','John Mwangi','Theatre 1 → Ward B-08','Appendicitis','Dr Kimani','KSh 45,000','Insurance #8821','RCPT-2026-1124','Theatre'],
+['P-001247','Amina Yusuf','Maternity Bed 5','Labor','Dr Njoroge','KSh 15,000','NHIF + M-Pesa','RCPT-2026-1120','Delivered'],
+['P-001248','Peter Otieno','ICU-3','Pneumonia Severe','Dr Otieno','KSh 32,500','Cash + NHIF','RCPT-2026-1119','Critical']
 ];
-const billsData=[
- {date:'03 Nov 2026',patient:'Mary Wanjiku',diagnosis:'Malaria + Typhoid',room:'Ward A-12',service:'Ward 3 nights + Lab + Drugs',amount:'KSh 8,700',payment:'M-Pesa Code QGH7Y2',receipt:'RCPT-2026-1123',status:'Paid'},
- {date:'03 Nov 2026',patient:'John Mwangi',diagnosis:'Appendicitis',room:'Theatre 1',service:'Appendectomy',amount:'KSh 45,000',payment:'Insurance #8821',receipt:'RCPT-2026-1124',status:'Insurance Pending'},
- {date:'02 Nov 2026',patient:'Amina Yusuf',diagnosis:'Labor',room:'Maternity Bed 5',service:'Normal Delivery',amount:'KSh 15,000',payment:'NHIF 12345678 + M-Pesa 2K',receipt:'RCPT-2026-1120',status:'Paid'}
+var html='';
+for(var i=0;i<patients.length;i++){
+html+='<tr><td>'+patients[i][0]+'</td><td><b>'+patients[i][1]+'</b></td><td><b>'+patients[i][2]+'</b></td><td>'+patients[i][3]+'</td><td>'+patients[i][4]+'</td><td><b>'+patients[i][5]+'</b></td><td>'+patients[i][6]+'</td><td>'+patients[i][7]+'</td><td>'+patients[i][8]+'</td></tr>';
+}
+document.getElementById('ptable').innerHTML=html;
+
+var bills = [
+['03 Nov 2026','Mary Wanjiku','Malaria + Typhoid','Ward A-12','Ward 3 nights + Lab','KSh 8,700','M-Pesa QGH7Y2','RCPT-2026-1123'],
+['03 Nov 2026','John Mwangi','Appendicitis','Theatre 1','Appendectomy','KSh 45,000','Insurance #8821','RCPT-2026-1124'],
+['02 Nov 2026','Amina Yusuf','Labor','Maternity Bed 5','Normal Delivery','KSh 15,000','NHIF 12345678','RCPT-2026-1120']
 ];
-
-function openLogin(){document.getElementById('loginOverlay').style.display='flex';}
-function closeLogin(){document.getElementById('loginOverlay').style.display='none';}
-function switchTab(t){
- document.getElementById('tabStaff').classList.toggle('active',t==='staff');
- document.getElementById('tabPatient').classList.toggle('active',t==='patient');
- document.getElementById('staffForm').classList.toggle('hidden',t!=='staff');
- document.getElementById('patientForm').classList.toggle('hidden',t!=='patient');
- document.getElementById('loginError').style.display='none';
+var html2='';
+for(var i=0;i<bills.length;i++){
+html2+='<tr><td>'+bills[i][0]+'</td><td>'+bills[i][1]+'</td><td>'+bills[i][2]+'</td><td>'+bills[i][3]+'</td><td>'+bills[i][4]+'</td><td><b>'+bills[i][5]+'</b></td><td>'+bills[i][6]+'</td><td>'+bills[i][7]+'</td></tr>';
+}
+document.getElementById('btable').innerHTML=html2;
 }
 
-// STAFF LOGIN - FIXED - NO PAGE RELOAD
-function doLoginStaff(){
- console.log('Staff login clicked');
- let uEl=document.getElementById('u');
- let pEl=document.getElementById('p');
- let u=uEl.value.trim().toLowerCase();
- let p=pEl.value.trim();
- let err=document.getElementById('loginError');
- err.style.display='none';
- if(!u||!p){err.innerText='Enter username and password';err.style.display='block';return;}
- if(!users[u]){err.innerText='User not found. Try admin / admin123';err.style.display='block';return;}
- if(users[u].p!==p){err.innerText='Wrong password for '+u+'. Try '+users[u].p;err.style.display='block';return;}
- // SUCCESS
- document.getElementById('loginOverlay').style.display='none';
- document.getElementById('landing').style.display='none';
- document.getElementById('sidebar').style.display='block';
- document.getElementById('main').style.display='block';
- setupRole(users[u]);
- renderAll();
- setTimeout(initCharts,400);
+function logout(){
+document.getElementById('dashboard').style.display='none';
+document.getElementById('landing').style.display='block';
+document.getElementById('error').style.display='none';
 }
-
-// PATIENT LOGIN - FIXED
-function doLoginPatient(){
- console.log('Patient login clicked');
- let id=document.getElementById('pId').value.trim().toUpperCase();
- let phone=document.getElementById('pPhone').value.trim();
- let err=document.getElementById('loginError');
- err.style.display='none';
- if(id!=='P-001245'||phone!=='0712345678'){err.innerText='Invalid patient. Use P-001245 / 0712345678';err.style.display='block';return;}
- document.getElementById('loginOverlay').style.display='none';
- document.getElementById('landing').style.display='none';
- document.getElementById('sidebar').style.display='block';
- document.getElementById('main').style.display='block';
- let patientUser={role:'patient',name:'Mary Wanjiku',menus:['dashboard','mypatient','mybills']};
- setupRole(patientUser);
- renderAll();
- setTimeout(initCharts,400);
-}
-
-function setupRole(user){
- document.getElementById('welcomeRole').innerText=user.name+' - '+user.role.toUpperCase();
- document.getElementById('roleDisplay').innerText=user.name;
- document.getElementById('userBadge').innerText=user.role.toUpperCase();
- document.getElementById('bannerTitle').innerText='Welcome, '+user.name;
- document.getElementById('bannerDesc').innerText=user.role==='admin'?'Full access - Patients with room, diagnosis, billing, receipts':'Role based access - '+user.role;
- document.querySelectorAll('.menu a').forEach(a=>{if(a.id.startsWith('m-'))a.classList.add('hidden')});
- user.menus.forEach(m=>{let el=document.getElementById('m-'+m);if(el) el.classList.remove('hidden')});
- showPage('dashboard',document.getElementById('m-dashboard'));
-}
-function renderAll(){
- document.getElementById('patientsTable').innerHTML=patientsData.map(p=>`<tr><td>${p.id}</td><td><b>${p.name}</b></td><td>${p.age}</td><td><b>${p.room}</b></td><td>${p.diagnosis}</td><td>${p.doctor}</td><td><b>${p.bill}</b></td><td>${p.payment}</td><td><span class="badge ${p.status==='Admitted'?'paid':p.status==='Critical'?'critical':'pending'}">${p.status}</span></td></tr>`).join('');
- document.getElementById('billingTable').innerHTML=billsData.map(b=>`<tr><td>${b.date}</td><td>${b.patient}</td><td>${b.diagnosis}</td><td>${b.room}</td><td>${b.service}</td><td><b>${b.amount}</b></td><td>${b.payment}</td><td>${b.receipt}</td><td><span class="badge paid">${b.status}</span></td></tr>`).join('');
-}
-function showPage(id,el){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));let t=document.getElementById(id);if(t) t.classList.remove('hidden');document.querySelectorAll('.menu a').forEach(a=>a.classList.remove('active'));if(el) el.classList.add('active')}
-function logout(){document.getElementById('sidebar').style.display='none';document.getElementById('main').style.display='none';document.getElementById('landing').style.display='block';document.getElementById('loginOverlay').style.display='none';window.scrollTo(0,0);}
-function sendWA(){let name=document.getElementById('cName').value||'';let phone=document.getElementById('cPhone').value||'';let msg=document.getElementById('cMsg').value||'';let text='Hi Peter, I am interested in Diana Rose Hospital System. Name: '+name+' Phone: '+phone+' Message: '+msg;let url='https://wa.me/254756255760?text='+encodeURIComponent(text);document.getElementById('waLink').href=url;window.open(url,'_blank');return false;}
-function initCharts(){try{new Chart(document.getElementById('visits'),{type:'line',data:{labels:['Mon',[STRIPPED]
- new Chart(document.getElementById('dept'),{type:'doughnut',data:{labels:['Medicine',[STRIPPED]
- new Chart(document.getElementById('revChart'),{type:'bar',data:{labels:['Jan',[STRIPPED] KSh',data:[220,[STRIPPED]
- new Chart(document.getElementById('payChart'),{type:'doughnut',data:{labels:['M-Pesa',[STRIPPED]
-}catch(e){}}
-
-// ENTER KEY SUPPORT - FIXED
-document.addEventListener('DOMContentLoaded',function(){
- document.getElementById('p').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doLoginStaff();}});
- document.getElementById('u').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doLoginStaff();}});
- document.getElementById('pPhone').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doLoginPatient();}});
- console.log('Login fixed - pale green white professional - Owner 0756255760');
-});
 </script>
 </body>
 </html>
