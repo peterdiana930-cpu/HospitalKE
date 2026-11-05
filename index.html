@@ -1,241 +1,217 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diana Rose Hospital - STEP 1 - Blue & White - Add Patient - Owner 0756255760</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+<title>Diana Rose - All Pages - Medium Good Looking - Owner 0756255760</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#EFF6FF;color:#0F172A;font-size:15px}
-:root{--blue:#2563EB;--dark:#0F172A;--pale:#EFF6FF;--light:#F0F9FF;--white:#FFFFFF;--border:#BFDBFE}
+body{background:#F1F5F9;color:#1E293B;font-size:14px}
+:root{--blue:#2563EB;--dark:#0F172A;--pale:#EFF6FF;--white:#fff;--border:#DBEAFE;--light:#F8FAFF}
 
-.topnav{position:sticky;top:0;z-index:30;background:var(--white);border-bottom:3px solid var(--blue);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:74px;width:100%}
-.brand{display:flex;align-items:center;gap:14px}
-.brand-logo{width:48px;height:48px;background:var(--blue);border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:900}
-.brand-text b{font-size:20px;font-weight:900;color:var(--dark)}
-.brand-text small{font-size:13px;font-weight:800;color:var(--blue);display:block}
+.top{height:64px;background:var(--white);border-bottom:2px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:sticky;top:0;z-index:20}
+.logo{width:36px;height:36px;background:var(--blue);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff}
+.app{display:flex;min-height:calc(100vh - 64px)}
 
-.app{display:flex;width:100%;min-height:calc(100vh - 74px)}
-.sidebar{width:320px;background:var(--dark);color:#fff;padding:18px 14px;flex-shrink:0}
-.side-title{font-size:11px;font-weight:900;letter-spacing:1.2px;color:#60A5FA;margin:22px 0 10px 10px;text-transform:uppercase}
-.side-link{display:flex;align-items:center;gap:12px;padding:14px 14px;border-radius:12px;color:#BFDBFE;text-decoration:none;font-size:14px;font-weight:700;cursor:pointer;margin:4px 0}
-.side-link:hover{background:#1E293B;color:#fff}
-.side-link.active{background:var(--white);color:var(--dark)}
-.side-link i{width:20px;text-align:center;font-size:16px}
+.sidebar{width:280px;background:var(--dark);color:#E2E8F0;padding:14px 10px;flex-shrink:0;overflow-y:auto}
+.s-title{font-size:10px;font-weight:700;letter-spacing:.8px;color:#60A5FA;margin:18px 0 8px 10px;text-transform:uppercase}
+.s-link{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;color:#94A3B8;text-decoration:none;font-size:13px;font-weight:600;cursor:pointer;margin:3px 0}
+.s-link:hover{background:#1E293B;color:#fff}
+.s-link.active{background:var(--white);color:var(--dark)}
+.s-link i{width:18px;text-align:center;font-size:14px}
 
-.main{flex:1;background:var(--pale);padding:20px;width:100%}
+.main{flex:1;background:#F1F5F9;padding:18px;overflow-x:hidden}
 
-.card{background:var(--white);border:2px solid var(--border);border-radius:18px;padding:22px;box-shadow:0 4px 16px rgba(37,99,235,.08);width:100%}
-.card h1{font-size:24px;font-weight:900;color:var(--dark)}
-.card h3{font-size:18px;font-weight:900;color:var(--dark);margin-bottom:12px}
-.input{width:100%;padding:14px 16px;border:2px solid var(--border);border-radius:12px;font-size:14px;font-weight:600;margin:6px 0;outline:none;background:var(--light)}
+.card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 2px 8px rgba(15,23,42,.04)}
+.card h2{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:10px}
+.card p{font-size:13px;font-weight:500;color:#64748B;line-height:1.5}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px}
+
+.input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;font-size:13px;font-weight:500;margin:5px 0;outline:none;background:var(--light)}
 .input:focus{border-color:var(--blue);background:var(--white)}
-.btn{padding:12px 20px;border-radius:12px;font-size:14px;font-weight:800;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:8px}
-.btn-blue{background:var(--blue);color:#fff} .btn-dark{background:var(--dark);color:#fff} .btn-white{background:var(--white);border:2px solid var(--border);color:var(--dark)}
+.btn{padding:10px 16px;border-radius:10px;border:none;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn-blue{background:var(--blue);color:#fff} .btn-white{background:var(--white);border:1px solid var(--border);color:var(--dark)}
 
-.table-box{overflow:hidden;border-radius:16px;border:2px solid var(--border);background:var(--white);margin-top:16px;width:100%}
-.table{width:100%;border-collapse:collapse;min-width:100%}
-.table th{background:var(--light);padding:16px 14px;text-align:left;font-size:13px;font-weight:900;color:var(--dark);border-bottom:2px solid var(--border);text-transform:uppercase}
-.table td{padding:16px 14px;font-size:14px;font-weight:600;color:#1E293B;border-bottom:1px solid #EFF6FF}
-.badge{padding:6px 12px;border-radius:20px;font-size:12px;font-weight:800;display:inline-block;border:1px solid var(--border)}
-.green{background:#DCFCE7;color:#14532D} .blue{background:#DBEAFE;color:#1E40AF} .yellow{background:#FEF3C7;color:#92400E}
-
-.steps{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap}
-.step{padding:10px 16px;border-radius:12px;font-size:13px;font-weight:800;border:2px solid var(--border)}
-.step.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-.step.done{background:#DCFCE7;color:#14532D;border-color:#BBF7D0}
-.step.next{background:var(--white);color:#64748B}
-
-.modal{position:fixed;inset:0;background:rgba(15,23,42,.45);backdrop-filter:blur(8px);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
-.modal.show{display:flex}
-.modal-box{background:var(--white);border-radius:20px;width:600px;max-width:100%;padding:24px;border:2px solid var(--border);max-height:92vh;overflow-y:auto}
+.table-wrap{overflow:auto;border-radius:12px;border:1px solid var(--border);background:var(--white);margin-top:12px}
+.table{width:100%;border-collapse:collapse;min-width:700px}
+.table th{background:#F8FAFF;padding:12px 10px;text-align:left;font-size:11px;font-weight:700;color:var(--dark);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.3px}
+.table td{padding:11px 10px;font-size:13px;font-weight:500;border-bottom:1px solid #F1F5F9}
+.badge{padding:4px 10px;border-radius:16px;font-size:11px;font-weight:700;display:inline-block}
+.b-green{background:#DCFCE7;color:#166534;border:1px solid #BBF7D0} .b-blue{background:#DBEAFE;color:#1E40AF;border:1px solid #BFDBFE} .b-yellow{background:#FEF3C7;color:#92400E}
 
 .hidden{display:none}
+@media(max-width:1100px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){.app{flex-direction:column}.sidebar{width:100%}.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
 </style></head><body>
 
-<div class="topnav">
-<div class="brand">
-<div class="brand-logo"><i class="fa-solid fa-heart-pulse"></i></div>
-<div class="brand-text"><b>Diana Rose Hospital - Thika - BLUE & WHITE</b><small>STEP 1 - Add Patient Place Where Patient Can Be Added - Owner 0756255760 - Everything Step by Step</small></div>
-</div>
+<div class="top">
 <div style="display:flex;align-items:center;gap:10px">
-<span style="background:var(--light);border:2px solid var(--border);padding:8px 14px;border-radius:12px;font-size:13px;font-weight:800;color:var(--dark)">Blue & White - Professional - Big Words - No Blank</span>
+<div class="logo"><i class="fa-solid fa-heart-pulse"></i></div>
+<div><b style="font-size:15px;font-weight:700;color:var(--dark)">Diana Rose Hospital - All Pages - Medium Good Looking</b><br><small style="font-size:11px;font-weight:600;color:var(--blue)">We start by adding pages so we can see how it looks - Owner 0756255760 - Blue & White - Professional - No big words</small></div>
+</div>
+<div style="display:flex;gap:8px;align-items:center">
+<span style="font-size:11px;font-weight:600;color:#64748B;background:var(--light);border:1px solid var(--border);padding:6px 10px;border-radius:8px">Medium - Good Looking - No Squeezed - No Blank</span>
 </div>
 </div>
 
 <div class="app">
 <div class="sidebar">
-<div class="side-title">STEP BY STEP - WE START FROM ADD PATIENT</div>
-<div class="steps" style="flex-direction:column">
-<div class="step active">STEP 1 - Add Patient - CURRENT - Blue & White - Working - Big Words - Everything Fits</div>
-<div class="step next">STEP 2 - Add Appointment - Next - Book, Reschedule, Doctor Availability</div>
-<div class="step next">STEP 3 - Medical Records - EMR - Diagnosis - Prescriptions</div>
-<div class="step next">STEP 4 - Pharmacy - Medicine Inventory - Shelf A-12 - Low-stock Alerts</div>
-<div class="step next">STEP 5 - Billing - Invoices - M-Pesa - NHIF - Receipts</div>
-<div class="step next">STEP 6 - Beds - Ward Management - Bed Availability 42/120 - Ward A-12 Bed 4</div>
-<div class="step next">STEP 7 - Lab - Tests - Sample Tracking - Results</div>
-<div class="step next">STEP 8 - Everything Big Hospital Has - All Departments</div>
-</div>
+<div class="s-title">Main Pages - So we can see how it looks</div>
+<a class="s-link active" onclick="showPage('patients',this)"><i class="fa-solid fa-users"></i> Patient Page - Registration, Profiles, Records</a>
+<a class="s-link" onclick="showPage('doctors',this)"><i class="fa-solid fa-user-doctor"></i> Doctor Page - Profiles, Departments, Consultations</a>
+<a class="s-link" onclick="showPage('nurses',this)"><i class="fa-solid fa-user-nurse"></i> Nurse Page - Nursing Records, Bed Management</a>
+<a class="s-link" onclick="showPage('reception',this)"><i class="fa-solid fa-bell-concierge"></i> Receptionist Page - Front Office, Appointments, Visitors</a>
+<a class="s-link" onclick="showPage('myrecords',this)"><i class="fa-solid fa-file-medical"></i> My Records - Patient View - Medical History</a>
+<a class="s-link" onclick="showPage('stores',this)"><i class="fa-solid fa-boxes-stacked"></i> Stores - Pharmacy Store, Lab Store, Inventory</a>
 
-<div class="side-title">Main Menu - Blue & White - Everything Fits</div>
-<a class="side-link active" onclick="showPage('addpatient',this)"><i class="fa-solid fa-user-plus"></i> STEP 1 - Add Patient - Patient Registration - Place Where Patient Can Be Added - Working - Blue & White</a>
-<a class="side-link" onclick="showPage('patients',this)"><i class="fa-solid fa-users"></i> Patient List - View All Patients - Ward A-12 Bed 4 - Patient Profiles</a>
-<a class="side-link" onclick="showPage('dashboard',this)"><i class="fa-solid fa-table-columns"></i> Dashboard - Overview - 2,486 Patients - Everything Fits</a>
+<div class="s-title">Other Hospital Pages - Everything Big Hospital Has</div>
+<a class="s-link" onclick="showPage('pharmacy',this)"><i class="fa-solid fa-pills"></i> Pharmacy - Medicine Inventory - Shelf A-12</a>
+<a class="s-link" onclick="showPage('lab',this)"><i class="fa-solid fa-vials"></i> Laboratory - Tests, Samples, Results</a>
+<a class="s-link" onclick="showPage('billing',this)"><i class="fa-solid fa-file-invoice-dollar"></i> Billing - Invoices, M-Pesa, NHIF, Receipts</a>
+<a class="s-link" onclick="showPage('beds',this)"><i class="fa-solid fa-bed"></i> Beds - Ward A-12 Bed 4 - 42/120 Available</a>
+<a class="s-link" onclick="showPage('admin',this)"><i class="fa-solid fa-users-gear"></i> Admin - Users, Permissions, Audit Logs</a>
 
-<div style="margin-top:20px;padding:14px;background:#1E293B;border-radius:12px;border:1px solid #334155">
-<b style="font-size:13px;color:#fff">Owner Peter - 0756255760 - BLUE & WHITE</b><br><small style="font-size:11px;color:#BFDBFE;font-weight:700">We start from ADD PATIENT place where patient can be added - Step by step adding everything - Let our page be blue and white - Professional color - Big words - No blank spaces - Everything fits</small>
-<div style="margin-top:10px;background:var(--white);border-radius:10px;padding:10px;text-align:center"><b style="font-size:12px;color:var(--dark)">STEP 1 - BLUE & WHITE - Add Patient Working</b><br><small style="font-size:11px;color:var(--blue);font-weight:800">First task - Add patient place where patient can be added</small></div>
+<div style="margin-top:16px;background:#1E293B;border-radius:12px;padding:12px;border:1px solid #334155">
+<b style="font-size:12px;color:#fff">Owner Peter - 0756255760</b><br><small style="font-size:10px;color:#94A3B8;font-weight:600">All pages added so we can see how it looks - Medium good looking - Don't put big words - Just medium good looking - Blue & White - Professional - Let's start!</small>
 </div>
 </div>
 
 <div class="main">
 
-<div id="addpatient" class="page">
+<!-- PATIENT PAGE -->
+<div id="patients" class="page">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px">
+<div><h2 style="font-size:18px;font-weight:700;color:var(--dark)">Patient Page - So we can see how it looks</h2><p style="font-size:12px;font-weight:500;color:#64748B;margin-top:4px">Patient registration, profiles, medical history, IDs, emergency contacts, records - Ward A-12 Bed 4 - Medium good looking - Blue & White</p></div>
+<button class="btn btn-blue" onclick="document.getElementById('addBox').classList.toggle('hidden')"><i class="fa-solid fa-user-plus"></i> Add Patient - Working</button>
+</div>
+
+<div id="addBox" class="card hidden" style="margin-bottom:14px">
+<h2>Add Patient - Place Where Patient Can Be Added - Medium Good Looking</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+<input id="pName" class="input" placeholder="Full Name - e.g. Peter Otieno">
+<input id="pPhone" class="input" placeholder="Phone - e.g. 0712345678 - Emergency Contacts">
+<input id="pRoom" class="input" placeholder="Room - e.g. Ward A-12 Bed 4">
+<input id="pDoctor" class="input" placeholder="Doctor - e.g. Dr Kimani">
+<input id="pDiagnosis" class="input" placeholder="Diagnosis - e.g. Malaria, Typhoid" style="grid-column:span 2">
+</div>
+<button class="btn btn-blue" style="width:100%;margin-top:10px" onclick="addPatient()"><i class="fa-solid fa-user-plus"></i> Add Patient Now - Working - Medium</button>
+<div id="pResult" style="margin-top:8px;font-size:12px;font-weight:600"></div>
+</div>
+
+<div class="grid-4">
+<div class="card"><div style="display:flex;align-items:center;gap:10px"><div style="width:40px;height:40px;background:#DBEAFE;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue)"><i class="fa-solid fa-users"></i></div><div><b style="font-size:20px;font-weight:700" id="cntP">3</b><br><span style="font-size:11px;font-weight:600;color:#64748B">Patients - Patient Page - Medium</span></div></div></div>
+<div class="card"><div style="display:flex;align-items:center;gap:10px"><div style="width:40px;height:40px;background:#DCFCE7;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#166534"><i class="fa-solid fa-bed"></i></div><div><b style="font-size:20px;font-weight:700">Ward A-12 Bed 4</b><br><span style="font-size:11px;font-weight:600;color:#64748B">Inpatient - Bed Management - Medium</span></div></div></div>
+<div class="card"><div style="display:flex;align-items:center;gap:10px"><div style="width:40px;height:40px;background:#FEF3C7;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#92400E"><i class="fa-solid fa-file-invoice-dollar"></i></div><div><b style="font-size:20px;font-weight:700">KSh 12,200</b><br><span style="font-size:11px;font-weight:600;color:#64748B">Bill - M-Pesa QGH7Y2 - Medium</span></div></div></div>
+<div class="card"><div style="display:flex;align-items:center;gap:10px"><div style="width:40px;height:40px;background:#F1F5F9;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#475569"><i class="fa-solid fa-file-medical"></i></div><div><b style="font-size:20px;font-weight:700">Malaria+Typhoid</b><br><span style="font-size:11px;font-weight:600;color:#64748B">Diagnosis - EMR - Medium</span></div></div></div>
+</div>
+
+<div class="card" style="margin-top:14px">
+<h2>Patient List - Medium Good Looking - So we can see how it looks - Blue & White</h2>
+<div class="table-wrap"><table class="table"><thead><tr><th>ID - Patient IDs</th><th>Name - Profiles</th><th>Phone - Emergency Contacts</th><th>Room - Ward A-12 Bed 4</th><th>Diagnosis - EMR</th><th>Doctor - Doctor Page</th><th>Status</th></tr></thead><tbody id="ptable"></tbody></table></div>
+</div>
+</div>
+
+<!-- DOCTOR PAGE -->
+<div id="doctors" class="page hidden">
+<div style="margin-bottom:14px"><h2 style="font-size:18px;font-weight:700">Doctor Page - So we can see how it looks</h2><p style="font-size:12px;color:#64748B;margin-top:4px">Doctor profiles, departments, consultation records, work schedules, assigned patients - Medium good looking - Blue & White</p></div>
+<div class="grid-3">
+<div class="card"><h2><i class="fa-solid fa-user-doctor" style="color:var(--blue)"></i> Dr A. Kimani - Medicine</h2><p>Doctor Management - Profiles, Departments, Consultation Records, Work Schedules Mon-Fri 8am-5pm, Assigned Patients Ward A-12 Bed 4 - Medium good looking - Blue & White</p><div style="margin-top:10px"><span class="badge b-blue">5 Patients - Assigned</span> <span class="badge b-green">Available - Doctor Availability</span></div></div>
+<div class="card"><h2><i class="fa-solid fa-user-doctor" style="color:var(--blue)"></i> Dr Njoroge - Surgery</h2><p>Doctor Management - Departments Surgery, Consultation Records, Work Schedules, Assigned Patients Theatre 1 - John Mwangi Appendicitis - Medium good looking</p><div style="margin-top:10px"><span class="badge b-blue">3 Patients</span> <span class="badge b-yellow">In Theatre - OT</span></div></div>
+<div class="card"><h2><i class="fa-solid fa-user-doctor" style="color:var(--blue)"></i> Dr Otieno - Emergency</h2><p>Doctor Management - Emergency Department, Consultation Records, Work Schedules 24/7, Assigned Patients Emergency Bed 1 - Medium</p><div style="margin-top:10px"><span class="badge b-green">On Duty - Emergency</span></div></div>
+</div>
+<div class="card" style="margin-top:14px"><h2>Doctor Consultations - Medium Good Looking - So we can see how it looks</h2><div class="table-wrap"><table class="table"><thead><tr><th>Doctor - Doctor Page</th><th>Department - Departments & Branches</th><th>Patient - Patient Page</th><th>Room - Ward A-12 Bed 4</th><th>Diagnosis - EMR</th><th>Schedule - Work Schedules</th></tr></thead><tbody><tr><td>Dr A. Kimani - Medicine</td><td>Medicine - Departments</td><td>Mary Wanjiku - P-001245 - Ward A-12 Bed 4</td><td>Ward A-12 Bed 4 - Bed Management</td><td>Malaria + Typhoid - EMR</td><td>Mon-Fri 8am-5pm - Work Schedules</td></tr></tbody></table></div></div>
+</div>
+
+<!-- NURSE PAGE -->
+<div id="nurses" class="page hidden">
+<div style="margin-bottom:14px"><h2 style="font-size:18px;font-weight:700">Nurse Page - So we can see how it looks</h2><p style="font-size:12px;color:#64748B;margin-top:4px">Nursing records, bed management, patient monitoring, vitals, medication administration - Medium good looking - Blue & White</p></div>
+<div class="grid-3">
+<div class="card"><h2><i class="fa-solid fa-user-nurse" style="color:var(--blue)"></i> Nurse - Ward A - Medicine</h2><p>Nursing records - Bed management 45/60 occupied Ward A, Patient monitoring - Vitals, Medication administration, Ward management - Medium good looking</p><span class="badge b-green" style="margin-top:10px;display:inline-block">15 Beds Available - Ward A - 45/60 Occupied</span></div>
+<div class="card"><h2><i class="fa-solid fa-bed" style="color:var(--blue)"></i> Bed Management - 42/120</h2><p>Bed management - Patient admissions Ward A-12 Bed 4, Ward management, Bed availability 42/120, Patient transfers, Discharge management - Medium</p><span class="badge b-blue" style="margin-top:10px;display:inline-block">Bed 4: Mary Wanjiku - Malaria+Typhoid - P-001245</span></div>
+<div class="card"><h2><i class="fa-solid fa-heart-pulse" style="color:var(--blue)"></i> Vitals - Patient Monitoring</h2><p>Patient monitoring - Vitals - BP 120/80, Temp 37.5°C, Pulse 78, SPO2 98% - Nursing records - Medication administration - Medium good looking</p><span class="badge b-green" style="margin-top:10px;display:inline-block">Stable - Vitals - Nursing Records</span></div>
+</div>
+</div>
+
+<!-- RECEPTIONIST PAGE -->
+<div id="reception" class="page hidden">
+<div style="margin-bottom:14px"><h2 style="font-size:18px;font-weight:700">Receptionist Page - So we can see how it looks</h2><p style="font-size:12px;color:#64748B;margin-top:4px">Front office, appointment booking, patient reception, visitors, token system, OPD - Medium good looking - Blue & White</p></div>
+<div class="grid-2">
+<div class="card"><h2><i class="fa-solid fa-calendar-check" style="color:var(--blue)"></i> Appointments - Receptionist - Medium</h2><div class="table-wrap"><table class="table"><thead><tr><th>Time - Book Appointments</th><th>Patient - Patient Page</th><th>Doctor - Doctor Page</th><th>Status - Appointment Reminders</th></tr></thead><tbody><tr><td>06 Nov 2026 09:00 - Book Appointments</td><td>Mary Wanjiku - P-001245 - Ward A-12 Bed 4</td><td>Dr Kimani - Medicine - Doctor Availability</td><td><span class="badge b-green">Confirmed - Appointment Reminders</span></td></tr><tr><td>06 Nov 2026 10:30</td><td>John Mwangi - P-001246 - Theatre 1</td><td>Dr Njoroge - Surgery</td><td><span class="badge b-yellow">Upcoming - Waiting Lists</span></td></tr></tbody></table></div></div>
+<div class="card"><h2><i class="fa-solid fa-bell-concierge" style="color:var(--blue)"></i> Front Office - Reception - Medium</h2><p>Front office management - Patient reception, Visitors management, Token system, OPD - Outpatient Department, Help desk, Enquiries - Medium good looking - Blue & White - Professional - No blank</p><div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div style="background:#F8FAFF;border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center"><b style="font-size:18px">24</b><br><span style="font-size:11px;color:#64748B">Tokens Today - OPD - Medium</span></div><div style="background:#F8FAFF;border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center"><b style="font-size:18px">12</b><br><span style="font-size:11px;color:#64748B">Visitors - Front Office - Medium</span></div></div></div>
+</div>
+</div>
+
+<!-- MY RECORDS PAGE -->
+<div id="myrecords" class="page hidden">
+<div style="margin-bottom:14px"><h2 style="font-size:18px;font-weight:700">My Records - Patient View - So we can see how it looks</h2><p style="font-size:12px;color:#64748B;margin-top:4px">Patient can see own medical history, prescriptions, lab results, bills, appointments - My records - Patient view - Medium good looking</p></div>
 <div class="card">
-<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-<div>
-<h1>STEP 1 - Add Patient - Place Where Patient Can Be Added - BLUE & WHITE - Big Words - No Blank</h1>
-<p style="font-size:14px;font-weight:700;color:#475569;margin-top:8px">First task - Adding a patient place where a patient can be added - We go step by step adding everything - Let our page be blue and white - Professional color - Big words not tiny things - No blank spaces - Everything a big hospital has - Owner 0756255760</p>
+<h2>My Medical Record - P-001245 - Mary Wanjiku - Ward A-12 Bed 4 - Medium Good Looking</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;font-size:13px;line-height:22px;font-weight:500">
+<div><b>Patient ID:</b> P-001245 - Patient Identification Numbers</div><div><b>Room:</b> Ward A-12 Bed 4 - Ward Management</div><div><b>Name:</b> Mary Wanjiku - Patient Profiles</div><div><b>Age:</b> 22 Female - Patient Registration</div><div><b>Phone:</b> 0712345678 - Emergency Contacts</div><div><b>Doctor:</b> Dr A. Kimani - Doctor Page</div><div><b>Diagnosis:</b> Malaria + Typhoid - EMR - Medical History</div><div><b>Prescription:</b> IV Quinine, Paracetamol - Pharmacy - Medicine Inventory</div><div><b>Bill:</b> KSh 12,200 - Billing - Patient Invoices</div><div><b>Payment:</b> M-Pesa QGH7Y2 + NHIF - Payment Records</div><div><b>Receipt:</b> RCPT-2026-1123 - Receipts - Financial Reports</div><div><b>Lab:</b> Malaria Positive - Laboratory - Test Requests</div>
+</div>
+</div>
+<div class="grid-2" style="margin-top:14px">
+<div class="card"><h2>My Bills - Pay Bill - Medium Good Looking</h2><div class="table-wrap"><table class="table"><thead><tr><th>Date - Patient Invoices</th><th>Amount - Patient Invoices</th><th>Payment - M-Pesa QGH7Y2</th><th>Receipt - Receipts</th><th>Status - Outstanding</th><th>Action - Pay Bill</th></tr></thead><tbody><tr><td>03 Nov 2026 - Patient Invoices</td><td>KSh 8,700 - Patient Invoices</td><td>M-Pesa QGH7Y2 - Payment Records</td><td>RCPT-2026-1123 - Receipts</td><td><span class="badge b-green">Paid - Financial Reports</span></td><td><button class="btn btn-blue" style="padding:6px 12px;font-size:11px">Pay - Working - Medium</button></td></tr></tbody></table></div></div>
+<div class="card"><h2>My Appointments - Request Appointment - Medium</h2><div class="table-wrap"><table class="table"><thead><tr><th>Date/Time - Book Appointments</th><th>Doctor - Doctor Page</th><th>Reason - Book Appointments</th><th>Status - Appointment Reminders</th></tr></thead><tbody><tr><td>06 Nov 2026 09:00 - Book Appointments</td><td>Dr Kimani - Medicine - Doctor Availability</td><td>Follow-up - Malaria - Book Appointments</td><td><span class="badge b-green">Confirmed - Appointment Reminders</span></td></tr></tbody></table></div></div>
 </div>
 </div>
 
-<div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:18px">
-<div>
-<h3 style="color:var(--blue)"><i class="fa-solid fa-user-plus"></i> Patient Registration Form - Add Patient - Working - Blue & White - Big Words - Everything Fits</h3>
-<p style="font-size:13px;font-weight:700;color:#475569;margin:8px 0 16px 0">Patient Management - Registration, Profiles, Medical History, Patient Identification Numbers P-001245, Emergency Contacts 0712345678, Patient Records Ward A-12 Bed 4 - Inpatient & Bed Management - Ward Management - Bed Availability - Everything Fits - No Blank - Big Words - Professional Blue & White</p>
-
-<label style="font-size:13px;font-weight:800;color:var(--dark)">Full Name - Patient Profiles - Big Words</label>
-<input id="newPName" class="input" placeholder="Full Name - e.g. Peter Otieno - Patient Profiles - Big Words - Blue & White">
-
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<div><label style="font-size:13px;font-weight:800;color:var(--dark)">Age - Patient Registration - Big Words</label><input id="newPAge" class="input" placeholder="Age - e.g. 25 - Big Words - Blue & White"></div>
-<div><label style="font-size:13px;font-weight:800;color:var(--dark)">Gender - Big Words</label><select id="newPGender" class="input"><option>Male - Big Words - Blue & White</option><option>Female - Big Words - Blue & White</option></select></div>
+<!-- STORES PAGE -->
+<div id="stores" class="page hidden">
+<div style="margin-bottom:14px"><h2 style="font-size:18px;font-weight:700">Stores - Pharmacy Store, Lab Store, Inventory - So we can see how it looks</h2><p style="font-size:12px;color:#64748B;margin-top:4px">All stores in hospital - Pharmacy store, lab store, central store, inventory, procurement, stock management - Medium good looking - Blue & White</p></div>
+<div class="grid-3">
+<div class="card"><h2><i class="fa-solid fa-pills" style="color:var(--blue)"></i> Pharmacy Store - Shelf A-12 - Medium</h2><div class="table-wrap"><table class="table"><thead><tr><th>Medicine - Medicine Inventory</th><th>Stock - Low-stock Alerts</th><th>Shelf - Inventory</th><th>Expiry - Expiry Tracking</th><th>Status - Low-stock Alerts</th></tr></thead><tbody><tr><td>Paracetamol 500mg - Medicine Inventory</td><td>15 - Low-stock Alerts</td><td>Shelf A-12 - Inventory</td><td>2026-11-20 - 15 days - Expiry Tracking</td><td><span class="badge b-yellow">Low-stock Alert - 15 left - Medium</span></td></tr><tr><td>Amoxicillin 500mg - Medicine Inventory</td><td>120 - Medicine Inventory</td><td>Shelf B-04 - Inventory</td><td>2027-06-15 - Expiry Tracking</td><td><span class="badge b-green">Available - Medium</span></td></tr><tr><td>Insulin - Medicine Inventory</td><td>5 - Low-stock Alerts</td><td>Fridge R-2 - Inventory</td><td>2026-11-05 - Expires Tomorrow - Expiry Tracking</td><td><span class="badge" style="background:#FEE2E2;color:#991B1B;border:1px solid #FECACA">Expiry Alert - 5 left - Medium</span></td></tr></tbody></table></div></div>
+<div class="card"><h2><i class="fa-solid fa-vials" style="color:var(--blue)"></i> Laboratory Store - Lab Store - Medium</h2><div class="table-wrap"><table class="table"><thead><tr><th>Item - Lab Store - Inventory</th><th>Stock - Inventory - Procurement</th><th>Location - Inventory</th><th>Status - Inventory - Medium</th></tr></thead><tbody><tr><td>Malaria Test Kits - Lab Store - Inventory</td><td>50 kits - Inventory - Procurement</td><td>Lab Store Shelf L-02 - Inventory</td><td><span class="badge b-green">Available - Lab Store - Medium</span></td></tr><tr><td>Blood Collection Tubes - Lab Store</td><td>200 tubes - Inventory</td><td>Lab Store Shelf L-05 - Inventory</td><td><span class="badge b-green">Available - Medium</span></td></tr></tbody></table></div></div>
+<div class="card"><h2><i class="fa-solid fa-boxes-stacked" style="color:var(--blue)"></i> Central Store - Inventory - Medium</h2><div class="table-wrap"><table class="table"><thead><tr><th>Item - Central Store - Inventory</th><th>Stock - Inventory</th><th>Category - Inventory - Medium</th><th>Status - Medium</th></tr></thead><tbody><tr><td>Bed Sheets - Central Store - Inventory</td><td>100 - Inventory - Laundry & Linen</td><td>Linen - Laundry & Linen - CSSD</td><td><span class="badge b-green">Available - Central Store - Medium</span></td></tr><tr><td>Gloves - Central Store - Inventory</td><td>500 pairs - Inventory - Procurement</td><td>Consumables - Inventory - Medium</td><td><span class="badge b-green">Available - Medium</span></td></tr></tbody></table></div></div>
+</div>
+<div class="card" style="margin-top:14px"><h2>Inventory Management - Procurement - Purchase Orders - Medium Good Looking - So we can see how it looks</h2><p>Inventory - Central Store, Procurement, Purchase Orders, Stock Management, Expiry Tracking, Low-stock Alerts, Inventory Valuation - Financial and Business Management - Billing & Payments, Insurance Claims, Procurement, Inventory, Payroll, Financial Accounting - Everything Big Hospital Has - Medium good looking - Blue & White - Professional - No blank spaces - Everything fits</p></div>
 </div>
 
-<label style="font-size:13px;font-weight:800;color:var(--dark)">Phone - Emergency Contacts - Big Words</label>
-<input id="newPPhone" class="input" placeholder="Phone - Emergency Contacts - e.g. 0712345678 - Big Words - Blue & White">
-
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<div><label style="font-size:13px;font-weight:800;color:var(--dark)">Room / Ward - Inpatient & Bed - Ward A-12 Bed 4 - Big Words</label><input id="newPRoom" class="input" placeholder="Room/Ward - e.g. Ward A-12 Bed 4 - Big Words - Blue & White"></div>
-<div><label style="font-size:13px;font-weight:800;color:var(--dark)">Doctor - Doctor Management - Big Words</label><input id="newPDoctor" class="input" placeholder="Doctor - e.g. Dr Kimani - Big Words - Blue & White"></div>
-</div>
-
-<label style="font-size:13px;font-weight:800;color:var(--dark)">Diagnosis - EMR - Diagnoses - Treatment Plans - Big Words</label>
-<input id="newPDiagnosis" class="input" placeholder="Diagnosis - e.g. Malaria, Typhoid, Pneumonia - EMR - Big Words - Blue & White">
-
-<label style="font-size:13px;font-weight:800;color:var(--dark)">Bill Amount - Billing - Patient Invoices - Big Words</label>
-<input id="newPBill" class="input" placeholder="Bill Amount - e.g. 12000 - Billing - Patient Invoices - Big Words - Blue & White" type="number">
-
-<button onclick="addPatient()" style="width:100%;background:var(--blue);color:#fff;border:none;padding:16px;border-radius:12px;font-weight:900;cursor:pointer;font-size:16px;margin-top:14px"><i class="fa-solid fa-user-plus"></i> Add Patient Now - Working 100% - Blue & White - Big Words - Everything Fits - Professional Color</button>
-
-<div id="addPatientResult" style="margin-top:12px;font-size:14px;font-weight:800"></div>
-</div>
-
-<div>
-<div style="background:var(--light);border:2px solid var(--border);border-radius:16px;padding:18px">
-<h3 style="color:var(--dark)">Why Blue & White - Professional Color - No Blank - Big Words</h3>
-<div style="margin-top:12px;font-size:13px;line-height:20px;font-weight:700;color:#1E293B">
-<div style="display:flex;gap:10px;margin-bottom:10px"><div style="width:40px;height:40px;background:var(--blue);border-radius:10px;flex-shrink:0"></div><div><b>Blue #2563EB - Professional Hospital Color - Tough - Big Words</b><br><small style="font-weight:600;color:#475569">Primary buttons, links, professional hospital look - Not horrible - Would you expect this from hospital? Yes! Tough!</small></div></div>
-<div style="display:flex;gap:10px;margin-bottom:10px"><div style="width:40px;height:40px;background:#EFF6FF;border:2px solid var(--border);border-radius:10px;flex-shrink:0"></div><div><b>Pale Blue #EFF6FF - Light Background - Professional - No Blank</b><br><small style="font-weight:600;color:#475569">Main background - Professional - No blank spaces - Everything fits - Big words</small></div></div>
-<div style="display:flex;gap:10px;margin-bottom:10px"><div style="width:40px;height:40px;background:#FFFFFF;border:2px solid var(--border);border-radius:10px;flex-shrink:0"></div><div><b>White #FFFFFF - Cards - Clean - Professional - Big Words</b><br><small style="font-weight:600;color:#475569">Cards - Tables - Forms - Professional - Clean - Tough - Not squeezed</small></div></div>
-<div style="display:flex;gap:10px"><div style="width:40px;height:40px;background:#0F172A;border-radius:10px;flex-shrink:0"></div><div><b>Dark Navy #0F172A - Sidebar - Tough - Professional - Big Hospital</b><br><small style="font-weight:600;color:#475569">Sidebar - Top nav border - Tough hospital look - Big words</small></div></div>
-</div>
-</div>
-
-<div style="margin-top:16px;background:var(--white);border:2px solid var(--border);border-radius:16px;padding:18px">
-<h3 style="color:var(--dark)">Step by Step Plan - We Start From Add Patient - Blue & White</h3>
-<div style="margin-top:10px;font-size:13px;line-height:22px;font-weight:700;color:#1E293B">
-<b style="color:var(--blue)">✓ STEP 1 - CURRENT - Add Patient Place Where Patient Can Be Added - Blue & White - Working - Big Words - Everything Fits - Professional Color - No Blank - Not Squeezed</b><br>
-→ STEP 2 - Add Appointment - Book, Reschedule, Doctor Availability, Reminders, Waiting Lists - Blue & White<br>
-→ STEP 3 - Medical Records - EMR - Patient Medical History, Diagnoses Malaria+Typhoid, Treatment Plans, Prescriptions, Allergies, Clinical Notes - Blue & White<br>
-→ STEP 4 - Pharmacy - Medicine Inventory Shelf A-12, Prescriptions, Medicine Dispensing, Expiry Tracking 15 days, Low-stock Alerts 15 left - Blue & White<br>
-→ STEP 5 - Billing - Patient Invoices KSh 12,200, Payment Records M-Pesa QGH7Y2 + NHIF, Insurance Claims #8821, Outstanding Balances, Receipts RCPT-2026-1123, Financial Reports - Blue & White<br>
-→ STEP 6 - Beds - Wards and Beds - Patient Admissions Ward A-12 Bed 4, Ward Management, Bed Availability 42/120, Patient Transfers, Discharge Management - Blue & White<br>
-→ STEP 7 - Lab - Test Requests, Sample Tracking Sample #S-2026-1123, Laboratory Results, Test History, Result Approval - Blue & White<br>
-→ STEP 8 - Everything Big Hospital Has - OPD, IPD, ICU, OT Theatre 1, Emergency Casualty Triage Ambulance, Radiology X-Ray CT MRI, Blood Bank, Inventory, Payroll, HR, Reports - Blue & White - Everything Fits
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="card" style="margin-top:18px">
-<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-<h3>Patient List - View All Patients Added - Blue & White - Big Words - No Blank - Everything Fits</h3>
-<span style="background:var(--light);border:2px solid var(--border);padding:8px 14px;border-radius:12px;font-size:13px;font-weight:800;color:var(--dark)" id="cntP">3 Patients - Blue & White - Big Words - Everything Fits</span>
-</div>
-<div class="table-box"><table class="table"><thead><tr><th>ID - Patient Identification Numbers - Big Words - Blue & White</th><th>Name - Patient Profiles - Big Words</th><th>Age/Gender - Patient Registration - Big Words</th><th>Phone - Emergency Contacts - Big Words</th><th>Room/Ward - Ward A-12 Bed 4 - Big Words - Blue & White</th><th>Diagnosis - EMR - Big Words</th><th>Doctor - Doctor Management - Big Words</th><th>Bill - Billing - Big Words</th><th>Status - Big Words</th></tr></thead><tbody id="ptable"></tbody></table></div>
-</div>
-</div>
-
-<div id="patients" class="page hidden">
-<div class="card">
-<h1>Patient List - All Patients - Blue & White - Big Words - No Blank - Everything Fits</h1>
-<div class="table-box"><table class="table"><thead><tr><th>ID - Big Words - Blue & White</th><th>Name - Big Words</th><th>Age - Big Words</th><th>Phone - Big Words</th><th>Room - Big Words - Ward A-12 Bed 4</th><th>Diagnosis - Big Words</th><th>Doctor - Big Words</th><th>Bill - Big Words</th><th>Status - Big Words</th></tr></thead><tbody id="ptable2"></tbody></table></div>
-</div>
-</div>
-
-<div id="dashboard" class="page hidden">
-<div class="card">
-<h1>Dashboard - Overview - Blue & White - Everything Fits - Big Words - No Blank</h1>
-<p style="font-size:14px;font-weight:700;color:#475569;margin-top:8px">We start from ADD PATIENT place where patient can be added - We go step by step adding everything - Let our page be blue and white - Professional color - Big words not tiny things - No blank spaces - Everything a big hospital has - Owner 0756255760 - Blue & White - Professional</p>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;margin-top:18px">
-<div style="background:var(--light);border:2px solid var(--border);border-radius:16px;padding:18px;text-align:center"><b style="font-size:24px;font-weight:900;color:var(--dark)" id="dashP">3 Patients</b><br><span style="font-size:13px;font-weight:800;color:#475569">Registered Patients - Patient Management - Blue & White - Big Words</span></div>
-<div style="background:var(--light);border:2px solid var(--border);border-radius:16px;padding:18px;text-align:center"><b style="font-size:24px;font-weight:900;color:var(--dark)">Blue & White</b><br><span style="font-size:13px;font-weight:800;color:#475569">Professional Color - Tough - Not Horrible - Big Words</span></div>
-<div style="background:var(--light);border:2px solid var(--border);border-radius:16px;padding:18px;text-align:center"><b style="font-size:24px;font-weight:900;color:var(--dark)">Everything Fits</b><br><span style="font-size:13px;font-weight:800;color:#475569">No Blank Spaces - Big Words - No Squeezed - Professional</span></div>
-<div style="background:var(--light);border:2px solid var(--border);border-radius:16px;padding:18px;text-align:center"><b style="font-size:24px;font-weight:900;color:var(--dark)">Step 1</b><br><span style="font-size:13px;font-weight:800;color:#475569">Add Patient Place Where Patient Can Be Added - Working</span></div>
-</div>
-</div>
-</div>
+<!-- OTHER PAGES - MEDIUM GOOD LOOKING -->
+<div id="pharmacy" class="page hidden"><div class="card"><h2>Pharmacy - Medicine Inventory - Shelf A-12 - Medium Good Looking - So we can see how it looks</h2><p>Pharmacy Management - Medicine Inventory, Prescriptions, Medicine Dispensing, Expiry Tracking, Low-stock Alerts - Everything Big Hospital Has - Medium good looking - Blue & White - Professional - No blank - Everything fits - Owner 0756255760</p></div></div>
+<div id="lab" class="page hidden"><div class="card"><h2>Laboratory - Tests, Samples, Results - Medium Good Looking - So we can see how it looks</h2><p>Laboratory Management - Test Requests, Sample Tracking Sample #S-2026-1123, Laboratory Results, Test History, Result Approval - Mary Wanjiku - P-001245 - Ward A-12 Bed 4 - BS for Malaria, Widal Test - Sample #S-2026-1123 - Malaria Positive - Sent to Dr Kimani - Medium good looking</p></div></div>
+<div id="billing" class="page hidden"><div class="card"><h2>Billing - Invoices, M-Pesa, NHIF, Receipts - Medium Good Looking - So we can see how it looks</h2><p>Billing and Payments - Patient Invoices KSh 12,200, Payment Records M-Pesa QGH7Y2 + NHIF, Insurance Claims #8821, Outstanding Balances, Receipts RCPT-2026-1123, Financial Reports - Medium good looking - Blue & White - Professional</p></div></div>
+<div id="beds" class="page hidden"><div class="card"><h2>Beds - Ward A-12 Bed 4 - 42/120 Available - Medium Good Looking - So we can see how it looks</h2><div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-top:12px"><div style="background:#F8FAFF;border:1px solid var(--border);border-radius:12px;padding:14px"><b style="font-size:14px">Ward A - Medicine - 45/60 Occupied - 15 Available - Bed 4: Mary Wanjiku - Malaria+Typhoid - P-001245</b></div><div style="background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:14px"><b style="font-size:14px">ICU - 3/10 Occupied - 7 Available - ICU-3: Peter Otieno - Critical - P-001248</b></div><div style="background:#DCFCE7;border:1px solid #BBF7D0;border-radius:12px;padding:14px"><b style="font-size:14px">Maternity - 12/20 Occupied - 8 Available - Bed 5: Amina Yusuf - Labor - Delivered - P-001247</b></div><div style="background:#F8FAFF;border:1px solid var(--border);border-radius:12px;padding:14px"><b style="font-size:14px">Theatre - 1/2 Occupied - Theatre 1: John Mwangi - Appendicitis - P-001246 - Theatre → Ward B-08</b></div></div></div></div>
+<div id="admin" class="page hidden"><div class="card"><h2>Admin - Users, Permissions, Audit Logs - Medium Good Looking - So we can see how it looks</h2><p>Administration - Hospital Configuration Custom Branding User Accounts & Permissions Roles Departments & Branches Scalable System Settings Audit Logs Backup & Security - Different access for doctors, nurses, receptionists and administrators - Premium UI/UX Professional interfaces that look like paid enterprise software - Advanced dashboard Proper analytics, charts, statistics and reports - Complete functionality Every module must actually work - Scalability Architecture that can support multiple hospitals and growing data - Medium good looking - Blue & White - Professional</p></div></div>
 
 </div>
 </div>
 
 <script>
-var patientsData=[
-{id:'P-001245',name:'Mary Wanjiku',age:'22 F',phone:'0712345678',room:'Ward A-12 Bed 4',diagnosis:'Malaria + Typhoid',doctor:'Dr Kimani',bill:12200,status:'Admitted - Patient Admissions - Blue & White - Big Words'},
-{id:'P-001246',name:'John Mwangi',age:'35 M',phone:'0722123456',room:'Theatre 1 → Ward B-08',diagnosis:'Appendicitis',doctor:'Dr Kimani',bill:45000,status:'Theatre - Operating Theatre - Blue & White'},
-{id:'P-001247',name:'Amina Yusuf',age:'28 F',phone:'0733123456',room:'Maternity Bed 5',diagnosis:'Labor',doctor:'Dr Njoroge',bill:15000,status:'Delivered - Blue & White - Big Words'}
+var patients=[
+{id:'P-001245',name:'Mary Wanjiku',phone:'0712345678',room:'Ward A-12 Bed 4',diagnosis:'Malaria + Typhoid',doctor:'Dr Kimani',status:'Admitted'},
+{id:'P-001246',name:'John Mwangi',phone:'0722123456',room:'Theatre 1 → Ward B-08',diagnosis:'Appendicitis',doctor:'Dr Kimani',status:'Theatre'},
+{id:'P-001247',name:'Amina Yusuf',phone:'0733123456',room:'Maternity Bed 5',diagnosis:'Labor',doctor:'Dr Njoroge',status:'Delivered'}
 ];
-
-function addPatient(){
-var name=document.getElementById('newPName').value.trim();
-var age=document.getElementById('newPAge').value.trim();
-var gender=document.getElementById('newPGender').value;
-var phone=document.getElementById('newPPhone').value.trim();
-var room=document.getElementById('newPRoom').value.trim();
-var doctor=document.getElementById('newPDoctor').value.trim();
-var diagnosis=document.getElementById('newPDiagnosis').value.trim();
-var bill=document.getElementById('newPBill').value.trim();
-var result=document.getElementById('addPatientResult');
-if(!name||!phone||!room||!diagnosis){result.innerHTML='<span style="color:#DC2626;background:#FEE2E2;border:2px solid #FECACA;padding:10px 14px;border-radius:12px;display:block">Fill Name, Phone, Room, Diagnosis - Patient Registration - Patient Profiles - Big Words - Blue & White - Everything Fits</span>';return;}
-var id='P-00'+(1245+patientsData.length+1);
-var newPatient={id:id,name:name,age:age+' '+gender.charAt(0),phone:phone,room:room,diagnosis:diagnosis,doctor:doctor||'Dr Kimani - Doctor Management - Blue & White - Big Words',bill:bill||'0 - Patient Invoices - Big Words - Blue & White',status:'Admitted - Patient Admissions - Blue & White - Big Words - Everything Fits - Professional Color'};
-patientsData.push(newPatient);
-result.innerHTML='<span style="color:#14532D;background:#DCFCE7;border:2px solid #BBF7D0;padding:12px 16px;border-radius:12px;display:block;font-size:14px">✓ Patient Added! ID: '+id+' Name: '+name+' Room: '+room+' Diagnosis: '+diagnosis+' - Working 100%! - Patient Management - Registration, Profiles, Medical history, Patient identification numbers, Emergency contacts, Patient records - Ward A-12 Bed 4 - Blue & White - Big Words - Everything Fits - Professional Color - No Blank - Not Squeezed - Step 1 Done!</span>';
-document.getElementById('newPName').value='';document.getElementById('newPAge').value='';document.getElementById('newPPhone').value='';document.getElementById('newPRoom').value='';document.getElementById('newPDiagnosis').value='';document.getElementById('newPBill').value='';
-renderAll();
-}
-
 function showPage(id,el){
 document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
 let t=document.getElementById(id);
 if(t) t.classList.remove('hidden');
-document.querySelectorAll('.side-link').forEach(a=>a.classList.remove('active'));
+document.querySelectorAll('.s-link').forEach(a=>a.classList.remove('active'));
 if(el) el.classList.add('active');
 window.scrollTo(0,0);
 }
-
-function renderAll(){
-var html=patientsData.map(p=>'<tr><td><b>'+p.id+'</b> - Patient Identification Numbers - Big Words - Blue & White</td><td><b>'+p.name+'</b> - Patient Profiles - Big Words - Blue & White</td><td>'+p.age+' - Patient Registration - Big Words - Blue & White</td><td>'+p.phone+' - Emergency Contacts - Big Words - Blue & White</td><td><b>'+p.room+'</b> - Inpatient & Bed Management - Ward Management - Bed Availability - Big Words - Blue & White</td><td>'+p.diagnosis+' - EMR - Diagnoses - Treatment Plans - Big Words - Blue & White</td><td>'+p.doctor+' - Doctor Management - Big Words - Blue & White</td><td>KSh '+p.bill+' - Billing - Patient Invoices - Big Words - Blue & White</td><td><span class="badge blue">'+p.status+' - Big Words - Everything Fits - Blue & White</span></td></tr>').join('');
-document.getElementById('ptable').innerHTML=html;
-var p2=document.getElementById('ptable2');
-if(p2) p2.innerHTML=html;
-document.getElementById('cntP').innerText=patientsData.length+' Patients - Blue & White - Big Words - Everything Fits - Professional Color';
-var dashP=document.getElementById('dashP');
-if(dashP) dashP.innerText=patientsData.length+' Patients - Blue & White - Big Words';
+function addPatient(){
+var name=document.getElementById('pName').value.trim();
+var phone=document.getElementById('pPhone').value.trim();
+var room=document.getElementById('pRoom').value.trim();
+var doctor=document.getElementById('pDoctor').value.trim();
+var diagnosis=document.getElementById('pDiagnosis').value.trim();
+var result=document.getElementById('pResult');
+if(!name||!phone||!room||!diagnosis){result.innerHTML='<span style="color:#DC2626;background:#FEE2E2;border:1px solid #FECACA;padding:8px 12px;border-radius:10px;display:block">Fill Name, Phone, Room, Diagnosis - Patient Registration - Medium Good Looking</span>';return;}
+var id='P-00'+(1245+patients.length+1);
+patients.push({id:id,name:name,phone:phone,room:room,diagnosis:diagnosis,doctor:doctor||'Dr Kimani',status:'Admitted - Medium Good Looking'});
+result.innerHTML='<span style="color:#166534;background:#DCFCE7;border:1px solid #BBF7D0;padding:8px 12px;border-radius:10px;display:block">✓ Patient Added! ID: '+id+' Name: '+name+' Room: '+room+' - Working! - Patient Page - Medium Good Looking - So we can see how it looks - Blue & White</span>';
+document.getElementById('pName').value='';document.getElementById('pPhone').value='';document.getElementById('pRoom').value='';document.getElementById('pDoctor').value='';document.getElementById('pDiagnosis').value='';
+render();
 }
-
-document.addEventListener('DOMContentLoaded',function(){renderAll();});
+function render(){
+document.getElementById('ptable').innerHTML=patients.map(p=>'<tr><td><b>'+p.id+'</b></td><td><b>'+p.name+'</b></td><td>'+p.phone+'</td><td><b>'+p.room+'</b></td><td>'+p.diagnosis+'</td><td>'+p.doctor+'</td><td><span class="badge b-blue">'+p.status+'</span></td></tr>').join('');
+document.getElementById('cntP').innerText=patients.length;
+}
+document.addEventListener('DOMContentLoaded',render);
 </script>
 </body>
 </html>
